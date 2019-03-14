@@ -1,0 +1,1009 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[8pt,onecolumn,aps,pra]{revtex4-1}
+
+    
+    
+\usepackage[left = 0.5in, right = 1.5in, top = 1in, bottom = 1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{titlesec}
+\justifying
+\titleformat{name=\section}[hang]{\filcenter\Large\scshape}{\thesection}{.5em}{}
+\titleformat{name=\subsection,page=even}{\filright\normalsize\bfseries\itshape}{\thesection}{.5em}{}
+\titleformat{name=\subsection,page=odd}{\filright\normalsize\bfseries\itshape}{\thesection}{.5em}{}
+\usepackage{fancyhdr}	% Header style
+\usepackage[Glenn]{fncychap} % Chapter style, options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+\usepackage{float}
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+% Set max figure width to be 80% of text width, for now hardcoded.
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+% Ensure that by default, figures have no caption (until we provide a
+% proper Figure object with a Caption API and a way to capture that
+% in the conversion process - todo).
+\usepackage{caption}
+\DeclareCaptionLabelFormat{nolabel}{}
+\captionsetup{labelformat=nolabel}
+
+\usepackage{adjustbox} % Used to constrain images to a maximum size
+\usepackage{xcolor} % Allow colors to be defined
+\usepackage{enumerate} % Needed for markdown enumerations to work
+\usepackage{amsmath} % Equations
+\usepackage{amssymb} % Equations
+\usepackage{textcomp} % defines textquotesingle
+% Hack from http://tex.stackexchange.com/a/47451/13684:
+\AtBeginDocument{%
+    \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+}
+\usepackage{upquote} % Upright quotes for verbatim code
+\usepackage{eurosym} % defines \euro
+\usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+\usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+\usepackage{fancyvrb} % verbatim replacement that allows latex
+\usepackage{grffile} % extends the file name processing of package graphics
+                     % to support a larger range
+% The hyperref package gives us a pdf with properly built
+% internal navigation ('pdf bookmarks' for the table of contents,
+% internal cross-reference links, web links for URLs, etc.)
+\usepackage{hyperref}
+\usepackage{booktabs}  % table support for pandoc > 1.12.2
+\usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+\usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                            % normalem makes italics be italics, not underlines
+\usepackage{braket}
+
+
+\usepackage{amsfonts}	% Fonts
+\usepackage{amssymb}	% Math symbols
+\usepackage{mathtools}	% Math operators
+\usepackage{amsthm}		% Definitions, theorems and lemmas
+\usepackage{listings}	% Matlab language
+\usepackage{color}		% Colors for lstlisting
+\usepackage{tasks}		% Tasks
+\usepackage[titletoc]{appendix}	% For appendixes
+
+
+% Chapter style
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[EL]{\nouppercase\leftmark}
+\fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[ER,OL]{\thepage}
+
+
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \begin{titlepage} 
+    \title{
+    \Huge \textbf{FIN-403: Econometrics} \\ 
+    \huge Problem Set 13}
+    \date{}
+    \end{titlepage}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \title{DSPAssign11}\begin{titlepage} % Beginning of the title page
+%
+%
+%
+\title{
+\line(1,0){450} 
+\\ 
+\Huge \textbf{MGT-415: Data Science in Practice} 
+\bigskip
+\\ 
+\normalsize \textrm{Solutions to Problem Set 1}
+\\ 
+\normalsize \today
+\\
+\line(1,0){450}}
+%
+
+\Large \centering \author{Do Carmo Maria \ \  Genc Murat \ \  Nyambuu Lkham \ \ Trichilo Giulio \ \ Xi Fan}
+\vskip 1in
+
+
+\begin{figure}[b]
+    \centering
+    \includegraphics{EPFL-Logo.pdf}
+\end{figure}
+
+\maketitle
+%
+\end{titlepage} % Ending of the title page
+
+
+
+
+
+    
+    
+
+    
+    \section{Problem Set 1 Data Analysis}\label{problem-set-1-data-analysis}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}208}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          
+          \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib} \PY{k}{as} \PY{n+nn}{mpl}
+          
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+          \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{display}
+          
+          \PY{k+kn}{import} \PY{n+nn}{warnings}
+          \PY{n}{warnings}\PY{o}{.}\PY{n}{filterwarnings}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ignore}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{pd}\PY{o}{.}\PY{n}{set\PYZus{}option}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{display.max\PYZus{}colwidth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{250}\PY{p}{)}
+          \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{pd}\PY{o}{.}\PY{n}{set\PYZus{}option}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{display.notebook\PYZus{}repr\PYZus{}html}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{k+kc}{True}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{\PYZus{}repr\PYZus{}latex\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{centering}\PY{l+s+s2}{\PYZob{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{to\PYZus{}latex}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{o}{.}\PY{n}{\PYZus{}repr\PYZus{}latex\PYZus{}} \PY{o}{=} \PY{n}{\PYZus{}repr\PYZus{}latex\PYZus{}}  \PY{c+c1}{\PYZsh{} monkey patch pandas DataFrame}
+\end{Verbatim}
+
+    \subsection{Introductory Information about the
+dataset}\label{introductory-information-about-the-dataset}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}209}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Check data}
+          
+          \PY{n}{dsdata} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Telco\PYZhy{}Customer\PYZhy{}Churn.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{dsdata} \PY{o}{=} \PY{n}{dsdata}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{dsdata}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)} \PY{c+c1}{\PYZsh{}dont need ID}
+          \PY{n}{ds} \PY{o}{=} \PY{n}{dsdata}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+          \PY{n}{ds}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SeniorCitizen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ds}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SeniorCitizen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{str}\PY{p}{)} \PY{c+c1}{\PYZsh{}objects are implicitly \PYZsq{}str\PYZsq{}}
+          \PY{n}{ds}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}numeric}\PY{p}{(}\PY{n}{ds}\PY{o}{.}\PY{n}{TotalCharges}\PY{p}{,} \PY{n}{errors}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coerce}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{}idx = ds.select\PYZus{}dtypes(include=\PYZsq{}object\PYZsq{}).columns.values}
+          \PY{c+c1}{\PYZsh{}ds[idx] = ds[idx].astype(\PYZsq{}str\PYZsq{})}
+          
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} No lack of data , however Senior citizen is \PYZsq{}int\PYZsq{} and \PYZsq{}TotalCharges\PYZsq{} is object}
+          \PY{p}{(}\PY{n}{string}\PY{o}{!}\PY{o}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}210}]:} \PY{n}{display}\PY{p}{(}\PY{n}{ds}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{n}{n}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \centering{\begin{tabular}{lllllrllllllllllllrrl}
+\toprule
+{} &  gender & SeniorCitizen & Partner & Dependents &  tenure & PhoneService &     MultipleLines & InternetService & OnlineSecurity & OnlineBackup & DeviceProtection & TechSupport & StreamingTV & StreamingMovies &        Contract & PaperlessBilling &              PaymentMethod &  MonthlyCharges &  TotalCharges & Churn \\
+\midrule
+0 &  Female &             0 &     Yes &         No &       1 &           No &  No phone service &             DSL &             No &          Yes &               No &          No &          No &              No &  Month-to-month &              Yes &           Electronic check &           29.85 &         29.85 &    No \\
+1 &    Male &             0 &      No &         No &      34 &          Yes &                No &             DSL &            Yes &           No &              Yes &          No &          No &              No &        One year &               No &               Mailed check &           56.95 &       1889.50 &    No \\
+2 &    Male &             0 &      No &         No &       2 &          Yes &                No &             DSL &            Yes &          Yes &               No &          No &          No &              No &  Month-to-month &              Yes &               Mailed check &           53.85 &        108.15 &   Yes \\
+3 &    Male &             0 &      No &         No &      45 &           No &  No phone service &             DSL &            Yes &           No &              Yes &         Yes &          No &              No &        One year &               No &  Bank transfer (automatic) &           42.30 &       1840.75 &    No \\
+4 &  Female &             0 &      No &         No &       2 &          Yes &                No &     Fiber optic &             No &           No &               No &          No &          No &              No &  Month-to-month &              Yes &           Electronic check &           70.70 &        151.65 &   Yes \\
+\bottomrule
+\end{tabular}
+}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}211}]:} \PY{n}{ds}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 7043 entries, 0 to 7042
+Data columns (total 20 columns):
+gender              7043 non-null object
+SeniorCitizen       7043 non-null object
+Partner             7043 non-null object
+Dependents          7043 non-null object
+tenure              7043 non-null int64
+PhoneService        7043 non-null object
+MultipleLines       7043 non-null object
+InternetService     7043 non-null object
+OnlineSecurity      7043 non-null object
+OnlineBackup        7043 non-null object
+DeviceProtection    7043 non-null object
+TechSupport         7043 non-null object
+StreamingTV         7043 non-null object
+StreamingMovies     7043 non-null object
+Contract            7043 non-null object
+PaperlessBilling    7043 non-null object
+PaymentMethod       7043 non-null object
+MonthlyCharges      7043 non-null float64
+TotalCharges        7032 non-null float64
+Churn               7043 non-null object
+dtypes: float64(2), int64(1), object(17)
+memory usage: 1.1+ MB
+
+    \end{Verbatim}
+
+    \subsubsection{Functions for computation of relevant statistics of
+categorical
+variables}\label{functions-for-computation-of-relevant-statistics-of-categorical-variables}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}212}]:} \PY{c+c1}{\PYZsh{} counts}
+          \PY{k}{def} \PY{n+nf}{count\PYZus{}categorical}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+              \PY{n}{dsfeature} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{columns}
+              \PY{n}{dfprint} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Variable Name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Category/Count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{dsfeature}\PY{p}{:}
+                  \PY{c+c1}{\PYZsh{}if (i != \PYZsq{}customerID\PYZsq{}) and (i !=\PYZsq{}tenure\PYZsq{}) and (i !=\PYZsq{}MonthlyCharges\PYZsq{}) and (i}
+          \PY{o}{!=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{p}{:}
+                  \PY{k}{if} \PY{n+nb}{type}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{n+nb}{str}\PY{p}{:}
+                      \PY{n}{dfprint} \PY{o}{=} \PY{n}{dfprint}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Variable Name}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{i}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Category/Count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{zip}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{d}
+          \PY{n}{f}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{)}\PY{p}{,}\PY{n}{df}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{p}{)}\PY{p}{)}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          
+              \PY{k}{return} \PY{n}{dfprint}
+          
+          \PY{k}{def} \PY{n+nf}{get\PYZus{}num\PYZus{}cols}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+              \PY{n}{idx} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{select\PYZus{}dtypes}\PY{p}{(}\PY{n}{exclude}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{object}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{columns}\PY{o}{.}\PY{n}{values}
+              \PY{n}{dF} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{}remove NaNs or else it cant plot}
+              \PY{k}{return} \PY{n}{dF}\PY{o}{.}\PY{n}{columns}
+          
+          \PY{k}{def} \PY{n+nf}{plot\PYZus{}hist2}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{df2}\PY{p}{,}\PY{n}{df\PYZus{}col}\PY{p}{)}\PY{p}{:}
+              \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+              \PY{n}{df2} \PY{o}{=} \PY{n}{df2}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+              \PY{k}{for} \PY{n}{d} \PY{o+ow}{in} \PY{n}{df\PYZus{}col}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Distribution of Variable }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{d}\PY{p}{)}
+                  \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{d}\PY{p}{]}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{df2}\PY{p}{[}\PY{n}{d}\PY{p}{]}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{n}{plt}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Probability Distribution of Numerical Variable }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{d}\PY{p}{)}
+                  \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{plot\PYZus{}hist}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{df\PYZus{}col}\PY{p}{)}\PY{p}{:}
+              \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+              \PY{k}{for} \PY{n}{d} \PY{o+ow}{in} \PY{n}{df\PYZus{}col}\PY{p}{:}
+                  \PY{c+c1}{\PYZsh{}print(\PYZdq{}Empirical Distribution of Variable \PYZdq{}+d)}
+                  \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{d}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                  \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Probability Distribution of Numerical Variable }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{d}\PY{p}{)}
+                  \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}213}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{For categorical variables:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{dfprint} \PY{o}{=} \PY{n}{count\PYZus{}categorical}\PY{p}{(}\PY{n}{ds}\PY{p}{)}
+          \PY{n}{dfprint}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+For categorical variables:
+
+    \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}213}]:}
+    
+    \centering{\begin{tabular}{lll}
+\toprule
+{} &     Variable Name &                                                                                                        Category/Count \\
+\midrule
+0  &            gender &                                                                                        [(Male, 3555), (Female, 3488)] \\
+1  &     SeniorCitizen &                                                                                                [(0, 5901), (1, 1142)] \\
+2  &           Partner &                                                                                             [(No, 3641), (Yes, 3402)] \\
+3  &        Dependents &                                                                                             [(No, 4933), (Yes, 2110)] \\
+4  &      PhoneService &                                                                                              [(Yes, 6361), (No, 682)] \\
+5  &     MultipleLines &                                                                    [(No, 3390), (Yes, 2971), (No phone service, 682)] \\
+6  &   InternetService &                                                                        [(Fiber optic, 3096), (DSL, 2421), (No, 1526)] \\
+7  &    OnlineSecurity &                                                                [(No, 3498), (Yes, 2019), (No internet service, 1526)] \\
+8  &      OnlineBackup &                                                                [(No, 3088), (Yes, 2429), (No internet service, 1526)] \\
+9  &  DeviceProtection &                                                                [(No, 3095), (Yes, 2422), (No internet service, 1526)] \\
+10 &       TechSupport &                                                                [(No, 3473), (Yes, 2044), (No internet service, 1526)] \\
+11 &       StreamingTV &                                                                [(No, 2810), (Yes, 2707), (No internet service, 1526)] \\
+12 &   StreamingMovies &                                                                [(No, 2785), (Yes, 2732), (No internet service, 1526)] \\
+13 &          Contract &                                                          [(Month-to-month, 3875), (Two year, 1695), (One year, 1473)] \\
+14 &  PaperlessBilling &                                                                                             [(Yes, 4171), (No, 2872)] \\
+15 &     PaymentMethod &  [(Electronic check, 2365), (Mailed check, 1612), (Bank transfer (automatic), 1544), (Credit card (automatic), 1522)] \\
+16 &             Churn &                                                                                             [(No, 5174), (Yes, 1869)] \\
+\bottomrule
+\end{tabular}
+}
+
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}214}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{For numerical variables:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{ds}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+For numerical variables:
+
+    \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}214}]:}
+    
+    \centering{\begin{tabular}{lrrrrrrrr}
+\toprule
+{} &   count &       mean &        std &    min &     25\% &       50\% &        75\% &      max \\
+\midrule
+tenure         &  7043.0 &    32.3711 &    24.5595 &   0.00 &    9.00 &    29.000 &    55.0000 &    72.00 \\
+MonthlyCharges &  7043.0 &    64.7617 &    30.0900 &  18.25 &   35.50 &    70.350 &    89.8500 &   118.75 \\
+TotalCharges   &  7032.0 &  2283.3004 &  2266.7714 &  18.80 &  401.45 &  1397.475 &  3794.7375 &  8684.80 \\
+\bottomrule
+\end{tabular}
+}
+
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}215}]:} \PY{n}{plot\PYZus{}hist}\PY{p}{(}\PY{n}{ds}\PY{p}{,}\PY{n}{get\PYZus{}num\PYZus{}cols}\PY{p}{(}\PY{n}{ds}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_10_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_10_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_10_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Analysis for the Loyal customer
+base}\label{analysis-for-the-loyal-customer-base}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}216}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Analysis of product preference}
+          \PY{k}{def} \PY{n+nf}{plot\PYZus{}bars}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{} Visual Service}
+              \PY{c+c1}{\PYZsh{}plt.figure()}
+              \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PhoneService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PhoneService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MultipleLines}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Blues\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{StreamingMovies}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Greens\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{StreamingTV}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Oranges\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+              \PY{c+c1}{\PYZsh{} Visual Support}
+              \PY{c+c1}{\PYZsh{}plt.figure()}
+              \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{OnlineSecurity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{OnlineBackup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Blues\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TechSupport}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Greens\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DeviceProtection}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Oranges\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{plot\PYZus{}scatter\PYZus{}bw}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{}Segmentation}
+          
+              \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{stripplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gender}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{jitter}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{stripplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SeniorCitizen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{jitter}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{stripplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Partner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{jitter}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{stripplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Dependents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{jitter}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+              \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gender}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SeniorCitizen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Partner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Dependents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}Apparently gender \PYZam{} dependent do not matter much}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Analsysis of revenue contribution, i.e. charges and tenure}
+          \PY{c+c1}{\PYZsh{} Screen of \PYZsq{}Loyal Customer\PYZsq{}}
+          \PY{k}{def} \PY{n+nf}{revenue\PYZus{}contr}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+              \PY{n}{dscus}\PY{o}{=}\PY{n}{df}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+              \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SeniorCitizen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}numeric}\PY{p}{(}\PY{n}{dscus}\PY{o}{.}\PY{n}{SeniorCitizen}\PY{p}{,} \PY{n}{errors}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coerce}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{n}{partner\PYZus{}mapping} \PY{o}{=} \PY{p}{\PYZob{}}
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,}
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{0}\PY{p}{\PYZcb{}}
+              \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Partner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Partner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{n}{partner\PYZus{}mapping}\PY{p}{)}
+              \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Loyal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SeniorCitizen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{+} \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Partner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+          
+              \PY{n}{dscus}\PY{o}{=}\PY{n}{dscus}\PY{p}{[}\PY{p}{(}\PY{n}{dscus}\PY{p}{[}\PY{l+s+sa}{u}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Loyal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{\PYZgt{}}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+              \PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Loyal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+              \PY{n}{display}\PY{p}{(}\PY{n}{dscus}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{n}{n}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{)}
+              \PY{k}{return} \PY{n}{dscus}
+          
+          
+          
+          \PY{k}{def} \PY{n+nf}{plot\PYZus{}box}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{dscus}\PY{p}{)}\PY{p}{:}
+              \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Loyal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+          \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Loyal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PhoneService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dscus}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Loyal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Contract}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}217}]:} \PY{n}{ds\PYZus{}loyal} \PY{o}{=} \PY{n}{ds}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}ignore the churn}
+          \PY{n+nb}{print}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Churn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Overview of customers who have not churned this year}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{ds\PYZus{}loyal}\PY{o}{=}\PY{n}{ds\PYZus{}loyal}\PY{p}{[}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{[}\PY{l+s+sa}{u}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Churn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}
+          \PY{n}{ds\PYZus{}loyal}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{n}{n}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+No     5174
+Yes    1869
+Name: Churn, dtype: int64
+Overview of customers who have not churned this year
+
+    \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}217}]:}
+    
+    \centering{\begin{tabular}{lllllrllllllllllllrrl}
+\toprule
+{} &  gender & SeniorCitizen & Partner & Dependents &  tenure & PhoneService &     MultipleLines & InternetService & OnlineSecurity & OnlineBackup & DeviceProtection & TechSupport & StreamingTV & StreamingMovies &        Contract & PaperlessBilling &              PaymentMethod &  MonthlyCharges &  TotalCharges & Churn \\
+\midrule
+0 &  Female &             0 &     Yes &         No &       1 &           No &  No phone service &             DSL &             No &          Yes &               No &          No &          No &              No &  Month-to-month &              Yes &           Electronic check &           29.85 &         29.85 &    No \\
+1 &    Male &             0 &      No &         No &      34 &          Yes &                No &             DSL &            Yes &           No &              Yes &          No &          No &              No &        One year &               No &               Mailed check &           56.95 &       1889.50 &    No \\
+3 &    Male &             0 &      No &         No &      45 &           No &  No phone service &             DSL &            Yes &           No &              Yes &         Yes &          No &              No &        One year &               No &  Bank transfer (automatic) &           42.30 &       1840.75 &    No \\
+6 &    Male &             0 &      No &        Yes &      22 &          Yes &               Yes &     Fiber optic &             No &          Yes &               No &          No &         Yes &              No &  Month-to-month &              Yes &    Credit card (automatic) &           89.10 &       1949.40 &    No \\
+7 &  Female &             0 &      No &         No &      10 &           No &  No phone service &             DSL &            Yes &           No &               No &          No &          No &              No &  Month-to-month &               No &               Mailed check &           29.75 &        301.90 &    No \\
+\bottomrule
+\end{tabular}
+}
+
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}218}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{For categorical variables:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{dfprint\PYZus{}l} \PY{o}{=} \PY{n}{count\PYZus{}categorical}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{)}
+          \PY{n}{dfprint\PYZus{}l}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+For categorical variables:
+
+    \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}218}]:}
+    
+    \centering{\begin{tabular}{lll}
+\toprule
+{} &     Variable Name &                                                                                                        Category/Count \\
+\midrule
+0  &            gender &                                                                                        [(Male, 2625), (Female, 2549)] \\
+1  &     SeniorCitizen &                                                                                                 [(0, 4508), (1, 666)] \\
+2  &           Partner &                                                                                             [(Yes, 2733), (No, 2441)] \\
+3  &        Dependents &                                                                                             [(No, 3390), (Yes, 1784)] \\
+4  &      PhoneService &                                                                                              [(Yes, 4662), (No, 512)] \\
+5  &     MultipleLines &                                                                    [(No, 2541), (Yes, 2121), (No phone service, 512)] \\
+6  &   InternetService &                                                                        [(DSL, 1962), (Fiber optic, 1799), (No, 1413)] \\
+7  &    OnlineSecurity &                                                                [(No, 2037), (Yes, 1724), (No internet service, 1413)] \\
+8  &      OnlineBackup &                                                                [(Yes, 1906), (No, 1855), (No internet service, 1413)] \\
+9  &  DeviceProtection &                                                                [(No, 1884), (Yes, 1877), (No internet service, 1413)] \\
+10 &       TechSupport &                                                                [(No, 2027), (Yes, 1734), (No internet service, 1413)] \\
+11 &       StreamingTV &                                                                [(Yes, 1893), (No, 1868), (No internet service, 1413)] \\
+12 &   StreamingMovies &                                                                [(Yes, 1914), (No, 1847), (No internet service, 1413)] \\
+13 &          Contract &                                                          [(Month-to-month, 2220), (Two year, 1647), (One year, 1307)] \\
+14 &  PaperlessBilling &                                                                                             [(Yes, 2771), (No, 2403)] \\
+15 &     PaymentMethod &  [(Mailed check, 1304), (Electronic check, 1294), (Credit card (automatic), 1290), (Bank transfer (automatic), 1286)] \\
+16 &             Churn &                                                                                                          [(No, 5174)] \\
+\bottomrule
+\end{tabular}
+}
+
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}219}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{For numerical variables:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{ds\PYZus{}loyal}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+For numerical variables:
+
+    \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}219}]:}
+    
+    \centering{\begin{tabular}{lrrrrrrrr}
+\toprule
+{} &   count &       mean &        std &    min &      25\% &       50\% &       75\% &      max \\
+\midrule
+tenure         &  5174.0 &    37.5700 &    24.1138 &   0.00 &   15.000 &    38.000 &    61.000 &    72.00 \\
+MonthlyCharges &  5174.0 &    61.2651 &    31.0926 &  18.25 &   25.100 &    64.425 &    88.400 &   118.75 \\
+TotalCharges   &  5163.0 &  2555.3441 &  2329.4570 &  18.80 &  577.825 &  1683.600 &  4264.125 &  8672.45 \\
+\bottomrule
+\end{tabular}
+}
+
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}220}]:} \PY{n}{plot\PYZus{}bars}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{)}
+          \PY{n}{plot\PYZus{}scatter\PYZus{}bw}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{)}
+          \PY{n}{dscus} \PY{o}{=} \PY{n}{revenue\PYZus{}contr}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{)}
+          \PY{n}{plot\PYZus{}box}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{,}\PY{n}{dscus}\PY{p}{)}
+          \PY{n}{plot\PYZus{}hist}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{,}\PY{n}{get\PYZus{}num\PYZus{}cols}\PY{p}{(}\PY{n}{ds}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \centering{\begin{tabular}{llrrlrllllllllllllrrlr}
+\toprule
+{} &  gender &  SeniorCitizen &  Partner & Dependents &  tenure & PhoneService &     MultipleLines & InternetService &       OnlineSecurity &         OnlineBackup &     DeviceProtection &          TechSupport &          StreamingTV &      StreamingMovies &        Contract & PaperlessBilling &              PaymentMethod &  MonthlyCharges &  TotalCharges & Churn &  Loyal \\
+\midrule
+0  &  Female &              0 &        1 &         No &       1 &           No &  No phone service &             DSL &                   No &                  Yes &                   No &                   No &                   No &                   No &  Month-to-month &              Yes &           Electronic check &           29.85 &         29.85 &    No &      1 \\
+10 &    Male &              0 &        1 &        Yes &      13 &          Yes &                No &             DSL &                  Yes &                   No &                   No &                   No &                   No &                   No &  Month-to-month &              Yes &               Mailed check &           49.95 &        587.45 &    No &      1 \\
+12 &    Male &              0 &        1 &         No &      58 &          Yes &               Yes &     Fiber optic &                   No &                   No &                  Yes &                   No &                  Yes &                  Yes &        One year &               No &    Credit card (automatic) &          100.35 &       5681.10 &    No &      1 \\
+15 &  Female &              0 &        1 &        Yes &      69 &          Yes &               Yes &     Fiber optic &                  Yes &                  Yes &                  Yes &                  Yes &                  Yes &                  Yes &        Two year &               No &    Credit card (automatic) &          113.25 &       7895.15 &    No &      1 \\
+21 &    Male &              0 &        1 &         No &      12 &          Yes &                No &              No &  No internet service &  No internet service &  No internet service &  No internet service &  No internet service &  No internet service &        One year &               No &  Bank transfer (automatic) &           19.80 &        202.25 &    No &      1 \\
+23 &  Female &              0 &        1 &         No &      58 &          Yes &               Yes &             DSL &                   No &                  Yes &                   No &                  Yes &                   No &                   No &        Two year &              Yes &    Credit card (automatic) &           59.90 &       3505.10 &    No &      1 \\
+24 &    Male &              0 &        1 &        Yes &      49 &          Yes &                No &             DSL &                  Yes &                  Yes &                   No &                  Yes &                   No &                   No &  Month-to-month &               No &    Credit card (automatic) &           59.60 &       2970.30 &    No &      1 \\
+28 &    Male &              0 &        1 &         No &      72 &          Yes &               Yes &             DSL &                  Yes &                  Yes &                  Yes &                  Yes &                  Yes &                  Yes &        Two year &              Yes &    Credit card (automatic) &           90.25 &       6369.45 &    No &      1 \\
+30 &  Female &              1 &        1 &         No &      71 &          Yes &               Yes &     Fiber optic &                  Yes &                  Yes &                  Yes &                  Yes &                   No &                   No &        Two year &              Yes &    Credit card (automatic) &           96.35 &       6766.95 &    No &      2 \\
+31 &    Male &              1 &        1 &         No &       2 &          Yes &                No &     Fiber optic &                   No &                   No &                  Yes &                   No &                  Yes &                  Yes &  Month-to-month &              Yes &    Credit card (automatic) &           95.50 &        181.65 &    No &      2 \\
+32 &  Female &              0 &        1 &        Yes &      27 &          Yes &                No &             DSL &                  Yes &                  Yes &                  Yes &                  Yes &                   No &                   No &        One year &               No &               Mailed check &           66.15 &       1874.45 &    No &      1 \\
+34 &    Male &              1 &        0 &         No &       1 &          Yes &                No &             DSL &                   No &                   No &                   No &                   No &                   No &                   No &  Month-to-month &               No &  Bank transfer (automatic) &           45.25 &         45.25 &    No &      1 \\
+35 &  Female &              0 &        1 &        Yes &      72 &          Yes &               Yes &     Fiber optic &                  Yes &                  Yes &                   No &                  Yes &                  Yes &                   No &        Two year &               No &  Bank transfer (automatic) &           99.90 &       7251.70 &    No &      1 \\
+40 &    Male &              0 &        1 &        Yes &      10 &          Yes &                No &             DSL &                   No &                  Yes &                   No &                   No &                   No &                   No &        One year &               No &               Mailed check &           49.55 &        475.70 &    No &      1 \\
+41 &  Female &              0 &        1 &        Yes &      70 &          Yes &               Yes &             DSL &                  Yes &                  Yes &                   No &                   No &                  Yes &                   No &        Two year &              Yes &    Credit card (automatic) &           69.20 &       4872.35 &    No &      1 \\
+\bottomrule
+\end{tabular}
+}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_16_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+    \subsection{Compare Empirical Distribution of Loyal vs
+Churn}\label{compare-empirical-distribution-of-loyal-vs-churn}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}221}]:} \PY{n}{ds\PYZus{}churn} \PY{o}{=} \PY{n}{ds}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}ignore the churn}
+          \PY{n+nb}{print}\PY{p}{(}\PY{n}{ds\PYZus{}churn}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Churn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Overview of customers who have churned this year}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{ds\PYZus{}churn}\PY{o}{=}\PY{n}{ds\PYZus{}churn}\PY{p}{[}\PY{p}{(}\PY{n}{ds\PYZus{}churn}\PY{p}{[}\PY{l+s+sa}{u}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Churn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}
+          \PY{n}{ds\PYZus{}churn}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{n}{n}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+No     5174
+Yes    1869
+Name: Churn, dtype: int64
+Overview of customers who have churned this year
+
+    \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}221}]:}
+    
+    \centering{\begin{tabular}{lllllrllllllllllllrrl}
+\toprule
+{} &  gender & SeniorCitizen & Partner & Dependents &  tenure & PhoneService & MultipleLines & InternetService & OnlineSecurity & OnlineBackup & DeviceProtection & TechSupport & StreamingTV & StreamingMovies &        Contract & PaperlessBilling &              PaymentMethod &  MonthlyCharges &  TotalCharges & Churn \\
+\midrule
+2  &    Male &             0 &      No &         No &       2 &          Yes &            No &             DSL &            Yes &          Yes &               No &          No &          No &              No &  Month-to-month &              Yes &               Mailed check &           53.85 &        108.15 &   Yes \\
+4  &  Female &             0 &      No &         No &       2 &          Yes &            No &     Fiber optic &             No &           No &               No &          No &          No &              No &  Month-to-month &              Yes &           Electronic check &           70.70 &        151.65 &   Yes \\
+5  &  Female &             0 &      No &         No &       8 &          Yes &           Yes &     Fiber optic &             No &           No &              Yes &          No &         Yes &             Yes &  Month-to-month &              Yes &           Electronic check &           99.65 &        820.50 &   Yes \\
+8  &  Female &             0 &     Yes &         No &      28 &          Yes &           Yes &     Fiber optic &             No &           No &              Yes &         Yes &         Yes &             Yes &  Month-to-month &              Yes &           Electronic check &          104.80 &       3046.05 &   Yes \\
+13 &    Male &             0 &      No &         No &      49 &          Yes &           Yes &     Fiber optic &             No &          Yes &              Yes &          No &         Yes &             Yes &  Month-to-month &              Yes &  Bank transfer (automatic) &          103.70 &       5036.30 &   Yes \\
+\bottomrule
+\end{tabular}
+}
+
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}222}]:} \PY{n}{plot\PYZus{}hist2}\PY{p}{(}\PY{n}{ds\PYZus{}loyal}\PY{p}{,}\PY{n}{ds\PYZus{}churn}\PY{p}{,}\PY{n}{get\PYZus{}num\PYZus{}cols}\PY{p}{(}\PY{n}{ds}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Empirical Distribution of Variable tenure
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_20_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Empirical Distribution of Variable MonthlyCharges
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_20_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Empirical Distribution of Variable TotalCharges
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_20_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Lifetime value of loyal
+customers}\label{lifetime-value-of-loyal-customers}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}223}]:} \PY{n}{data} \PY{o}{=} \PY{n}{ds\PYZus{}loyal}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gender}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SeniorCitizen}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Partner}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dependents}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{PaperlessBilling}\PY{l+s+s2}{\PYZdq{}}
+          \PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{PaymentMethod}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Churn}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}224}]:} \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}225}]:} \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No phone service}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No internet service}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DSL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fiber optic}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}226}]:} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ServiceCount}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}227}]:} \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PhoneService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MultipleLines}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{InternetService}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{OnlineSecurity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Onl}
+          \PY{n}{ineBackup}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{DeviceProtection}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{TechSupport}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{StreamingTV}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{StreamingMovies}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{Contract}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{],}
+          \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{float}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}229}]:} \PY{c+c1}{\PYZsh{}plt.figure()}
+          \PY{n}{data}\PY{o}{.}\PY{n}{plot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tenure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DarkBlue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The above graph shows that there is a linear relationship between the
+tenure and the total charges. However, the graph also shows that there
+are many users who use the basic service consistently for long period of
+time. This is illustrated by the lower part of the plot which has high
+density.
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}230}]:} \PY{n}{scatter2} \PY{o}{=}
+          \PY{n}{data}\PY{o}{.}\PY{n}{plot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tenure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MonthlyCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DarkBlue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_30_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The above plot for monthly charges does not show clear visual
+representation of the data. Therefore, we divide the data into two
+segments. People who use either more or less than five services.
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}231}]:} \PY{n}{data1} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{data}\PY{o}{.}\PY{n}{ServiceCount} \PY{o}{\PYZgt{}} \PY{l+m+mi}{5}\PY{p}{]}
+          \PY{n}{data2} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{data}\PY{o}{.}\PY{n}{ServiceCount} \PY{o}{\PYZlt{}} \PY{l+m+mi}{5}\PY{p}{]}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}232}]:} \PY{n}{scatter3} \PY{o}{=}
+          \PY{n}{data1}\PY{o}{.}\PY{n}{plot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tenure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DarkBlue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_33_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The above plot illustrated linear increase of total charges of customers
+who use more than five services. It is clear in the plot that longer
+they use more they pay.
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}233}]:} \PY{n}{scatter4} \PY{o}{=}
+          \PY{n}{data1}\PY{o}{.}\PY{n}{plot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tenure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MonthlyCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DarkBlue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The above plot shows monthly charges of the customers who use more than
+five services. It is clear from the graph that loyal customers tend to
+take more services. Thus, the plot is more dense on the right hand side.
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}234}]:} \PY{n}{scatter5} \PY{o}{=}
+          \PY{n}{data2}\PY{o}{.}\PY{n}{plot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tenure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TotalCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DarkBlue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_37_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The above plot represents the total charges of customers who use less
+than five services. The graph is more dense at the beginning which means
+newer customers use less services. Also, there are many customers who
+stick to the basic services for the long term as the lower part of the
+graph is consistently thick from beginning untill the end.
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}235}]:} \PY{n}{scatter6} \PY{o}{=}
+          \PY{n}{data2}\PY{o}{.}\PY{n}{plot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tenure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MonthlyCharges}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DarkBlue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DSPAssign11_files/DSPAssign11_39_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The above plot illustrates the monthly charges of customers who use less
+than five services. As it is shown on the graph, the customers who use
+less than five services are more likely to be newer customers.
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+\bibliography{references}
+
+    
+    \end{document}

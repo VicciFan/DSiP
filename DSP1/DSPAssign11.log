@@ -1,0 +1,1584 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.3)  14 MAR 2019 20:03
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**DSPAssign11.tex
+(./DSPAssign11.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/revtex/revtex4-1.cls
+Document Class: revtex4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revt
+ex4/ for documentation)
+ Copyright (c) 2009 The American Physical Society.
+ mailto:revtex@aps.org
+ Licensed under the LPPL:
+http://www.ctan.org/tex-archive/macros/latex/base/lppl.txt
+ Arthur Ogawa <arthur_ogawa at sbcglobal dot net>
+ Based on work by David Carlisle <david at dcarlisle.demon.co.uk>.
+ltxutil[2010/07/25/20:33:00 4.1r utilities package (portions licensed from W. E
+. Baxter web at superscript.com)]
+LaTeX Info: Redefining \@centercr on input line 308.
+Class revtex4-1 Info: Repairing broken LaTeX eqnarray on input line 358.
+\eqncolsep=\skip41
+Class revtex4-1 Info: Repairing hyperref-unfriendly LaTeX definition of \mpfoot
+note on input line 433.
+Class revtex4-1 Info: Repairing broken LateX \@sect on input line 755.
+\intertabularlinepenalty=\count79
+\@tbpen=\count80
+\@arstrutbox@hline=\box26
+Class revtex4-1 Info: Repairing broken LaTeX \@xbitor on input line 1786.
+Class revtex4-1 Info: Making \typeout \long on input line 2046.
+ltxfront[2010/07/25/20:33:00 4.1r frontmatter package (AO,DPC)]
+\c@affil=\count81
+\c@collab=\count82
+\absbox=\box27
+ltxgrid[2010/07/25/20:33:00 4.1r page grid package (portions licensed from W. E
+. Baxter web at superscript.com)]
+\c@linecount=\count83
+\output@latex=\toks14
+\box@size@1=\box28
+\box@size@2=\box29
+\@protection@box=\box30
+\@topmark@saved=\toks15
+\footins@saved=\box31
+\footins@recovered=\box32
+\column@recovered=\box33
+\pagesofar=\box34
+\footsofar=\box35
+\pagegrid@col=\count84
+Class revtex4-1 Info: Overriding \@vspace, \@vspacer, \@no@pgbk, \@newline, and
+ \\  on input line 5578.
+\c@part=\count85
+\c@section=\count86
+\c@subsection=\count87
+\c@subsubsection=\count88
+\c@paragraph=\count89
+\c@subparagraph=\count90
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count91
+\fbox@1=\box36
+\c@table=\count92
+\fbox@2=\box37
+\c@video=\count93
+\fbox@4=\box38
+\@bibdataout=\write3
+\widetext@top=\box39
+\widetext@bot=\box40
+Class revtex4-1 Info: Selecting society aps on input line 7542.
+(/usr/share/texlive/texmf-dist/tex/latex/revtex/aps4-1.rtx
+File: aps4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revtex4/ for docu
+mentation)
+Class revtex4-1 Info: RevTeX society APS selected on input line 31.
+)
+Class revtex4-1 Info: Selecting journal pra on input line 7544.
+Class revtex4-1 Info: APS journal PRA selected on input line 7545.
+
+
+Class revtex4-1 Warning: No type size specified, using default 10.
+
+(/usr/share/texlive/texmf-dist/tex/latex/revtex/aps10pt4-1.rtx
+File: aps10pt4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revtex4/ for 
+documentation)
+Class revtex4-1 Info: RevTeX pointsize 10pt selected on input line 30.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip44
+\bibsep=\skip45
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count94
+)
+Class revtex4-1 Info: Repairing natbib's \BibitemShut on input line 7549.
+
+(/usr/share/texlive/texmf-dist/tex/latex/revtex/revsymb4-1.sty
+Package: revsymb4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revtex4/ f
+or documentation)
+LaTeX Info: Redefining \REV@mathfrak on input line 119.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count95
+\Gm@cntv=\count96
+\c@Gm@tempcnt=\count97
+\Gm@bindingoffset=\dimen102
+\Gm@wd@mp=\dimen103
+\Gm@odd@mp=\dimen104
+\Gm@even@mp=\dimen105
+\Gm@layoutwidth=\dimen106
+\Gm@layoutheight=\dimen107
+\Gm@layouthoffset=\dimen108
+\Gm@layoutvoffset=\dimen109
+\Gm@dimlist=\toks17
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count98
+\U@D=\dimen110
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count99
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+
+LaTeX Warning: Command \@arrayparboxrestore  has changed.
+               Check if current package is valid.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks18
+\footnotemargin=\dimen111
+\c@pp@next@reset=\count100
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+\CenteringLeftskip=\skip46
+\RaggedLeftLeftskip=\skip47
+\RaggedRightLeftskip=\skip48
+\CenteringRightskip=\skip49
+\RaggedLeftRightskip=\skip50
+\RaggedRightRightskip=\skip51
+\CenteringParfillskip=\skip52
+\RaggedLeftParfillskip=\skip53
+\RaggedRightParfillskip=\skip54
+\JustifyingParfillskip=\skip55
+\CenteringParindent=\skip56
+\RaggedLeftParindent=\skip57
+\RaggedRightParindent=\skip58
+\JustifyingParindent=\skip59
+)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box41
+\beforetitleunit=\skip60
+\aftertitleunit=\skip61
+\ttl@plus=\dimen112
+\ttl@minus=\dimen113
+\ttl@toksa=\toks19
+\titlewidth=\dimen114
+\titlewidthlast=\dimen115
+\titlewidthfirst=\dimen116
+)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/ttlkeys.def
+File: ttlkeys.def 2016/03/15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip62
+\f@nch@O@elh=\skip63
+\f@nch@O@erh=\skip64
+\f@nch@O@olh=\skip65
+\f@nch@O@orh=\skip66
+\f@nch@O@elf=\skip67
+\f@nch@O@erf=\skip68
+\f@nch@O@olf=\skip69
+\f@nch@O@orf=\skip70
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fncychap/fncychap.sty
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip71
+\mylen=\skip72
+\myhi=\skip73
+\px=\skip74
+\py=\skip75
+\pyy=\skip76
+\pxx=\skip77
+\backskip=\skip78
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count101
+\float@exts=\toks20
+\float@box=\box42
+\@float@everytoks=\toks21
+\@floatcapt=\box43
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen119
+\captionmargin@=\dimen120
+\captionwidth=\dimen121
+\caption@tempdima=\dimen122
+\caption@indent=\dimen123
+\caption@parindent=\dimen124
+\caption@hangindent=\dimen125
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\par \vskip \abovecapti
+onskip \begingroup \small \rmfamily \sbox \@tempboxa {\let \\\heading@cr \@make
+@capt@title {#1}{#2}}\@ifdim {\wd \@tempboxa >\hsize }{\begingroup \samepage \f
+lushing \let \footnote \@footnotemark@gobble \@make@capt@title {#1}{#2}\par \en
+dgroup }{\global \@minipagefalse \hb@xt@ \hsize {\hfil \unhbox \@tempboxa \hfil
+ }}\endgroup \vskip \belowcaptionskip .
+\c@ContinuedFloat=\count102
+Package caption Info: float package is loaded.
+) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks22
+\XKV@tempa@toks=\toks23
+)
+\XKV@depth=\count103
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box44
+)
+\tc@llx=\dimen126
+\tc@lly=\dimen127
+\tc@urx=\dimen128
+\tc@ury=\dimen129
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen130
+\adjbox@Height=\dimen131
+\adjbox@Depth=\dimen132
+\adjbox@Totalheight=\dimen133
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box45
+\sift@deathcycles=\count105
+\@vwid@loff=\dimen134
+\@vwid@roff=\dimen135
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip79
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen136
+)
+LaTeX Info: Redefining \text on input line 28.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen137
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count106
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count107
+\leftroot@=\count108
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count109
+\DOTSCASE@=\count110
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box46
+\strutbox@=\box47
+\big@size=\dimen138
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count111
+\c@MaxMatrixCols=\count112
+\dotsspace@=\muskip11
+\c@parentequation=\count113
+\dspbrk@lvl=\count114
+\tag@help=\toks26
+\row@=\count115
+\column@=\count116
+\maxfields@=\count117
+\andhelp@=\toks27
+\eqnshift@=\dimen139
+\alignsep@=\dimen140
+\tagshift@=\dimen141
+\tagwidth@=\dimen142
+\totwidth@=\dimen143
+\lineht@=\dimen144
+\@envbody=\toks28
+\multlinegap=\skip80
+\multlinetaggap=\skip81
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+LaTeX Info: Redefining \frak on input line 111.
+LaTeX Info: Redefining \Bbb on input line 113.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box48
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count118
+\uc@combtoks=\toks30
+\uc@combtoksb=\toks31
+\uc@temptokena=\toks32
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks33
+\inpenc@posthook=\toks34
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count119
+\FV@InFile=\read1
+\FV@TabBox=\box49
+\c@FancyVerbLine=\count120
+\FV@StepNumber=\count121
+\FV@OutFile=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grffile.sty
+Package: grffile 2017/06/30 v1.18 Extended file name support for graphics (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grffile Info: Option `multidot' is set to `true'.
+Package grffile Info: Option `extendedchars' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen145
+\Hy@linkcounter=\count122
+\Hy@pagecounter=\count123
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count124
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+LaTeX Info: Redefining \href on input line 5026.
+\c@Hy@tempcnt=\count125
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen146
+\Fld@menulength=\count126
+\Field@Width=\dimen147
+\Fld@charsize=\dimen148
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count127
+\c@Item=\count128
+\c@Hfootnote=\count129
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count130
+\c@bookmark@seq@number=\count131
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip82
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen149
+\lightrulewidth=\dimen150
+\cmidrulewidth=\dimen151
+\belowrulesep=\dimen152
+\belowbottomsep=\dimen153
+\aboverulesep=\dimen154
+\abovetopsep=\dimen155
+\cmidrulesep=\dimen156
+\cmidrulekern=\dimen157
+\defaultaddspace=\dimen158
+\@cmidla=\count132
+\@cmidlb=\count133
+\@aboverulesep=\dimen159
+\@belowrulesep=\dimen160
+\@thisruleclass=\count134
+\@lastruleclass=\count135
+\@thisrulewidth=\dimen161
+)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip83
+\enit@outerparindent=\dimen162
+\enit@toks=\toks35
+\enit@inbox=\box50
+\enitdp@description=\count136
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box51
+\UL@hyphenbox=\box52
+\UL@skip=\skip84
+\UL@hook=\toks36
+\UL@height=\dimen163
+\UL@pe=\count137
+\UL@pixel=\dimen164
+\ULC@box=\box53
+Package: ulem 2012/05/18
+\ULdepth=\dimen165
+)
+(/usr/share/texlive/texmf-dist/tex/latex/braket/braket.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count138
+\calc@Bcount=\count139
+\calc@Adimen=\dimen166
+\calc@Bdimen=\dimen167
+\calc@Askip=\skip85
+\calc@Bskip=\skip86
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count140
+\calc@Cskip=\skip87
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count141
+\l_MT_multwidth_dim=\dimen168
+\origjot=\skip88
+\l_MT_shortvdotswithinadjustabove_dim=\dimen169
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen170
+\l_MT_above_intertext_sep=\dimen171
+\l_MT_below_intertext_sep=\dimen172
+\l_MT_above_shortintertext_sep=\dimen173
+\l_MT_below_shortintertext_sep=\dimen174
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks37
+\thm@bodyfont=\toks38
+\thm@headfont=\toks39
+\thm@notefont=\toks40
+\thm@headpunct=\toks41
+\thm@preskip=\skip89
+\thm@postskip=\skip90
+\thm@headsep=\skip91
+\dth@everypar=\toks42
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count142
+\lst@gtempboxa=\box54
+\lst@token=\toks43
+\lst@length=\count143
+\lst@currlwidth=\dimen175
+\lst@column=\count144
+\lst@pos=\count145
+\lst@lostspace=\dimen176
+\lst@width=\dimen177
+\lst@newlines=\count146
+\lst@lineno=\count147
+\lst@maxwidth=\dimen178
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count148
+\lst@skipnumbers=\count149
+\lst@framebox=\box55
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tasks/tasks.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018/02/21 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018/02/21 L3 programming layer (code)
+\c_max_int=\count150
+\l_tmpa_int=\count151
+\l_tmpb_int=\count152
+\g_tmpa_int=\count153
+\g_tmpb_int=\count154
+\g__intarray_font_int=\count155
+\g__prg_map_int=\count156
+\c_log_iow=\count157
+\l_iow_line_count_int=\count158
+\l__iow_line_target_int=\count159
+\l__iow_one_indent_int=\count160
+\l__iow_indent_int=\count161
+\c_zero_dim=\dimen179
+\c_max_dim=\dimen180
+\l_tmpa_dim=\dimen181
+\l_tmpb_dim=\dimen182
+\g_tmpa_dim=\dimen183
+\g_tmpb_dim=\dimen184
+\c_zero_skip=\skip92
+\c_max_skip=\skip93
+\l_tmpa_skip=\skip94
+\l_tmpb_skip=\skip95
+\g_tmpa_skip=\skip96
+\g_tmpb_skip=\skip97
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count162
+\c__fp_leading_shift_int=\count163
+\c__fp_middle_shift_int=\count164
+\c__fp_trailing_shift_int=\count165
+\c__fp_big_leading_shift_int=\count166
+\c__fp_big_middle_shift_int=\count167
+\c__fp_big_trailing_shift_int=\count168
+\c__fp_Bigg_leading_shift_int=\count169
+\c__fp_Bigg_middle_shift_int=\count170
+\c__fp_Bigg_trailing_shift_int=\count171
+\c__fp_rand_size_int=\count172
+\c__fp_rand_four_int=\count173
+\c__fp_rand_eight_int=\count174
+\l__sort_length_int=\count175
+\l__sort_min_int=\count176
+\l__sort_top_int=\count177
+\l__sort_max_int=\count178
+\l__sort_true_max_int=\count179
+\l__sort_block_int=\count180
+\l__sort_begin_int=\count181
+\l__sort_end_int=\count182
+\l__sort_A_int=\count183
+\l__sort_B_int=\count184
+\l__sort_C_int=\count185
+\l__tl_build_start_index_int=\count186
+\l__tl_build_index_int=\count187
+\l__tl_analysis_normal_int=\count188
+\l__tl_analysis_index_int=\count189
+\l__tl_analysis_nesting_int=\count190
+\l__tl_analysis_type_int=\count191
+\l__regex_internal_a_int=\count192
+\l__regex_internal_b_int=\count193
+\l__regex_internal_c_int=\count194
+\l__regex_balance_int=\count195
+\l__regex_group_level_int=\count196
+\l__regex_mode_int=\count197
+\c__regex_cs_in_class_mode_int=\count198
+\c__regex_cs_mode_int=\count199
+\l__regex_catcodes_int=\count266
+\l__regex_default_catcodes_int=\count267
+\c__regex_catcode_D_int=\count268
+\c__regex_catcode_S_int=\count269
+\c__regex_catcode_L_int=\count270
+\c__regex_catcode_O_int=\count271
+\c__regex_catcode_A_int=\count272
+\c__regex_all_catcodes_int=\count273
+\l__regex_show_lines_int=\count274
+\l__regex_min_state_int=\count275
+\l__regex_max_state_int=\count276
+\l__regex_left_state_int=\count277
+\l__regex_right_state_int=\count278
+\l__regex_capturing_group_int=\count279
+\l__regex_min_pos_int=\count280
+\l__regex_max_pos_int=\count281
+\l__regex_curr_pos_int=\count282
+\l__regex_start_pos_int=\count283
+\l__regex_success_pos_int=\count284
+\l__regex_curr_char_int=\count285
+\l__regex_curr_catcode_int=\count286
+\l__regex_last_char_int=\count287
+\l__regex_case_changed_char_int=\count288
+\l__regex_curr_state_int=\count289
+\l__regex_step_int=\count290
+\l__regex_min_active_int=\count291
+\l__regex_max_active_int=\count292
+\l__regex_replacement_csnames_int=\count293
+\l__regex_match_count_int=\count294
+\l__regex_min_submatch_int=\count295
+\l__regex_submatch_int=\count296
+\l__regex_zeroth_submatch_int=\count297
+\g__regex_trace_regex_int=\count298
+\c_empty_box=\box56
+\l_tmpa_box=\box57
+\l_tmpb_box=\box58
+\g_tmpa_box=\box59
+\g_tmpb_box=\box60
+\l__box_top_dim=\dimen185
+\l__box_bottom_dim=\dimen186
+\l__box_left_dim=\dimen187
+\l__box_right_dim=\dimen188
+\l__box_top_new_dim=\dimen189
+\l__box_bottom_new_dim=\dimen190
+\l__box_left_new_dim=\dimen191
+\l__box_right_new_dim=\dimen192
+\l__box_internal_box=\box61
+\l__coffin_internal_box=\box62
+\l__coffin_internal_dim=\dimen193
+\l__coffin_offset_x_dim=\dimen194
+\l__coffin_offset_y_dim=\dimen195
+\l__coffin_x_dim=\dimen196
+\l__coffin_y_dim=\dimen197
+\l__coffin_x_prime_dim=\dimen198
+\l__coffin_y_prime_dim=\dimen199
+\c_empty_coffin=\box63
+\l__coffin_aligned_coffin=\box64
+\l__coffin_aligned_internal_coffin=\box65
+\l_tmpa_coffin=\box66
+\l_tmpb_coffin=\box67
+\l__coffin_display_coffin=\box68
+\l__coffin_display_coord_coffin=\box69
+\l__coffin_display_pole_coffin=\box70
+\l__coffin_display_offset_dim=\dimen256
+\l__coffin_display_x_dim=\dimen257
+\l__coffin_display_y_dim=\dimen258
+\l__coffin_bounding_shift_dim=\dimen259
+\l__coffin_left_corner_dim=\dimen260
+\l__coffin_right_corner_dim=\dimen261
+\l__coffin_bottom_corner_dim=\dimen262
+\l__coffin_top_corner_dim=\dimen263
+\l__coffin_scaled_total_height_dim=\dimen264
+\l__coffin_scaled_width_dim=\dimen265
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count299
+\l__driver_tmp_box=\box71
+))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2018/02/21 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count300
+\g__xparse_grabber_int=\count301
+\l__xparse_m_args_int=\count302
+\l__xparse_mandatory_args_int=\count303
+\l__xparse_v_nesting_int=\count304
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eepic/epic.sty
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count305
+\d@lta=\count306
+\@delta=\dimen266
+\@@delta=\dimen267
+\@gridcnt=\count307
+\@joinkind=\count308
+\@dotgap=\dimen268
+\@ddotgap=\dimen269
+\@x@diff=\count309
+\@y@diff=\count310
+\x@diff=\dimen270
+\y@diff=\dimen271
+\@dotbox=\box72
+\num@segments=\count311
+\num@segmentsi=\count312
+\@datafile=\read2
+) (/usr/share/texlive/texmf-dist/tex/latex/cntformats/cntformats.sty
+Package: cntformats 2014/07/20 v0.7 A different way to read counters. (CN)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count313
+)
+(/usr/share/texlive/texmf-dist/tex/latex/cnltx/cnltx-base.sty
+Package: cnltx-base 2015/08/17 v0.13 LaTeX tools and documenting facilities (CN
+)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks44
+\pgfkeys@temptoks=\toks45
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks46
+)))
+\pgfopts@list@add@a@toks=\toks47
+\pgfopts@list@add@b@toks=\toks48
+)
+\c@cnltx@tmpa=\count314
+\c@cnltx@tmpb=\count315
+\c@cnltx@tmpc=\count316
+\cnltx@tmpa@length=\skip98
+\cnltx@tmpb@length=\skip99
+\cnltx@tmpc@length=\skip100
+ (/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2018/02/21 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen272
+\l__xtemplate_tmp_int=\count317
+\l__xtemplate_tmp_muskip=\muskip18
+\l__xtemplate_tmp_skip=\skip101
+)
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+)
+Package: tasks 2016/08/13 v0.12 Horizontalcolumnedlists (CN)
+\l__tasks_depth_int=\count318
+\g__tasks_int=\count319
+\g__tasks_total_items_int=\count320
+\l__tasks_columns_int=\count321
+\l__tasks_rows_int=\count322
+\g__tasks_current_col_num_int=\count323
+\g__tasks_current_row_num_int=\count324
+\l__tasks_item_columns_int=\count325
+\l__tasks_item_indent_dim=\dimen273
+\l__tasks_item_default_indent_dim=\dimen274
+\l__tasks_item_width_dim=\dimen275
+\l__tasks_label_width_dim=\dimen276
+\l__tasks_label_default_width_dim=\dimen277
+\l__tasks_label_offset_dim=\dimen278
+\l__tasks_label_default_offset_dim=\dimen279
+\l__tasks_column_sep_dim=\dimen280
+\l__tasks_after_item_skip=\skip102
+\l__tasks_custom_after_item_skip=\skip103
+\l__tasks_before_list_skip=\skip104
+\l__tasks_after_list_skip=\skip105
+\l__tasks_item_coffin=\box73
+\l__tasks_label_coffin=\box74
+\c@task=\count326
+\l__tasks_tmpa_int=\count327
+\l__tasks_tmpb_int=\count328
+\l__tasks_tmpa_coffin=\box75
+.................................................
+. xtemplate info: "declare-object-type"
+. 
+. Declaring object type 'tasks' taking 3 argument(s) on line 379.
+.................................................
+\l__tasks_choice_width_dim=\dimen281
+\l__tasks_choice_linewidth_dim=\dimen282
+\l__tasks_choice_checkwidth_dim=\dimen283
+\l__tasks_choice_raise_dim=\dimen284
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \startnewitemline with sig. '' on line 692.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \NewTasks with sig. 'O{}mO{\task }D(){1}' on line 701.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \RenewTasks with sig. 'O{}mO{\task }D(){1}' on line 708.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-environment"
+. 
+. Defining environment 'tasks' with sig. 'O{}D(){1}' on line 714.
+.................................................
+\g__file_internal_ior=\read3
+
+(/usr/share/texlive/texmf-dist/tex/latex/tasks/tasks.cfg
+File: tasks.cfg 2016/08/13 v0.12 tasks instances
+)
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \settasks with sig. 'm' on line 722.
+.................................................
+)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count329
+\c@@ppsavesec=\count330
+\c@@ppsaveapp=\count331
+)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 90.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 92.
+
+Package hyperref Info: Option `breaklinks' set `true' on input line 306.
+Package hyperref Info: Option `colorlinks' set `true' on input line 306.
+Class revtex4-1 Info: Patching LaTeX tabular. on input line 313.
+
+Class revtex4-1 Warning: Repair the float package.
+
+Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 313
+.
+Class revtex4-1 Info: cite was not loaded (OK!) on input line 313.
+Class revtex4-1 Info: mcite was not loaded (OK!) on input line 313.
+Class revtex4-1 Info: multicol was not loaded (OK!) on input line 313.
+
+LaTeX Warning: Unused global option(s):
+    [8pt].
+
+No file DSPAssign11.aux.
+\openout1 = `DSPAssign11.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 313.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 313.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 313.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 313.
+LaTeX Font Info:    ... okay on input line 313.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-41.0pt
+* \headheight=25.0pt
+* \headsep=16.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=30.0pt
+* \marginparsep=6.0pt
+* \columnsep=18.0pt
+* \skip\footins=39.0pt plus 4.0pt minus 12.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package ragged2e Info: ABD: executing \RaggedRight on input line 313.
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 313.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count332
+\scratchdimen=\dimen285
+\scratchbox=\box76
+\nofMPsegments=\count333
+\nofMParguments=\count334
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count335
+\MPscratchDim=\dimen286
+\MPnumerator=\count336
+\makeMPintoPDFobject=\count337
+\everyMPtoPDFconversion=\toks50
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+\AtBeginShipoutBox=\box77
+Package hyperref Info: Link coloring ON on input line 313.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count338
+)
+LaTeX Info: Redefining \ref on input line 313.
+LaTeX Info: Redefining \pageref on input line 313.
+LaTeX Info: Redefining \nameref on input line 313.
+\@outlinefile=\write5
+\openout5 = `DSPAssign11.out'.
+
+\c@lstlisting=\count339
+Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 313.
+\openout3 = `DSPAssign11Notes.bib'.
+
+<EPFL-Logo.pdf, id=4, 142.5325pt x 68.255pt>
+File: EPFL-Logo.pdf Graphic file (type pdf)
+<use EPFL-Logo.pdf>
+Package pdftex.def Info: EPFL-Logo.pdf  used on input line 339.
+(pdftex.def)             Requested size: 114.02614pt x 54.60406pt.
+
+
+Class revtex4-1 Warning: Assuming \noaffiliation for authors.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@xarg' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@yarg' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@linelen' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\unitlength' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\vrule' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@halfwidth' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@halfwidth' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@linelen' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\bigskipamount' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@xarg' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@yarg' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@linelen' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\unitlength' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\vrule' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@halfwidth' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@halfwidth' on input line 342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@linelen' on input line 342.
+
+[0{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./EPFL-Logo.pdf>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 355.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 356.
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 367
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 399.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 399.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (823.81104pt too wide) in paragraph at lines 399--411
+ []$[]$ 
+ []
+
+[1] [2]
+Overfull \hbox (134.04495pt too wide) in paragraph at lines 502--526
+ []$[]$ 
+ []
+
+<DSPAssign11_files/DSPAssign11_10_0.png, id=36, 918.43124pt x 558.085pt>
+File: DSPAssign11_files/DSPAssign11_10_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_10_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_10_0.png  used on input 
+line 556.
+(pdftex.def)             Requested size: 918.429pt x 558.08365pt.
+[3]
+<DSPAssign11_files/DSPAssign11_10_1.png, id=42, 918.43124pt x 558.085pt>
+File: DSPAssign11_files/DSPAssign11_10_1.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_10_1.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_10_1.png  used on input 
+line 561.
+(pdftex.def)             Requested size: 918.429pt x 558.08365pt.
+<DSPAssign11_files/DSPAssign11_10_2.png, id=43, 925.4575pt x 558.085pt>
+File: DSPAssign11_files/DSPAssign11_10_2.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_10_2.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_10_2.png  used on input 
+line 566.
+(pdftex.def)             Requested size: 925.45525pt x 558.08365pt.
+ [4 <./DSPAssign11_files/DSPAssign11_10_0.png> <./DSPAssign11_files/DSPAssign11
+_10_1.png>] [5 <./DSPAssign11_files/DSPAssign11_10_2.png>] [6]
+Overfull \hbox (823.81104pt too wide) in paragraph at lines 664--676
+ []$[]$ 
+ []
+
+
+Overfull \hbox (134.04495pt too wide) in paragraph at lines 690--714
+ []$[]$ 
+ []
+
+<DSPAssign11_files/DSPAssign11_16_0.png, id=61, 1083.04625pt x 329.23pt>
+File: DSPAssign11_files/DSPAssign11_16_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_0.png  used on input 
+line 748.
+(pdftex.def)             Requested size: 1083.04361pt x 329.22919pt.
+[7]
+<DSPAssign11_files/DSPAssign11_16_1.png, id=66, 1083.04625pt x 329.23pt>
+File: DSPAssign11_files/DSPAssign11_16_1.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_1.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_1.png  used on input 
+line 753.
+(pdftex.def)             Requested size: 1083.04361pt x 329.22919pt.
+<DSPAssign11_files/DSPAssign11_16_2.png, id=67, 1083.04625pt x 602.25pt>
+File: DSPAssign11_files/DSPAssign11_16_2.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_2.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_2.png  used on input 
+line 758.
+(pdftex.def)             Requested size: 1083.04361pt x 602.24852pt.
+<DSPAssign11_files/DSPAssign11_16_3.png, id=68, 1083.04625pt x 492.84125pt>
+File: DSPAssign11_files/DSPAssign11_16_3.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_3.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_3.png  used on input 
+line 763.
+(pdftex.def)             Requested size: 1083.04361pt x 492.84003pt.
+ [8 <./DSPAssign11_files/DSPAssign11_16_0.png> <./DSPAssign11_files/DSPAssign11
+_16_1.png> <./DSPAssign11_files/DSPAssign11_16_2.png>]
+Overfull \hbox (961.58394pt too wide) in paragraph at lines 767--789
+ []$[]$ 
+ []
+
+<DSPAssign11_files/DSPAssign11_16_5.png, id=76, 1083.04625pt x 329.23pt>
+File: DSPAssign11_files/DSPAssign11_16_5.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_5.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_5.png  used on input 
+line 792.
+(pdftex.def)             Requested size: 1083.04361pt x 329.22919pt.
+<DSPAssign11_files/DSPAssign11_16_6.png, id=77, 918.43124pt x 558.085pt>
+File: DSPAssign11_files/DSPAssign11_16_6.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_6.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_6.png  used on input 
+line 797.
+(pdftex.def)             Requested size: 918.429pt x 558.08365pt.
+[9 <./DSPAssign11_files/DSPAssign11_16_3.png> <./DSPAssign11_files/DSPAssign11_
+16_5.png>]
+<DSPAssign11_files/DSPAssign11_16_7.png, id=84, 918.43124pt x 558.085pt>
+File: DSPAssign11_files/DSPAssign11_16_7.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_7.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_7.png  used on input 
+line 802.
+(pdftex.def)             Requested size: 918.429pt x 558.08365pt.
+<DSPAssign11_files/DSPAssign11_16_8.png, id=85, 925.4575pt x 558.085pt>
+File: DSPAssign11_files/DSPAssign11_16_8.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_16_8.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_16_8.png  used on input 
+line 807.
+(pdftex.def)             Requested size: 925.45525pt x 558.08365pt.
+ [10 <./DSPAssign11_files/DSPAssign11_16_6.png> <./DSPAssign11_files/DSPAssign1
+1_16_7.png>]
+Overfull \hbox (814.20227pt too wide) in paragraph at lines 835--847
+ []$[]$ 
+ []
+
+<DSPAssign11_files/DSPAssign11_20_1.png, id=92, 918.43124pt x 606.265pt>
+File: DSPAssign11_files/DSPAssign11_20_1.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_20_1.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_20_1.png  used on input 
+line 859.
+(pdftex.def)             Requested size: 918.429pt x 606.26352pt.
+[11 <./DSPAssign11_files/DSPAssign11_16_8.png>]
+<DSPAssign11_files/DSPAssign11_20_3.png, id=99, 918.43124pt x 606.265pt>
+File: DSPAssign11_files/DSPAssign11_20_3.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_20_3.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_20_3.png  used on input 
+line 869.
+(pdftex.def)             Requested size: 918.429pt x 606.26352pt.
+ [12 <./DSPAssign11_files/DSPAssign11_20_1.png> <./DSPAssign11_files/DSPAssign1
+1_20_3.png>]
+<DSPAssign11_files/DSPAssign11_20_5.png, id=107, 925.4575pt x 606.265pt>
+File: DSPAssign11_files/DSPAssign11_20_5.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_20_5.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_20_5.png  used on input 
+line 879.
+(pdftex.def)             Requested size: 925.45525pt x 606.26352pt.
+<DSPAssign11_files/DSPAssign11_28_0.png, id=108, 914.41624pt x 548.0475pt>
+File: DSPAssign11_files/DSPAssign11_28_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_28_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_28_0.png  used on input 
+line 916.
+(pdftex.def)             Requested size: 914.41402pt x 548.04616pt.
+ [13 <./DSPAssign11_files/DSPAssign11_20_5.png>]
+<DSPAssign11_files/DSPAssign11_30_0.png, id=115, 907.39pt x 548.0475pt>
+File: DSPAssign11_files/DSPAssign11_30_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_30_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_30_0.png  used on input 
+line 932.
+(pdftex.def)             Requested size: 907.38779pt x 548.04616pt.
+ [14 <./DSPAssign11_files/DSPAssign11_28_0.png> <./DSPAssign11_files/DSPAssign1
+1_30_0.png>]
+<DSPAssign11_files/DSPAssign11_33_0.png, id=122, 914.41624pt x 548.0475pt>
+File: DSPAssign11_files/DSPAssign11_33_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_33_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_33_0.png  used on input 
+line 950.
+(pdftex.def)             Requested size: 914.41402pt x 548.04616pt.
+<DSPAssign11_files/DSPAssign11_35_0.png, id=123, 907.39pt x 548.0475pt>
+File: DSPAssign11_files/DSPAssign11_35_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_35_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_35_0.png  used on input 
+line 964.
+(pdftex.def)             Requested size: 907.38779pt x 548.04616pt.
+ [15 <./DSPAssign11_files/DSPAssign11_33_0.png>]
+<DSPAssign11_files/DSPAssign11_37_0.png, id=129, 914.41624pt x 548.0475pt>
+File: DSPAssign11_files/DSPAssign11_37_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_37_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_37_0.png  used on input 
+line 978.
+(pdftex.def)             Requested size: 914.41402pt x 548.04616pt.
+ [16 <./DSPAssign11_files/DSPAssign11_35_0.png> <./DSPAssign11_files/DSPAssign1
+1_37_0.png>]
+<DSPAssign11_files/DSPAssign11_39_0.png, id=136, 900.36375pt x 548.0475pt>
+File: DSPAssign11_files/DSPAssign11_39_0.png Graphic file (type png)
+<use DSPAssign11_files/DSPAssign11_39_0.png>
+Package pdftex.def Info: DSPAssign11_files/DSPAssign11_39_0.png  used on input 
+line 994.
+(pdftex.def)             Requested size: 900.36156pt x 548.04616pt.
+
+No file DSPAssign11.bbl.
+[17 <./DSPAssign11_files/DSPAssign11_39_0.png>]
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1009.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1009.
+ (./DSPAssign11.aux)
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1009.
+
+
+
+Package rerunfilecheck Warning: File `DSPAssign11.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DSPAssign11.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  EB801B21F4D839BE3274F544D0FBE1EA;727.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
+
+
+ ) 
+Here is how much of TeX's memory you used:
+ 25551 strings out of 494923
+ 441882 string characters out of 6180743
+ 565329 words of memory out of 5000000
+ 28488 multiletter control sequences out of 15000+600000
+ 540749 words of font info for 45 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 61i,12n,53p,10389b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.
+600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/tcit1
+000.600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+cbi1000.600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecit1000.600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/tctt1000.600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ectt1000.600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/eccc1440.600pk> </home/herculez/.texlive2017/texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecrm1000.600pk> </home/herculez/.texlive2017/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/herculez/.texlive2017/texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/herculez/.texlive2017/texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk>
+Output written on DSPAssign11.pdf (18 pages, 829701 bytes).
+PDF statistics:
+ 499 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+
