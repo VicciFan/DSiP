@@ -1,0 +1,1823 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Data Science in Practice-Assignment 2}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Problem Set 2}\label{problem-set-2}
+
+    \paragraph{Imports and definition of helper fucntions such as
+plots}\label{imports-and-definition-of-helper-fucntions-such-as-plots}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{o}{!}python \PYZhy{}m pip install \PYZhy{}\PYZhy{}upgrade pip
+        \PY{o}{!}pip install python\PYZhy{}louvain
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc4828dfc59996d721917df8e8583ea85385d51125dceff/pip-19.0.3-py2.py3-none-any.whl (1.4MB)
+    100\% |████████████████████████████████| 1.4MB 6.6MB/s ta 0:00:011
+Installing collected packages: pip
+  Found existing installation: pip 18.1
+    Uninstalling pip-18.1:
+      Successfully uninstalled pip-18.1
+Successfully installed pip-19.0.3
+Collecting python-louvain
+  Downloading https://files.pythonhosted.org/packages/96/b2/c74bb9023c8d4bf94f5049e3d705b3064c6f180a38d772055d20ba5a8d06/python-louvain-0.13.tar.gz
+Requirement already satisfied: networkx in /Users/genmur/anaconda3/lib/python3.6/site-packages (from python-louvain) (2.1)
+Requirement already satisfied: decorator>=4.1.0 in /Users/genmur/anaconda3/lib/python3.6/site-packages (from networkx->python-louvain) (4.3.0)
+Building wheels for collected packages: python-louvain
+  Building wheel for python-louvain (setup.py) {\ldots} done
+  Stored in directory: /Users/genmur/Library/Caches/pip/wheels/f9/74/a9/14f051b00dddd46d71529db15507796da13a43ee2c0bc39def
+Successfully built python-louvain
+Installing collected packages: python-louvain
+Successfully installed python-louvain-0.13
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{o}{!}pip install powerlaw
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Collecting powerlaw
+  Downloading https://files.pythonhosted.org/packages/d5/4e/3ceab890fafff8e78a5fd7f5340c232c38b21d181fcd32d7a31079db3646/powerlaw-1.4.6.tar.gz
+Requirement already satisfied: scipy in /Users/genmur/anaconda3/lib/python3.6/site-packages (from powerlaw) (1.1.0)
+Requirement already satisfied: numpy in /Users/genmur/anaconda3/lib/python3.6/site-packages (from powerlaw) (1.14.3)
+Requirement already satisfied: matplotlib in /Users/genmur/anaconda3/lib/python3.6/site-packages (from powerlaw) (2.2.2)
+Requirement already satisfied: mpmath in /Users/genmur/anaconda3/lib/python3.6/site-packages (from powerlaw) (1.0.0)
+Requirement already satisfied: cycler>=0.10 in /Users/genmur/anaconda3/lib/python3.6/site-packages (from matplotlib->powerlaw) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /Users/genmur/anaconda3/lib/python3.6/site-packages (from matplotlib->powerlaw) (2.2.0)
+Requirement already satisfied: python-dateutil>=2.1 in /Users/genmur/anaconda3/lib/python3.6/site-packages (from matplotlib->powerlaw) (2.7.3)
+Requirement already satisfied: pytz in /Users/genmur/anaconda3/lib/python3.6/site-packages (from matplotlib->powerlaw) (2018.4)
+Requirement already satisfied: six>=1.10 in /Users/genmur/anaconda3/lib/python3.6/site-packages (from matplotlib->powerlaw) (1.11.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /Users/genmur/anaconda3/lib/python3.6/site-packages (from matplotlib->powerlaw) (1.0.1)
+Requirement already satisfied: setuptools in /Users/genmur/anaconda3/lib/python3.6/site-packages (from kiwisolver>=1.0.1->matplotlib->powerlaw) (39.1.0)
+Building wheels for collected packages: powerlaw
+  Building wheel for powerlaw (setup.py) {\ldots} done
+  Stored in directory: /Users/genmur/Library/Caches/pip/wheels/e0/27/02/08d0e2865072bfd8d7c655e290521e3feca3fc22f1ac460601
+Successfully built powerlaw
+Installing collected packages: powerlaw
+Successfully installed powerlaw-1.4.6
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{import} \PY{n+nn}{sys}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+        \PY{k+kn}{import} \PY{n+nn}{networkx} \PY{k}{as} \PY{n+nn}{nx}
+        \PY{k+kn}{from} \PY{n+nn}{networkx}\PY{n+nn}{.}\PY{n+nn}{algorithms}\PY{n+nn}{.}\PY{n+nn}{community} \PY{k}{import} \PY{n}{k\PYZus{}clique\PYZus{}communities}
+        \PY{k+kn}{import} \PY{n+nn}{community} \PY{k}{as} \PY{n+nn}{community}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib} \PY{k}{import} \PY{n}{cm}
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{colors} \PY{k}{import} \PY{n}{ListedColormap}\PY{p}{,} \PY{n}{LinearSegmentedColormap}
+        \PY{k+kn}{import} \PY{n+nn}{collections}
+        \PY{k+kn}{import} \PY{n+nn}{operator}
+        \PY{k+kn}{import} \PY{n+nn}{powerlaw} \PY{k}{as} \PY{n+nn}{pl}
+        \PY{k+kn}{from} \PY{n+nn}{multiprocessing} \PY{k}{import} \PY{n}{Pool}
+        \PY{k+kn}{import} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{sparse} \PY{k}{as} \PY{n+nn}{sp}
+        \PY{k+kn}{import} \PY{n+nn}{itertools}
+        \PY{k+kn}{import} \PY{n+nn}{pprint}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{style} \PY{k}{as} \PY{n+nn}{style} 
+        \PY{k+kn}{import} \PY{n+nn}{random}\PY{o}{,} \PY{n+nn}{time}
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{colors} \PY{k}{import} \PY{n}{rgb2hex}
+        \PY{k+kn}{import} \PY{n+nn}{io}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{p}{)}
+        \PY{n}{style}\PY{o}{.}\PY{n}{use}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Solarize\PYZus{}Light2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{whitegrid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{k}{def} \PY{n+nf}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{bins}\PY{p}{,} \PY{n}{normed} \PY{o}{=} \PY{k+kc}{False}\PY{p}{,} \PY{n}{xscale} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{linear}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{yscale} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{linear}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{use\PYZus{}log} \PY{o}{=} \PY{k+kc}{False}\PY{p}{,} \PY{n}{title} \PY{o}{=} \PY{k+kc}{None}\PY{p}{,} \PY{n}{xlabel} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{ylabel} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:} 
+            \PY{n}{density} \PY{o}{=} \PY{k+kc}{None}
+            \PY{k}{if}\PY{p}{(}\PY{n}{normed}\PY{p}{)}\PY{p}{:}
+                \PY{n}{density} \PY{o}{=} \PY{l+m+mi}{1}
+                \PY{n}{ylabel} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Probability}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{bins}\PY{o}{=}\PY{n}{bins}\PY{p}{,} \PY{n}{normed}\PY{o}{=}\PY{n}{density}\PY{p}{,} \PY{n}{log}\PY{o}{=}\PY{n}{use\PYZus{}log}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{n}{xlabel}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{n}{ylabel}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{}plt.xscale(yscale)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{yscale}\PY{p}{(}\PY{n}{yscale}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{n}{title}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+            
+        \PY{k}{def} \PY{n+nf}{print\PYZus{}in\PYZus{}degree\PYZus{}dist}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+            \PY{n}{degree\PYZus{}sequence} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{p}{[}\PY{n}{d} \PY{k}{for} \PY{n}{n}\PY{p}{,} \PY{n}{d} \PY{o+ow}{in} \PY{n}{G}\PY{o}{.}\PY{n}{in\PYZus{}degree}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}  \PY{c+c1}{\PYZsh{} degree sequence}
+            \PY{n}{degreeCount} \PY{o}{=} \PY{n}{collections}\PY{o}{.}\PY{n}{Counter}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{)} \PY{c+c1}{\PYZsh{} degree count}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Degree Distribution for network: }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{G}\PY{o}{.}\PY{n}{name}\PY{p}{)}
+            \PY{n}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{degreeCount}\PY{p}{)}\PY{p}{)}
+            \PY{n}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{degreeCount}\PY{p}{)}\PY{p}{,}\PY{n}{yscale}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{log}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}  
+           \PY{c+c1}{\PYZsh{} nx\PYZus{}hist(degree\PYZus{}sequence,len(degreeCount),yscale=\PYZsq{}log\PYZsq{},use\PYZus{}log=True) }
+            
+        \PY{k}{def} \PY{n+nf}{print\PYZus{}out\PYZus{}degree\PYZus{}dist}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+            \PY{n}{degree\PYZus{}sequence} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{p}{[}\PY{n}{d} \PY{k}{for} \PY{n}{n}\PY{p}{,} \PY{n}{d} \PY{o+ow}{in} \PY{n}{G}\PY{o}{.}\PY{n}{out\PYZus{}degree}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}  \PY{c+c1}{\PYZsh{} degree sequence}
+            \PY{n}{degreeCount} \PY{o}{=} \PY{n}{collections}\PY{o}{.}\PY{n}{Counter}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{)} \PY{c+c1}{\PYZsh{} degree count}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Degree Distribution for network: }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{G}\PY{o}{.}\PY{n}{name}\PY{p}{)}
+            \PY{n}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{degreeCount}\PY{p}{)}\PY{p}{)}
+            \PY{n}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{degreeCount}\PY{p}{)}\PY{p}{,}\PY{n}{yscale}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{log}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} 
+            \PY{c+c1}{\PYZsh{}nx\PYZus{}hist(degree\PYZus{}sequence,len(degreeCount),yscale=\PYZsq{}log\PYZsq{},use\PYZus{}log=True) }
+            
+        \PY{k}{def} \PY{n+nf}{print\PYZus{}degree\PYZus{}dist}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+            \PY{n}{degree\PYZus{}sequence} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{p}{[}\PY{n}{d} \PY{k}{for} \PY{n}{n}\PY{p}{,} \PY{n}{d} \PY{o+ow}{in} \PY{n}{G}\PY{o}{.}\PY{n}{degree}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}  \PY{c+c1}{\PYZsh{} degree sequence}
+            \PY{n}{degreeCount} \PY{o}{=} \PY{n}{collections}\PY{o}{.}\PY{n}{Counter}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{)} \PY{c+c1}{\PYZsh{} degree count}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Degree Distribution for network: }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{G}\PY{o}{.}\PY{n}{name}\PY{p}{)}
+            \PY{n}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{degreeCount}\PY{p}{)}\PY{p}{)}
+            \PY{n}{nx\PYZus{}hist}\PY{p}{(}\PY{n}{degree\PYZus{}sequence}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{degreeCount}\PY{p}{)}\PY{p}{,}\PY{n}{yscale}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{log}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} 
+            \PY{c+c1}{\PYZsh{}nx\PYZus{}hist(degree\PYZus{}sequence,len(degreeCount),yscale=\PYZsq{}log\PYZsq{},use\PYZus{}log=True) }
+        
+        \PY{k}{def} \PY{n+nf}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{n}{xlabel}\PY{p}{,}\PY{n}{ylabel}\PY{p}{,}\PY{n}{xmin}\PY{p}{,}\PY{n}{ymin}\PY{p}{,}\PY{n}{xmax}\PY{p}{,}\PY{n}{ymax}\PY{p}{)}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{y}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{n}{xmin}\PY{p}{,}\PY{n}{xmax}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{}plt.ylim(ymin,ymax)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{n}{xlabel}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{n}{ylabel}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Centrality Comparison for the selected Measures}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+            
+        \PY{k}{def} \PY{n+nf}{cc\PYZus{}cdf}\PY{p}{(}\PY{n}{cc\PYZus{}dict}\PY{p}{)}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{sorted}\PY{p}{(}\PY{n}{cc\PYZus{}dict}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{cc\PYZus{}dict}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{cc\PYZus{}dict}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Local Clustering Coefficient (c)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{P(x\PYZlt{}=c)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Clustering Coefficient CDF}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+            \PY{k}{return}
+        
+        \PY{k}{def} \PY{n+nf}{w\PYZus{}degree\PYZus{}centrality}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+            \PY{n}{keys} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{nx}\PY{o}{.}\PY{n}{get\PYZus{}edge\PYZus{}attributes}\PY{p}{(}\PY{n}{G}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{n}{tot} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{nx}\PY{o}{.}\PY{n}{get\PYZus{}edge\PYZus{}attributes}\PY{p}{(}\PY{n}{G}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+            \PY{n}{vals} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{degree}\PY{p}{(}\PY{n}{weight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n}{tot}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{zip}\PY{p}{(}\PY{n}{keys}\PY{p}{,} \PY{n}{vals}\PY{p}{)}\PY{p}{)}
+            
+        \PY{k}{def} \PY{n+nf}{in\PYZus{}degree\PYZus{}centrality}\PY{p}{(}\PY{n}{G}\PY{p}{,}\PY{n}{weights}\PY{p}{)}\PY{p}{:}
+            \PY{n}{values\PYZus{}list} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{edges}\PY{o}{.}\PY{n}{data}\PY{p}{(}\PY{n}{weights}\PY{p}{)}\PY{p}{)}
+            \PY{n}{val\PYZus{}num} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{values\PYZus{}list}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{9651}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+            \PY{n}{vals} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{in\PYZus{}degree}\PY{p}{(}\PY{n}{weight}\PY{o}{=}\PY{n}{weights}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{val\PYZus{}num}\PY{p}{)}\PY{p}{)}
+            \PY{n}{keys} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{idc\PYZus{}G}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{zip}\PY{p}{(}\PY{n}{keys}\PY{p}{,} \PY{n}{vals}\PY{p}{)}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{out\PYZus{}degree\PYZus{}centrality}\PY{p}{(}\PY{n}{G}\PY{p}{,}\PY{n}{weights}\PY{p}{)}\PY{p}{:}
+            \PY{n}{values\PYZus{}list} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{edges}\PY{o}{.}\PY{n}{data}\PY{p}{(}\PY{n}{weights}\PY{p}{)}\PY{p}{)}
+            \PY{n}{val\PYZus{}num} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{values\PYZus{}list}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{9651}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+            \PY{n}{vals} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{out\PYZus{}degree}\PY{p}{(}\PY{n}{weight}\PY{o}{=}\PY{n}{weights}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{val\PYZus{}num}\PY{p}{)}\PY{p}{)}
+            \PY{n}{keys} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{idc\PYZus{}G}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{zip}\PY{p}{(}\PY{n}{keys}\PY{p}{,} \PY{n}{vals}\PY{p}{)}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{print\PYZus{}node\PYZus{}data}\PY{p}{(}\PY{n}{G}\PY{p}{,}\PY{n+nb}{max}\PY{p}{)}\PY{p}{:}
+            \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{k}{for} \PY{n}{n}\PY{p}{,} \PY{n}{d} \PY{o+ow}{in} \PY{n}{G}\PY{o}{.}\PY{n}{nodes}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{i} \PY{o}{\PYZlt{}} \PY{n+nb}{max}\PY{p}{:}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{n}{n}\PY{p}{,}\PY{n}{d}\PY{p}{)}
+                \PY{n}{i} \PY{o}{=} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}
+            \PY{k}{return}
+        
+        \PY{k}{def} \PY{n+nf}{ret\PYZus{}nodelist}\PY{p}{(}\PY{n}{DM\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{,}\PY{n}{N}\PY{p}{)}\PY{p}{:}
+        
+            \PY{n}{G\PYZus{}GCC\PYZus{}degs} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{sorted}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{o}{.}\PY{n}{degree}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
+            \PY{n}{G\PYZus{}GCC\PYZus{}min\PYZus{}degs} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{n}{value}\PY{p}{)} \PY{k}{for} \PY{n}{key}\PY{p}{,}\PY{n}{value} \PY{o+ow}{in} \PY{n}{G\PYZus{}GCC\PYZus{}degs}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)} \PY{k}{if} \PY{p}{(}\PY{n}{value} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}G\PYZus{}GCC\PYZus{}top10\PYZus{}names = [key for key, value in G\PYZus{}GCC\PYZus{}degs.items()][0:N]}
+            \PY{c+c1}{\PYZsh{}G\PYZus{}GCC\PYZus{}top10 = [value for key, value in G\PYZus{}GCC\PYZus{}degs.items()][0:N]}
+            
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Top 10 highest degree nodes and values:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{v} \PY{o+ow}{in} \PY{n}{G\PYZus{}GCC\PYZus{}degs}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{i} \PY{o}{\PYZlt{}} \PY{n}{N}\PY{p}{:}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{v}\PY{p}{)}
+                \PY{n}{i} \PY{o}{=} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}
+            \PY{c+c1}{\PYZsh{}return [G\PYZus{}GCC\PYZus{}top10\PYZus{}names, G\PYZus{}GCC\PYZus{}top10]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{read\PYZus{}edgelist}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SMS\PYZhy{}network.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \paragraph{Basic Network statistics and degree
+distribution}\label{basic-network-statistics-and-degree-distribution}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{nx}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Name: 
+Type: Graph
+Number of nodes: 4039
+Number of edges: 88234
+Average degree:  43.6910
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{G\PYZus{}GCC} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{nx}\PY{o}{.}\PY{n}{connected\PYZus{}component\PYZus{}subgraphs}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{n+nb}{len}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{}G\PYZus{}game\PYZus{}GCC = max(nx.connected\PYZus{}component\PYZus{}subgraphs(G\PYZus{}game), key=len)}
+        \PY{c+c1}{\PYZsh{}G\PYZus{}game\PYZus{}uw\PYZus{}GCC = max(nx.connected\PYZus{}component\PYZus{}subgraphs(G\PYZus{}game\PYZus{}uw), key=len)}
+        \PY{c+c1}{\PYZsh{}nx.set\PYZus{}node\PYZus{}attributes(G\PYZus{}game\PYZus{}uw\PYZus{}GCC,cat\PYZus{}dict)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{nx}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}\PY{p}{)}
+        \PY{n}{print\PYZus{}degree\PYZus{}dist}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Name: 
+Type: Graph
+Number of nodes: 4039
+Number of edges: 88234
+Average degree:  43.6910
+Empirical Degree Distribution for network: 
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k}{def} \PY{n+nf}{calculate\PYZus{}powerlaw}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}\PY{p}{:}
+            \PY{n}{G\PYZus{}deg} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{p}{[}\PY{n}{d} \PY{k}{for} \PY{n}{n}\PY{p}{,} \PY{n}{d} \PY{o+ow}{in} \PY{n}{G\PYZus{}GCC}\PY{o}{.}\PY{n}{degree}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}:\PYZca{}30\PYZcb{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}:\PYZca{}7\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minimum number of neighbors:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{G\PYZus{}deg}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}:\PYZca{}30\PYZcb{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}:\PYZca{}7\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Maximum number of neighbors:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{G\PYZus{}deg}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}:\PYZca{}30\PYZcb{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}:\PYZca{}7.3f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Mean number of neighbors:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{G\PYZus{}deg}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{G\PYZus{}deg}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n}{fit\PYZus{}G} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{Fit}\PY{p}{(}\PY{n}{G\PYZus{}deg}\PY{p}{)}
+        
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Power Law vs Exponential:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{R}\PY{p}{,} \PY{n}{p} \PY{o}{=} \PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{distribution\PYZus{}compare}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{power\PYZus{}law}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{exponential}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R = }\PY{l+s+si}{\PYZob{}:.5f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{R}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{p = }\PY{l+s+si}{\PYZob{}:.5f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{p}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Power Law vs Lognormal:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{R}\PY{p}{,} \PY{n}{p} \PY{o}{=} \PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{distribution\PYZus{}compare}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{power\PYZus{}law}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lognormal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R = }\PY{l+s+si}{\PYZob{}:.5f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{R}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{p = }\PY{l+s+si}{\PYZob{}:.5f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{p}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lognormal vs Exponential:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{R}\PY{p}{,} \PY{n}{p} \PY{o}{=} \PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{distribution\PYZus{}compare}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lognormal\PYZus{}positive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{exponential}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R = }\PY{l+s+si}{\PYZob{}:.5f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{R}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{p = }\PY{l+s+si}{\PYZob{}:.5f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{p}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+            \PY{n}{fig} \PY{o}{=} \PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{plot\PYZus{}ccdf}\PY{p}{(}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Empirical CCDF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{power\PYZus{}law}\PY{o}{.}\PY{n}{plot\PYZus{}ccdf}\PY{p}{(}\PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{fig}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fitted Powerlaw CCDF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{lognormal\PYZus{}positive}\PY{o}{.}\PY{n}{plot\PYZus{}ccdf}\PY{p}{(}\PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{fig}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fitted Lognormal CCDF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of Neighbors}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+        
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fitted parameter alpha of the power law distribution: }\PY{l+s+si}{\PYZob{}:.3f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{power\PYZus{}law}\PY{o}{.}\PY{n}{alpha}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Standard error of alpha: }\PY{l+s+si}{\PYZob{}:.3f\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{fit\PYZus{}G}\PY{o}{.}\PY{n}{power\PYZus{}law}\PY{o}{.}\PY{n}{sigma}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{calculate\PYZus{}powerlaw}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ Minimum number of neighbors: 	 1045  
+ Maximum number of neighbors: 	   1   
+  Mean number of neighbors:   	43.691 
+Power Law vs Exponential:
+R = 23.37320
+p = 0.06533
+Power Law vs Lognormal:
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Calculating best minimal value for power law fit
+/Users/genmur/anaconda3/lib/python3.6/site-packages/powerlaw.py:700: RuntimeWarning: invalid value encountered in true\_divide
+  (Theoretical\_CDF * (1 - Theoretical\_CDF))
+/Users/genmur/anaconda3/lib/python3.6/site-packages/powerlaw.py:1605: RuntimeWarning: invalid value encountered in true\_divide
+  CDF = CDF/norm
+'nan' in fit cumulative distribution values.
+Likely underflow or overflow error: the optimal fit for this distribution gives values that are so extreme that we lack the numerical precision to calculate them.
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+R = -0.92839
+p = 0.18551
+Lognormal vs Exponential:
+R = 21.77665
+p = 0.05531
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_12_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Fitted parameter alpha of the power law distribution: 5.993
+Standard error of alpha: 0.351
+
+    \end{Verbatim}
+
+    Exponential, Lognormal, and powerlaw distributions were compared through
+distribution distance. The best fit for the network would appear to be a
+lognormal distribution, but as we can see the powerlaw distribution is
+close enough to the true TCDF (and indeed the R coefficient is only 0.59
+in favor of the lognormal) to asset that the network follows a power law
+distribution.
+
+This implies that the network does exhibit some scale free properties,
+which is relatively expected of networks of this type where their
+embedding is extremely high dimensional, and no prior structural
+constraints other than the network topology are placed: users can freely
+navigate from any page to any other page.
+
+    \paragraph{Clustering and Other Network
+Figures}\label{clustering-and-other-network-figures}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{k}{def} \PY{n+nf}{calculate\PYZus{}clustering}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}\PY{p}{:}
+             \PY{n}{clust\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{clustering}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)} \PY{c+c1}{\PYZsh{}network clustering coeff for all nodes}
+             \PY{n}{C\PYZus{}G} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{clust\PYZus{}G}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{clust\PYZus{}G}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}average clustering coefficient}
+             \PY{n}{T\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{transitivity}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)} \PY{c+c1}{\PYZsh{}transitivity}
+             \PY{n}{D\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{density}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)} \PY{c+c1}{\PYZsh{}density}
+             \PY{n}{cc\PYZus{}cdf}\PY{p}{(}\PY{n}{clust\PYZus{}G}\PY{p}{)} \PY{c+c1}{\PYZsh{}clustering coefficient cdf}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Average Clustering:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{C\PYZus{}G}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Overall Clustering (Transitivity):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{T\PYZus{}G}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Network Density}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{D\PYZus{}G}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Avg Clustering to Density Ratio:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{C\PYZus{}G}\PY{o}{/}\PY{n}{D\PYZus{}G}\PY{p}{)}
+             
+             \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Density}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Overall clust}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Average clust}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Avg Clustering to Density Ratio}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Density}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{D\PYZus{}G}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Overall clust}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{T\PYZus{}G}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Average clust}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{C\PYZus{}G}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Avg Clustering to Density Ratio}\PY{l+s+s1}{\PYZsq{}} \PY{p}{:} \PY{n}{C\PYZus{}G}\PY{o}{/}\PY{n}{D\PYZus{}G} \PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{k}{return} \PY{n}{df}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{df} \PY{o}{=} \PY{n}{calculate\PYZus{}clustering}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Average Clustering: 0.6055467186200865
+Overall Clustering (Transitivity): 0.5191742775433075
+Network Density 0.010819963503439287
+Avg Clustering to Density Ratio: 55.96568957257614
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+   Density  Overall clust  Average clust  Avg Clustering to Density Ratio
+0  0.01082       0.519174       0.605547                         55.96569
+    \end{verbatim}
+
+    
+    As can be seen from the table, the network is sparse: the density is
+0.01 \textless{}\textless{} 1. However, the network does seem to exhibit
+a high clustering property in that the average clustering is 55 times
+the density (where the density corresponds to the would-be average
+clustering if the network were randomly generated).
+
+Given that the CDF tails off towards the end, this implies that the
+nodes in the network have a rather wide range of clustering
+coefficients, which given the context is relatively unsurprising.
+
+    Note: The Floyd Warshall Matrix takes a LONG time to compute (i7 8700k
+overclocked), and weighs 500mb approximately. Loading it in compressed
+is a whole other deal.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{k}{def} \PY{n+nf}{calculate\PYZus{}distances}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{,}\PY{n}{flag}\PY{p}{,}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{flag}\PY{p}{:}
+                 \PY{n}{DM\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{floyd\PYZus{}warshall\PYZus{}numpy}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+                 \PY{n}{np}\PY{o}{.}\PY{n}{savez\PYZus{}compressed}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{n}{DM\PYZus{}G}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}\PY{p}{)}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{k}{with} \PY{n}{np}\PY{o}{.}\PY{n}{load}\PY{p}{(}\PY{n}{filename}\PY{p}{)} \PY{k}{as} \PY{n}{data}\PY{p}{:}
+                     \PY{n}{DM\PYZus{}G} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{arr\PYZus{}0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+             \PY{n}{dia\PYZus{}G} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{DM\PYZus{}G}\PY{p}{)} \PY{c+c1}{\PYZsh{} network diameter}
+             \PY{n}{avg\PYZus{}spl\PYZus{}G} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{DM\PYZus{}G}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{o}{.}\PY{n}{nodes}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{o}{.}\PY{n}{nodes}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}avg shortest path length}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Diameter:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dia\PYZus{}G}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Average Shortest Path Length:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{avg\PYZus{}spl\PYZus{}G}\PY{p}{)}
+             
+             \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Diameter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Average Shortest Path Length}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Diameter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{dia\PYZus{}G}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Average Shortest Path Length}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{avg\PYZus{}spl\PYZus{}G}\PY{p}{,}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{n}{display}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+             \PY{k}{return} \PY{n}{DM\PYZus{}G}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{DM\PYZus{}G} \PY{o}{=} \PY{n}{calculate\PYZus{}distances}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dm\PYZus{}mat.npz}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Diameter: 8
+Average Shortest Path Length: 3.6925068496963913
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+   Diameter  Average Shortest Path Length
+0       8.0                      3.692507
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{ret\PYZus{}nodelist}\PY{p}{(}\PY{n}{DM\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Top 10 highest degree nodes and values:
+107 1045
+1684 792
+1912 755
+3437 547
+0 347
+2543 294
+2347 291
+1888 254
+1800 245
+1663 235
+
+    \end{Verbatim}
+
+    \section{3. Centrality Measures}\label{centrality-measures}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{k}{def} \PY{n+nf}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{D}\PY{p}{,}\PY{n}{G}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{}where G is the graph and D is the centrality measure dict}
+             \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Node ID}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Centrality Score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{c+c1}{\PYZsh{}nodeDict = dict(G.nodes(data=True))}
+             \PY{n}{D\PYZus{}sorted} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{sorted}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{n}{operator}\PY{o}{.}\PY{n}{itemgetter}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
+             \PY{n}{D\PYZus{}list} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{D\PYZus{}sorted}\PY{p}{)}
+             \PY{n}{L} \PY{o}{=} \PY{n}{D\PYZus{}list}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}
+             \PY{c+c1}{\PYZsh{}top\PYZus{}10\PYZus{}dict = \PYZob{}k:nodeDict[k] for k in L if k in nodeDict\PYZcb{}}
+             \PY{n}{top\PYZus{}10\PYZus{}vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{D\PYZus{}sorted}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{)}
+             
+             \PY{c+c1}{\PYZsh{}print(top\PYZus{}10\PYZus{}dict)}
+             \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{l} \PY{o+ow}{in} \PY{n}{L}\PY{p}{:}        
+                 \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Node ID}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{l}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Centrality Score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{top\PYZus{}10\PYZus{}vals}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+                 \PY{n}{i} \PY{o}{=} \PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}
+             \PY{n}{display}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{k}{def} \PY{n+nf}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{D}\PY{p}{,}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+             \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Node ID}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Centrality Score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{D\PYZus{}sorted} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{sorted}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{n}{operator}\PY{o}{.}\PY{n}{itemgetter}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
+             \PY{n}{D\PYZus{}list} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{D\PYZus{}sorted}\PY{p}{)}
+             
+             \PY{n}{S\PYZus{}top200} \PY{o}{=} \PY{n}{D\PYZus{}list}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{200}\PY{p}{]} 
+             \PY{n}{S\PYZus{}top200\PYZus{}value} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{D\PYZus{}sorted}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{200}\PY{p}{]}\PY{p}{)}
+             
+             \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{l} \PY{o+ow}{in} \PY{n}{S\PYZus{}top200}\PY{p}{:}        
+                 \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Node ID}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{l}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Centrality Score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{S\PYZus{}top200\PYZus{}value}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+                 \PY{n}{i} \PY{o}{=} \PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}
+             \PY{k}{return} \PY{n}{df}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{c+c1}{\PYZsh{}Networkx: Parallel Implementation of Betweenness Centrality}
+         \PY{k}{def} \PY{n+nf}{chunks}\PY{p}{(}\PY{n}{l}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Divide a list of nodes `l` in `n` chunks\PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{n}{l\PYZus{}c} \PY{o}{=} \PY{n+nb}{iter}\PY{p}{(}\PY{n}{l}\PY{p}{)}
+             \PY{k}{while} \PY{l+m+mi}{1}\PY{p}{:}
+                 \PY{n}{x} \PY{o}{=} \PY{n+nb}{tuple}\PY{p}{(}\PY{n}{itertools}\PY{o}{.}\PY{n}{islice}\PY{p}{(}\PY{n}{l\PYZus{}c}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{)}
+                 \PY{k}{if} \PY{o+ow}{not} \PY{n}{x}\PY{p}{:}
+                     \PY{k}{return}
+                 \PY{k}{yield} \PY{n}{x}
+         
+         
+         \PY{k}{def} \PY{n+nf}{\PYZus{}betmap}\PY{p}{(}\PY{n}{G\PYZus{}normalized\PYZus{}weight\PYZus{}sources\PYZus{}tuple}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Pool for multiprocess only accepts functions with one argument.}
+         \PY{l+s+sd}{    This function uses a tuple as its only argument. We use a named tuple for}
+         \PY{l+s+sd}{    python 3 compatibility, and then unpack it when we send it to}
+         \PY{l+s+sd}{    `betweenness\PYZus{}centrality\PYZus{}source`}
+         \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{k}{return} \PY{n}{nx}\PY{o}{.}\PY{n}{betweenness\PYZus{}centrality\PYZus{}source}\PY{p}{(}\PY{o}{*}\PY{n}{G\PYZus{}normalized\PYZus{}weight\PYZus{}sources\PYZus{}tuple}\PY{p}{)}
+         
+         
+         \PY{k}{def} \PY{n+nf}{betweenness\PYZus{}centrality\PYZus{}parallel}\PY{p}{(}\PY{n}{G}\PY{p}{,} \PY{n}{processes}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Parallel betweenness centrality  function\PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{n}{p} \PY{o}{=} \PY{n}{Pool}\PY{p}{(}\PY{n}{processes}\PY{o}{=}\PY{n}{processes}\PY{p}{)}
+             \PY{n}{node\PYZus{}divisor} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{p}\PY{o}{.}\PY{n}{\PYZus{}pool}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{4}
+             \PY{n}{node\PYZus{}chunks} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{chunks}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{nodes}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{G}\PY{o}{.}\PY{n}{order}\PY{p}{(}\PY{p}{)} \PY{o}{/} \PY{n}{node\PYZus{}divisor}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{num\PYZus{}chunks} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{node\PYZus{}chunks}\PY{p}{)}
+             \PY{n}{bt\PYZus{}sc} \PY{o}{=} \PY{n}{p}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{n}{\PYZus{}betmap}\PY{p}{,}
+                           \PY{n+nb}{zip}\PY{p}{(}\PY{p}{[}\PY{n}{G}\PY{p}{]} \PY{o}{*} \PY{n}{num\PYZus{}chunks}\PY{p}{,}
+                               \PY{p}{[}\PY{k+kc}{True}\PY{p}{]} \PY{o}{*} \PY{n}{num\PYZus{}chunks}\PY{p}{,}
+                               \PY{p}{[}\PY{k+kc}{None}\PY{p}{]} \PY{o}{*} \PY{n}{num\PYZus{}chunks}\PY{p}{,}
+                               \PY{n}{node\PYZus{}chunks}\PY{p}{)}\PY{p}{)}
+         
+             \PY{c+c1}{\PYZsh{} Reduce the partial solutions}
+             \PY{n}{bt\PYZus{}c} \PY{o}{=} \PY{n}{bt\PYZus{}sc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+             \PY{k}{for} \PY{n}{bt} \PY{o+ow}{in} \PY{n}{bt\PYZus{}sc}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{:}
+                 \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{bt}\PY{p}{:}
+                     \PY{n}{bt\PYZus{}c}\PY{p}{[}\PY{n}{n}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{bt}\PY{p}{[}\PY{n}{n}\PY{p}{]}
+             \PY{k}{return} \PY{n}{bt\PYZus{}c}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{n}{bc\PYZus{}G} \PY{o}{=} \PY{n}{betweenness\PYZus{}centrality\PYZus{}parallel}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{dc\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{degree\PYZus{}centrality}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{pr\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{pagerank}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{n}{ev\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{eigenvector\PYZus{}centrality\PYZus{}numpy}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{katz\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{katz\PYZus{}centrality\PYZus{}numpy}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{n}{cc\PYZus{}G} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{closeness\PYZus{}centrality}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree vs Unweighted Centralities:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{bc\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Betweenness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.4}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{pr\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pagerank}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.4}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{ev\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Eigenvector Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.4}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{katz\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Katz Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.4}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Degree vs Unweighted Centralities:
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Centralitiy Comparison:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{bc\PYZus{}G}\PY{p}{,}\PY{n}{pr\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Betweenness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pagerank}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.05}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{pr\PYZus{}G}\PY{p}{,}\PY{n}{ev\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pagerank}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Eignenvector Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.01}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{pr\PYZus{}G}\PY{p}{,}\PY{n}{katz\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pagerank}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Katz Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.008}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Centralitiy Comparison:
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    As shown above, except for katz, measures agree with each other in a
+propotional manner.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Closeness Centrality:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{cc\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Closeness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+         \PY{n}{plot\PYZus{}centrality}\PY{p}{(}\PY{n}{bc\PYZus{}G}\PY{p}{,}\PY{n}{cc\PYZus{}G}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Betweeness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Closeness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.06}\PY{p}{,}\PY{l+m+mf}{0.02}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Closeness Centrality:
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_33_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_33_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    In the plots above, relating both degree and betweenness centrality to
+closeness centrality we get a more skewed linear relationship, with
+closeness attributing value to some nodes where betweenness and degree
+give very little. One could intepret this as, in the overall sense,
+there being some relationship between the number of shortest paths going
+through a node being proportional to the inverse of the distance of
+those shortest paths, in other words, how effective a player is in
+getting from source to sink is ultimately dependent on how much a given
+node acts as a hub (how many links to other pages a given article has,
+and how common of a topic is that article about).
+
+    \paragraph{Print top 10 entries according to
+measures}\label{print-top-10-entries-according-to-measures}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Degree Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{S\PYZus{}dc}\PY{o}{=}\PY{n}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{dc\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{S\PYZus{}dc}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Closeness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{cc\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{S\PYZus{}cc}\PY{o}{=}\PY{n}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{cc\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{S\PYZus{}cc}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Betweenness Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{bc\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{S\PYZus{}bc}\PY{o}{=}\PY{n}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{bc\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{S\PYZus{}bc}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Page Rank}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{pr\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{S\PYZus{}pr}\PY{o}{=}\PY{n}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{pr\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{S\PYZus{}pr}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Eigenvector Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{ev\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{S\PYZus{}ev}\PY{o}{=}\PY{n}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{ev\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{S\PYZus{}ev}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Katz Centrality}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}top\PYZus{}10}\PY{p}{(}\PY{n}{katz\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n}{S\PYZus{}katz}\PY{o}{=}\PY{n}{store\PYZus{}top\PYZus{}200}\PY{p}{(}\PY{n}{katz\PYZus{}G}\PY{p}{,}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{S\PYZus{}katz}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}S\PYZus{}xx stores the possible targets}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Degree Centrality
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+  Node ID  Centrality Score
+0     107          0.258791
+1    1684          0.196137
+2    1912          0.186974
+3    3437          0.135463
+4       0          0.085934
+5    2543          0.072808
+6    2347          0.072065
+7    1888          0.062902
+8    1800          0.060674
+9    1663          0.058197
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Node ID  Centrality Score
+0       107          0.258791
+1      1684          0.196137
+2      1912          0.186974
+3      3437          0.135463
+4         0          0.085934
+5      2543          0.072808
+6      2347          0.072065
+7      1888          0.062902
+8      1800          0.060674
+9      1663          0.058197
+10     2266          0.057949
+11     1352          0.057949
+12      483          0.057207
+13      348          0.056711
+14     1730          0.055968
+15     1985          0.055473
+16     1941          0.055225
+17     2233          0.054978
+18     2142          0.054730
+19     1431          0.054482
+20     1199          0.053739
+21     1584          0.052254
+22     2206          0.052006
+23     1768          0.051758
+24     2410          0.051263
+25     2229          0.051263
+26     2611          0.051263
+27     1589          0.050768
+28     2047          0.050768
+29     2218          0.050768
+..      {\ldots}               {\ldots}
+170    2283          0.039871
+171    2446          0.039871
+172    2154          0.039624
+173    2112          0.039624
+174    2333          0.039624
+175    1554          0.039624
+176    2289          0.039624
+177    2482          0.039624
+178    2133          0.039376
+179     414          0.039376
+180    1516          0.039376
+181    2121          0.039128
+182    2370          0.039128
+183    2020          0.039128
+184    1184          0.039128
+185    2551          0.039128
+186    2253          0.038881
+187    1522          0.038633
+188    1736          0.038633
+189    2087          0.038633
+190    1185          0.038633
+191    1813          0.038633
+192    2308          0.038633
+193    1718          0.038385
+194    2299          0.038385
+195    2005          0.038385
+196    2257          0.038385
+197    2561          0.038385
+198    2095          0.038138
+199     993          0.038138
+
+[200 rows x 2 columns]
+Closeness Centrality
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+  Node ID  Centrality Score
+0     107          0.459699
+1      58          0.397402
+2     428          0.394837
+3     563          0.393913
+4    1684          0.393606
+5     171          0.370493
+6     348          0.369916
+7     483          0.369848
+8     414          0.369543
+9     376          0.366558
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Node ID  Centrality Score
+0       107          0.459699
+1        58          0.397402
+2       428          0.394837
+3       563          0.393913
+4      1684          0.393606
+5       171          0.370493
+6       348          0.369916
+7       483          0.369848
+8       414          0.369543
+9       376          0.366558
+10      475          0.366192
+11      566          0.364967
+12     1666          0.364704
+13     1534          0.364605
+14      484          0.363162
+15      353          0.363097
+16     1171          0.362445
+17      651          0.362282
+18      420          0.361019
+19     1085          0.357852
+20     1687          0.357250
+21     1577          0.357187
+22     1718          0.356651
+23     1165          0.356493
+24     1136          0.356305
+25     1465          0.354615
+26        0          0.353343
+27     1912          0.350947
+28      580          0.345040
+29     1505          0.342755
+..      {\ldots}               {\ldots}
+170    1431          0.320425
+171    1199          0.320349
+172     629          0.320324
+173     649          0.320324
+174     917          0.320298
+175    1377          0.320197
+176    1612          0.320146
+177    1589          0.320044
+178    1078          0.320019
+179    1746          0.319968
+180    1827          0.319943
+181     896          0.319943
+182    1813          0.319918
+183    1277          0.319892
+184    1487          0.319867
+185    1238          0.319816
+186    1622          0.319816
+187    1804          0.319791
+188    1390          0.319740
+189    1645          0.319715
+190    1604          0.319715
+191    1616          0.319690
+192    1833          0.319690
+193    1620          0.319664
+194    1783          0.319664
+195    1844          0.319639
+196    1367          0.319588
+197    1714          0.319588
+198    1559          0.319563
+199    1707          0.319538
+
+[200 rows x 2 columns]
+Betweenness Centrality
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+  Node ID  Centrality Score
+0     107          0.480518
+1    1684          0.337797
+2    3437          0.236115
+3    1912          0.229295
+4    1085          0.149015
+5       0          0.146306
+6     698          0.115330
+7     567          0.096310
+8      58          0.084360
+9     428          0.064309
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Node ID  Centrality Score
+0       107          0.480518
+1      1684          0.337797
+2      3437          0.236115
+3      1912          0.229295
+4      1085          0.149015
+5         0          0.146306
+6       698          0.115330
+7       567          0.096310
+8        58          0.084360
+9       428          0.064309
+10      563          0.062780
+11      860          0.057826
+12      414          0.047633
+13     1577          0.039785
+14      348          0.037998
+15     1718          0.037343
+16      686          0.029722
+17      594          0.028803
+18      136          0.026870
+19     3980          0.024820
+20     1465          0.024572
+21      171          0.015492
+22      862          0.011748
+23      483          0.010308
+24     2543          0.007605
+25     3830          0.006437
+26      376          0.006196
+27     1666          0.006175
+28     1420          0.006057
+29     1534          0.005948
+..      {\ldots}               {\ldots}
+170     772          0.000472
+171     213          0.000468
+172    3750          0.000464
+173    1537          0.000458
+174    2081          0.000455
+175    2384          0.000449
+176    1617          0.000448
+177    3721          0.000444
+178    2512          0.000441
+179    3550          0.000439
+180    1338          0.000436
+181    3872          0.000434
+182    3651          0.000434
+183     601          0.000427
+184    1540          0.000422
+185    3886          0.000420
+186    1702          0.000416
+187     391          0.000412
+188    2111          0.000412
+189     500          0.000410
+190     169          0.000402
+191     422          0.000386
+192     908          0.000385
+193     525          0.000385
+194     921          0.000382
+195    3556          0.000370
+196     857          0.000369
+197    2054          0.000362
+198     804          0.000362
+199    2176          0.000358
+
+[200 rows x 2 columns]
+Page Rank
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+  Node ID  Centrality Score
+0    3437          0.007615
+1     107          0.006936
+2    1684          0.006367
+3       0          0.006290
+4    1912          0.003877
+5     348          0.002348
+6     686          0.002219
+7    3980          0.002170
+8     414          0.001800
+9     698          0.001317
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Node ID  Centrality Score
+0      3437          0.007615
+1       107          0.006936
+2      1684          0.006367
+3         0          0.006290
+4      1912          0.003877
+5       348          0.002348
+6       686          0.002219
+7      3980          0.002170
+8       414          0.001800
+9       698          0.001317
+10      483          0.001297
+11     3830          0.001184
+12      376          0.000901
+13     2047          0.000841
+14       56          0.000804
+15       25          0.000800
+16      828          0.000789
+17      322          0.000787
+18      475          0.000785
+19      428          0.000780
+20       67          0.000772
+21     3596          0.000766
+22     2313          0.000754
+23      713          0.000749
+24      271          0.000746
+25      563          0.000740
+26      917          0.000733
+27      119          0.000732
+28     3545          0.000727
+29     3938          0.000727
+..      {\ldots}               {\ldots}
+170     170          0.000507
+171    1078          0.000507
+172    3611          0.000506
+173     465          0.000505
+174    3677          0.000505
+175    3256          0.000504
+176    1399          0.000503
+177    1622          0.000503
+178     272          0.000503
+179    1471          0.000502
+180    3150          0.000502
+181    1104          0.000502
+182    1610          0.000500
+183      98          0.000500
+184    3019          0.000500
+185     199          0.000497
+186    3877          0.000496
+187      40          0.000496
+188    1235          0.000496
+189    3758          0.000495
+190    1391          0.000495
+191    3680          0.000495
+192    1204          0.000493
+193    2007          0.000493
+194    3201          0.000493
+195    2054          0.000492
+196    3076          0.000492
+197    2598          0.000491
+198    3002          0.000490
+199    1211          0.000489
+
+[200 rows x 2 columns]
+Eigenvector Centrality
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+  Node ID  Centrality Score
+0    1912          0.095406
+1    2266          0.086983
+2    2206          0.086053
+3    2233          0.085173
+4    2464          0.084279
+5    2142          0.084193
+6    2218          0.084156
+7    2078          0.084136
+8    2123          0.083672
+9    1993          0.083533
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Node ID  Centrality Score
+0      1912          0.095406
+1      2266          0.086983
+2      2206          0.086053
+3      2233          0.085173
+4      2464          0.084279
+5      2142          0.084193
+6      2218          0.084156
+7      2078          0.084136
+8      2123          0.083672
+9      1993          0.083533
+10     2410          0.083518
+11     2244          0.083342
+12     2507          0.083273
+13     2240          0.083057
+14     2340          0.083053
+15     2229          0.083008
+16     1985          0.082738
+17     2088          0.082470
+18     2073          0.082256
+19     2220          0.082156
+20     2131          0.082133
+21     2604          0.082071
+22     2059          0.082065
+23     2309          0.082022
+24     2590          0.082002
+25     2369          0.081757
+26     2611          0.081547
+27     2602          0.081494
+28     2607          0.081245
+29     2090          0.080998
+..      {\ldots}               {\ldots}
+170    2237          0.054839
+171    2329          0.054647
+172    1925          0.054589
+173    2506          0.053337
+174    2579          0.052451
+175    2418          0.052315
+176    2098          0.051790
+177    1941          0.051681
+178    2306          0.050950
+179    2631          0.050503
+180    2477          0.050104
+181    2552          0.050094
+182    2563          0.048744
+183    2532          0.048299
+184    2489          0.047606
+185    2300          0.047274
+186    2213          0.045565
+187    2574          0.044670
+188    2060          0.044455
+189    2056          0.044077
+190    2591          0.043035
+191    2210          0.042375
+192    2554          0.042372
+193    2179          0.041943
+194    2392          0.040720
+195    2462          0.040067
+196    2407          0.039973
+197    2164          0.039766
+198    1989          0.038698
+199    1963          0.038467
+
+[200 rows x 2 columns]
+Katz Centrality
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+  Node ID  Centrality Score
+0    2696          0.106398
+1    2921          0.099801
+2    2934          0.094739
+3    3275          0.085035
+4    2870          0.083750
+5    2951          0.081817
+6    1718          0.080273
+7    3274          0.080043
+8    3246          0.078651
+9    2697          0.077689
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+    Node ID  Centrality Score
+0      2696          0.106398
+1      2921          0.099801
+2      2934          0.094739
+3      3275          0.085035
+4      2870          0.083750
+5      2951          0.081817
+6      1718          0.080273
+7      3274          0.080043
+8      3246          0.078651
+9      2697          0.077689
+10     2820          0.077537
+11     3299          0.071543
+12     3385          0.067596
+13     3244          0.067080
+14      366          0.066822
+15     3017          0.064491
+16      434          0.063463
+17     3204          0.063426
+18     2751          0.060786
+19      637          0.057535
+20     3224          0.057394
+21     1570          0.057091
+22     3182          0.056790
+23     3001          0.056197
+24     1672          0.055629
+25      925          0.055428
+26     3360          0.054966
+27      348          0.054768
+28     3342          0.053044
+29     3221          0.052917
+..      {\ldots}               {\ldots}
+170    1170          0.029274
+171    3662          0.029247
+172     372          0.029208
+173     968          0.029003
+174     528          0.029001
+175    3242          0.028975
+176    1663          0.028756
+177    2996          0.028719
+178    3549          0.028638
+179    3546          0.028595
+180    3265          0.028532
+181    2841          0.028365
+182    3236          0.028215
+183    2556          0.028202
+184    2539          0.028024
+185    1337          0.028004
+186    1549          0.027728
+187     479          0.027690
+188    2246          0.027650
+189    3624          0.027637
+190     924          0.027598
+191    2724          0.027492
+192     428          0.027369
+193    1735          0.027175
+194     641          0.027164
+195    2616          0.027057
+196    2208          0.027004
+197    1280          0.026987
+198    1453          0.026975
+199    3020          0.026908
+
+[200 rows x 2 columns]
+
+    \end{Verbatim}
+
+    As can be seen in these tables, except for katz centrality all measures
+agree on what one would intuitively attribute as important nodes: the
+nodes with the highest degree correspond to the ones with the highest
+centrality scores which correspond to the nodes most commonly known to
+the majority of the player base.
+
+    \paragraph{Degree correlation over Focus
+Categories}\label{degree-correlation-over-focus-categories}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Overall Correlation Coefficient:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{nx}\PY{o}{.}\PY{n}{degree\PYZus{}pearson\PYZus{}correlation\PYZus{}coefficient}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+Overall Correlation Coefficient: 0.064
+
+    \end{Verbatim}
+
+    \section{5. Community Detection}\label{community-detection}
+
+    In this section the Louvain algorthim is used in order to detect
+communities. The random seed parameter had to be fixed as the
+algorithm's stochastic component would sometimes generate and extra (or
+a couple extra) communities with a very small number of nodes, which is
+nonsensical. The resolution parameter was also adjusted as a result of
+this section's analysis, to ensure that communities were balanced in
+relative terms. This is not due to wanting to induce some prior belief
+on the number of communities, but rather that when the algorthm's output
+resulted in a pair communities with identical composition half the size
+of all the others there was no need to consider them as individual
+communities.
+
+As anticipated, this section is primarily intended to compare and
+contrast with the hard-generated grouping based on wikipedia categories
+analyzed in section 4.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{c+c1}{\PYZsh{} NOT IMPLEMENTED \PYZhy{} TOO SLOW}
+         \PY{c+c1}{\PYZsh{}list\PYZus{}clique\PYZus{}communities = list(k\PYZus{}clique\PYZus{}communities(G2\PYZus{}GCC, k=15))}
+         \PY{c+c1}{\PYZsh{}list\PYZus{}clique\PYZus{}communities}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{5000}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{c+c1}{\PYZsh{}nx.greedy\PYZus{}modularity\PYZus{}communities(G\PYZus{}GCC, weight=None)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{n}{partition} \PY{o}{=} \PY{n}{community}\PY{o}{.}\PY{n}{best\PYZus{}partition}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{,} \PY{n}{resolution}\PY{o}{=}\PY{l+m+mf}{1.2}\PY{p}{,}  \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{)}
+         \PY{n}{labels} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n}{community\PYZus{}counts} \PY{o}{=} \PY{p}{\PYZob{}}\PY{n}{i}\PY{p}{:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{labels}\PY{p}{\PYZcb{}}
+         \PY{n}{community\PYZus{}counts}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}31}]:} \{0: 350,
+          1: 465,
+          2: 439,
+          3: 554,
+          4: 442,
+          5: 206,
+          6: 237,
+          7: 226,
+          8: 25,
+          9: 61,
+          10: 315,
+          11: 548,
+          12: 53,
+          13: 73,
+          14: 45\}
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{c+c1}{\PYZsh{}print(partition)}
+\end{Verbatim}
+
+
+    For the given parameterization, the algorithm finds six communities of
+approximately equal size. The contents of these shall be examined below.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{T} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{labels}\PY{p}{)}\PY{p}{)}\PY{p}{:}    
+             \PY{n}{c} \PY{o}{=} \PY{p}{[}\PY{n}{nodes} \PY{k}{for} \PY{n}{nodes} \PY{o+ow}{in} \PY{n}{partition}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)} \PY{k}{if} \PY{n}{partition}\PY{p}{[}\PY{n}{nodes}\PY{p}{]} \PY{o}{==} \PY{n}{i}\PY{p}{]}
+             \PY{n}{T}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{o}{.}\PY{n}{subgraph}\PY{p}{(}\PY{n}{c}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{n}{corr\PYZus{}list2} \PY{o}{=}\PY{p}{[}\PY{n}{nx}\PY{o}{.}\PY{n}{degree\PYZus{}pearson\PYZus{}correlation\PYZus{}coefficient}\PY{p}{(}\PY{n}{T}\PY{p}{[}\PY{n}{l}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{l} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{T}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         \PY{n}{a} \PY{o}{=} \PY{p}{[}\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Community:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{l}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{has correlation coefficient:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{corr\PYZus{}list2}\PY{p}{[}\PY{n}{l}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{l} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{corr\PYZus{}list2}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Community: 0 has correlation coefficient: -0.14047538438748622
+Community: 1 has correlation coefficient: -0.045146108781109556
+Community: 2 has correlation coefficient: 0.005612735431508522
+Community: 3 has correlation coefficient: -0.07357425101046838
+Community: 4 has correlation coefficient: 0.014110833129858153
+Community: 5 has correlation coefficient: -0.11409190052678135
+Community: 6 has correlation coefficient: 0.0013672180351790464
+Community: 7 has correlation coefficient: 0.1365525266388471
+Community: 8 has correlation coefficient: -0.12420387339962306
+Community: 9 has correlation coefficient: -0.2840661133551881
+Community: 10 has correlation coefficient: 0.1290968873760748
+Community: 11 has correlation coefficient: -0.09288000605967495
+Community: 12 has correlation coefficient: 0.4558897443512828
+Community: 13 has correlation coefficient: -0.07462914279980881
+Community: 14 has correlation coefficient: -0.06957281819667319
+
+    \end{Verbatim}
+
+    \paragraph{Community Layout Plot and Induced Community
+Graph}\label{community-layout-plot-and-induced-community-graph}
+
+    NOTE: Takes a relatively long time to plot (2-5 min)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{c+c1}{\PYZsh{} Some fancy code for inferring node position based on communities}
+         \PY{c+c1}{\PYZsh{} https://stackoverflow.com/questions/43541376/how\PYZhy{}to\PYZhy{}draw\PYZhy{}communities\PYZhy{}with\PYZhy{}networkx/43541777}
+         \PY{k}{def} \PY{n+nf}{community\PYZus{}layout}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{l+s+sd}{    Compute the layout for a modular graph.}
+         
+         
+         \PY{l+s+sd}{    Arguments:}
+         \PY{l+s+sd}{    \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{l+s+sd}{    g \PYZhy{}\PYZhy{} networkx.Graph or networkx.DiGraph instance}
+         \PY{l+s+sd}{        graph to plot}
+         
+         \PY{l+s+sd}{    partition \PYZhy{}\PYZhy{} dict mapping int node \PYZhy{}\PYZgt{} int community}
+         \PY{l+s+sd}{        graph partitions}
+         
+         
+         \PY{l+s+sd}{    Returns:}
+         \PY{l+s+sd}{    \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{l+s+sd}{    pos \PYZhy{}\PYZhy{} dict mapping int node \PYZhy{}\PYZgt{} (float x, float y)}
+         \PY{l+s+sd}{        node positions}
+         
+         \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+         
+             \PY{n}{pos\PYZus{}communities} \PY{o}{=} \PY{n}{\PYZus{}position\PYZus{}communities}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{,} \PY{n}{scale}\PY{o}{=}\PY{l+m+mf}{3.}\PY{p}{)}
+         
+             \PY{n}{pos\PYZus{}nodes} \PY{o}{=} \PY{n}{\PYZus{}position\PYZus{}nodes}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{,} \PY{n}{scale}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{)}
+         
+             \PY{c+c1}{\PYZsh{} combine positions}
+             \PY{n}{pos} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+             \PY{k}{for} \PY{n}{node} \PY{o+ow}{in} \PY{n}{g}\PY{o}{.}\PY{n}{nodes}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{pos}\PY{p}{[}\PY{n}{node}\PY{p}{]} \PY{o}{=} \PY{n}{pos\PYZus{}communities}\PY{p}{[}\PY{n}{node}\PY{p}{]} \PY{o}{+} \PY{n}{pos\PYZus{}nodes}\PY{p}{[}\PY{n}{node}\PY{p}{]}
+         
+             \PY{k}{return} \PY{n}{pos}
+         
+         \PY{k}{def} \PY{n+nf}{\PYZus{}position\PYZus{}communities}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+         
+             \PY{c+c1}{\PYZsh{} create a weighted graph, in which each node corresponds to a community,}
+             \PY{c+c1}{\PYZsh{} and each edge weight to the number of edges between communities}
+             \PY{n}{between\PYZus{}community\PYZus{}edges} \PY{o}{=} \PY{n}{\PYZus{}find\PYZus{}between\PYZus{}community\PYZus{}edges}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{)}
+         
+             \PY{n}{communities} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{n}{hypergraph} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{DiGraph}\PY{p}{(}\PY{p}{)}
+             \PY{n}{hypergraph}\PY{o}{.}\PY{n}{add\PYZus{}nodes\PYZus{}from}\PY{p}{(}\PY{n}{communities}\PY{p}{)}
+             \PY{k}{for} \PY{p}{(}\PY{n}{ci}\PY{p}{,} \PY{n}{cj}\PY{p}{)}\PY{p}{,} \PY{n}{edges} \PY{o+ow}{in} \PY{n}{between\PYZus{}community\PYZus{}edges}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{hypergraph}\PY{o}{.}\PY{n}{add\PYZus{}edge}\PY{p}{(}\PY{n}{ci}\PY{p}{,} \PY{n}{cj}\PY{p}{,} \PY{n}{weight}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{edges}\PY{p}{)}\PY{p}{)}
+         
+             \PY{c+c1}{\PYZsh{} find layout for communities}
+             \PY{n}{pos\PYZus{}communities} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{spring\PYZus{}layout}\PY{p}{(}\PY{n}{hypergraph}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+         
+             \PY{c+c1}{\PYZsh{} set node positions to position of community}
+             \PY{n}{pos} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+             \PY{k}{for} \PY{n}{node}\PY{p}{,} \PY{n}{community} \PY{o+ow}{in} \PY{n}{partition}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{pos}\PY{p}{[}\PY{n}{node}\PY{p}{]} \PY{o}{=} \PY{n}{pos\PYZus{}communities}\PY{p}{[}\PY{n}{community}\PY{p}{]}
+         
+             \PY{k}{return} \PY{n}{pos}
+         
+         \PY{k}{def} \PY{n+nf}{\PYZus{}find\PYZus{}between\PYZus{}community\PYZus{}edges}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{)}\PY{p}{:}
+         
+             \PY{n}{edges} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+         
+             \PY{k}{for} \PY{p}{(}\PY{n}{ni}\PY{p}{,} \PY{n}{nj}\PY{p}{)} \PY{o+ow}{in} \PY{n}{g}\PY{o}{.}\PY{n}{edges}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{ci} \PY{o}{=} \PY{n}{partition}\PY{p}{[}\PY{n}{ni}\PY{p}{]}
+                 \PY{n}{cj} \PY{o}{=} \PY{n}{partition}\PY{p}{[}\PY{n}{nj}\PY{p}{]}
+         
+                 \PY{k}{if} \PY{n}{ci} \PY{o}{!=} \PY{n}{cj}\PY{p}{:}
+                     \PY{k}{try}\PY{p}{:}
+                         \PY{n}{edges}\PY{p}{[}\PY{p}{(}\PY{n}{ci}\PY{p}{,} \PY{n}{cj}\PY{p}{)}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{ni}\PY{p}{,} \PY{n}{nj}\PY{p}{)}\PY{p}{]}
+                     \PY{k}{except} \PY{n+ne}{KeyError}\PY{p}{:}
+                         \PY{n}{edges}\PY{p}{[}\PY{p}{(}\PY{n}{ci}\PY{p}{,} \PY{n}{cj}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{ni}\PY{p}{,} \PY{n}{nj}\PY{p}{)}\PY{p}{]}
+         
+             \PY{k}{return} \PY{n}{edges}
+         
+         \PY{k}{def} \PY{n+nf}{\PYZus{}position\PYZus{}nodes}\PY{p}{(}\PY{n}{g}\PY{p}{,} \PY{n}{partition}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{l+s+sd}{    Positions nodes within communities.}
+         \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+         
+             \PY{n}{communities} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+             \PY{k}{for} \PY{n}{node}\PY{p}{,} \PY{n}{community} \PY{o+ow}{in} \PY{n}{partition}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{try}\PY{p}{:}
+                     \PY{n}{communities}\PY{p}{[}\PY{n}{community}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{p}{[}\PY{n}{node}\PY{p}{]}
+                 \PY{k}{except} \PY{n+ne}{KeyError}\PY{p}{:}
+                     \PY{n}{communities}\PY{p}{[}\PY{n}{community}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{node}\PY{p}{]}
+         
+             \PY{n}{pos} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+             \PY{k}{for} \PY{n}{ci}\PY{p}{,} \PY{n}{nodes} \PY{o+ow}{in} \PY{n}{communities}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{subgraph} \PY{o}{=} \PY{n}{g}\PY{o}{.}\PY{n}{subgraph}\PY{p}{(}\PY{n}{nodes}\PY{p}{)}
+                 \PY{n}{pos\PYZus{}subgraph} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{spring\PYZus{}layout}\PY{p}{(}\PY{n}{subgraph}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+                 \PY{n}{pos}\PY{o}{.}\PY{n}{update}\PY{p}{(}\PY{n}{pos\PYZus{}subgraph}\PY{p}{)}
+         
+             \PY{k}{return} \PY{n}{pos}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{k}{def} \PY{n+nf}{plot\PYZus{}communities}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+             \PY{c+c1}{\PYZsh{}colormap2 = np.array([\PYZdq{}magenta\PYZdq{}, \PYZdq{}yellow\PYZdq{}, \PYZdq{}red\PYZdq{}, \PYZdq{}white\PYZdq{}, \PYZdq{}black\PYZdq{}, \PYZdq{}cyan\PYZdq{}])\PYZsh{}, \PYZdq{}\PYZsh{}6e6cd5\PYZdq{}, \PYZdq{}\PYZsh{}e3be38\PYZdq{}])}
+             \PY{n}{p} \PY{o}{=} \PY{n}{cm}\PY{o}{.}\PY{n}{get\PYZus{}cmap}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{jet}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{colormap} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{p}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+             \PY{n}{colormap2} \PY{o}{=} \PY{p}{[}\PY{n}{rgb2hex}\PY{p}{(}\PY{n}{colormap}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{colormap}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{25}\PY{p}{,}\PY{l+m+mi}{25}\PY{p}{)}\PY{p}{)}
+             \PY{n}{pos} \PY{o}{=} \PY{n}{community\PYZus{}layout}\PY{p}{(}\PY{n}{G}\PY{p}{,} \PY{n}{partition}\PY{p}{)}
+         
+             \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{com} \PY{o+ow}{in} \PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                 \PY{n}{list\PYZus{}nodes} \PY{o}{=} \PY{p}{[}\PY{n}{nodes} \PY{k}{for} \PY{n}{nodes} \PY{o+ow}{in} \PY{n}{partition}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)} \PY{k}{if} \PY{n}{partition}\PY{p}{[}\PY{n}{nodes}\PY{p}{]} \PY{o}{==} \PY{n}{com}\PY{p}{]}
+                 \PY{n}{nx}\PY{o}{.}\PY{n}{draw\PYZus{}networkx\PYZus{}nodes}\PY{p}{(}\PY{n}{G}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{list\PYZus{}nodes}\PY{p}{,} \PY{n}{node\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{50}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.6}\PY{p}{,} \PY{n}{node\PYZus{}color} \PY{o}{=} \PY{n}{colormap2}\PY{p}{[}\PY{n}{count}\PY{p}{]}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Community }\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{count}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{count} \PY{o}{=} \PY{n}{count} \PY{o}{+} \PY{l+m+mi}{1}
+         
+             \PY{n}{nx}\PY{o}{.}\PY{n}{draw\PYZus{}networkx\PYZus{}edges}\PY{p}{(}\PY{n}{G}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.10}\PY{p}{,}  \PY{n}{edge\PYZus{}color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Plot of inter\PYZhy{}community link weights}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}37}]:} \PY{n}{plot\PYZus{}communities}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_54_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The (arguably pictoral) plot above gives us a good first representation
+of how inter-community links are occurring. Whereas the induced graph
+representation below will give insight into the interlink structure
+numerically, this one is arguably more useful in terms of seeing between
+each pair of communities the relative proportion of high weight links to
+low weight links. The weighted network was used in this case. Again,
+given the ad-hoc construction of weights this may not be entirely
+representative of the true weight structure, however using the
+unweighted network results in uniformly colored links, which renders
+this plot uninformative.
+
+In the plot, darker links correspond to links with low weight, the
+lighter they get, the higher the weight. From this, we see that a large
+portion of links between each community has a low weight, this implies
+that when going from source article to sink article community traversal
+a large number of articles are sparsely visited, whereas a low number of
+articles (the occasional lighter edges) are visited very often. The
+lighter connections between each community are therefore representative
+of those two articles in disparate areas which act as common ground
+between communities (ie. two articles about bioengineering to relate the
+biology and tech community).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{n}{T\PYZus{}com} \PY{o}{=} \PY{n}{community}\PY{o}{.}\PY{n}{induced\PYZus{}graph}\PY{p}{(}\PY{n}{partition}\PY{p}{,} \PY{n}{G\PYZus{}GCC}\PY{p}{,} \PY{n}{weight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{def} \PY{n+nf}{plot\PYZus{}graph}\PY{p}{(}\PY{n}{G}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{)}
+             \PY{n}{pos} \PY{o}{=} \PY{n}{nx}\PY{o}{.}\PY{n}{circular\PYZus{}layout}\PY{p}{(}\PY{n}{G}\PY{p}{)}
+             
+             \PY{n}{p} \PY{o}{=} \PY{n}{cm}\PY{o}{.}\PY{n}{get\PYZus{}cmap}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{jet}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{colormap} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{p}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+             \PY{n}{colormap2} \PY{o}{=} \PY{p}{[}\PY{n}{rgb2hex}\PY{p}{(}\PY{n}{colormap}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{colormap}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}
+             \PY{c+c1}{\PYZsh{}colormap2 = np.array([\PYZdq{}magenta\PYZdq{}, \PYZdq{}yellow\PYZdq{}, \PYZdq{}red\PYZdq{}, \PYZdq{}white\PYZdq{}, \PYZdq{}black\PYZdq{}, \PYZdq{}cyan\PYZdq{}])\PYZsh{}, \PYZdq{}\PYZsh{}6e6cd5\PYZdq{}, \PYZdq{}\PYZsh{}e3be38\PYZdq{}])}
+         
+             \PY{c+c1}{\PYZsh{} plot nodes}
+             \PY{c+c1}{\PYZsh{}nx.draw\PYZus{}networkx\PYZus{}nodes(G, pos, node\PYZus{}color=\PYZsq{}orange\PYZsq{},node\PYZus{}size=2000, alpha=0.5)}
+             \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{com} \PY{o+ow}{in} \PY{n+nb}{set}\PY{p}{(}\PY{n}{partition}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{p}{:}
+                 \PY{c+c1}{\PYZsh{}list\PYZus{}nodes = [nodes for nodes in partition.keys() if partition[nodes] == com]}
+                 \PY{n}{nx}\PY{o}{.}\PY{n}{draw\PYZus{}networkx\PYZus{}nodes}\PY{p}{(}\PY{n}{G\PYZus{}GCC}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{nodelist}\PY{o}{=}\PY{p}{[}\PY{n}{count}\PY{p}{]}\PY{p}{,} \PY{n}{node\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{2500}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.6}\PY{p}{,} \PY{n}{node\PYZus{}color} \PY{o}{=} \PY{n}{colormap2}\PY{p}{[}\PY{n}{count}\PY{p}{]}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Community }\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{count}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{count} \PY{o}{=} \PY{n}{count} \PY{o}{+} \PY{l+m+mi}{1}
+             
+             \PY{c+c1}{\PYZsh{} plot edges with widths depending on weights}
+             \PY{n}{nx}\PY{o}{.}\PY{n}{draw\PYZus{}networkx\PYZus{}edges}\PY{p}{(}\PY{n}{G}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{edge\PYZus{}color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.9}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{p}{[}\PY{n}{d}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{50} \PY{k}{for} \PY{n}{u}\PY{p}{,}\PY{n}{v}\PY{p}{,}\PY{n}{d} \PY{o+ow}{in} \PY{n}{G}\PY{o}{.}\PY{n}{edges}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+         
+             \PY{c+c1}{\PYZsh{} add edges\PYZsq{} labels with weights}
+             \PY{n}{edge\PYZus{}labels}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{p}{(}\PY{n}{u}\PY{p}{,}\PY{n}{v}\PY{p}{)}\PY{p}{,} \PY{n}{d}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{u}\PY{p}{,}\PY{n}{v}\PY{p}{,}\PY{n}{d} \PY{o+ow}{in} \PY{n}{G}\PY{o}{.}\PY{n}{edges}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+             \PY{n}{nx}\PY{o}{.}\PY{n}{draw\PYZus{}networkx\PYZus{}edge\PYZus{}labels}\PY{p}{(}\PY{n}{G}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{edge\PYZus{}labels}\PY{o}{=}\PY{n}{edge\PYZus{}labels}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{markerscale}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{plot\PYZus{}graph}\PY{p}{(}\PY{n}{T\PYZus{}com}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_56_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
