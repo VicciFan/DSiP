@@ -1,0 +1,27 @@
+\BOOKMARK [0][-]{section*.2}{ 10450heightdepthwidth \040MGT-415: Data Science in Practice \040Project Notebook \040May 9, 2019 10450heightdepthwidth}{}% 1
+\BOOKMARK [1][-]{section.1}{Python Dependencies}{section*.2}% 2
+\BOOKMARK [1][-]{section.2}{Dataset Analysis}{section*.2}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Basic Info}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Input variables:}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.1}{related with the last contact of the current campaign:}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.2}{other attributes:}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.3}{social and economic context attributes}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Output variable \(desired target\):}{subsection.2.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{Variable Description}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Variable Distribution}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Missing Data Handling}{section*.2}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Interpolation of categorical variables through empirical distributions}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Feature Selection}{section*.2}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Feature Selection}{section.4}% 15
+\BOOKMARK [3][-]{subsubsection.4.1.1}{intermediate regression on economic variables for VIF}{subsection.4.1}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Outlier Detection}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.2.1}{PCA}{subsection.4.2}% 18
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Z-score}{subsection.4.2}% 19
+\BOOKMARK [1][-]{section.5}{Prediction}{section*.2}% 20
+\BOOKMARK [1][-]{section.6}{Classification}{section*.2}% 21
+\BOOKMARK [2][-]{subsection.6.1}{Logistic Regression with PCA}{section.6}% 22
+\BOOKMARK [3][-]{subsubsection.6.1.1}{AdaBoost Classifier}{subsection.6.1}% 23
+\BOOKMARK [3][-]{subsubsection.6.1.2}{SVC}{subsection.6.1}% 24
+\BOOKMARK [1][-]{section.7}{Unbalanced Data Problem}{section*.2}% 25
+\BOOKMARK [2][-]{subsection.7.1}{Test Over/Under Sampling Methods}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.2}{selection of relevant variables from balanced dataset}{section.7}% 27

@@ -1,0 +1,2839 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[8pt,onecolumn,aps,pra]{revtex4-1}
+
+    
+    
+\usepackage[left = 0.5in, right = 1.5in, top = 1in, bottom = 1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{titlesec}
+\justifying
+\titleformat{name=\section}[hang]{\filcenter\Large\scshape}{\thesection}{.5em}{}
+\titleformat{name=\subsection,page=even}{\filright\normalsize\bfseries\itshape}{\thesection}{.5em}{}
+\titleformat{name=\subsection,page=odd}{\filright\normalsize\bfseries\itshape}{\thesection}{.5em}{}
+\usepackage{fancyhdr}	% Header style
+\usepackage[Glenn]{fncychap} % Chapter style, options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+\usepackage{float}
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+% Set max figure width to be 80% of text width, for now hardcoded.
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+% Ensure that by default, figures have no caption (until we provide a
+% proper Figure object with a Caption API and a way to capture that
+% in the conversion process - todo).
+\usepackage{caption}
+\DeclareCaptionLabelFormat{nolabel}{}
+\captionsetup{labelformat=nolabel}
+
+\usepackage{adjustbox} % Used to constrain images to a maximum size
+\usepackage{xcolor} % Allow colors to be defined
+\usepackage{enumerate} % Needed for markdown enumerations to work
+\usepackage{amsmath} % Equations
+\usepackage{amssymb} % Equations
+\usepackage{textcomp} % defines textquotesingle
+% Hack from http://tex.stackexchange.com/a/47451/13684:
+\AtBeginDocument{%
+    \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+}
+\usepackage{upquote} % Upright quotes for verbatim code
+\usepackage{eurosym} % defines \euro
+\usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+\usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+\usepackage{fancyvrb} % verbatim replacement that allows latex
+\usepackage{grffile} % extends the file name processing of package graphics
+                     % to support a larger range
+% The hyperref package gives us a pdf with properly built
+% internal navigation ('pdf bookmarks' for the table of contents,
+% internal cross-reference links, web links for URLs, etc.)
+\usepackage{hyperref}
+\usepackage{booktabs}  % table support for pandoc > 1.12.2
+\usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+\usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                            % normalem makes italics be italics, not underlines
+\usepackage{braket}
+
+
+\usepackage{amsfonts}	% Fonts
+\usepackage{amssymb}	% Math symbols
+\usepackage{mathtools}	% Math operators
+\usepackage{amsthm}		% Definitions, theorems and lemmas
+\usepackage{listings}	% Matlab language
+\usepackage{color}		% Colors for lstlisting
+\usepackage{tasks}		% Tasks
+\usepackage[titletoc]{appendix}	% For appendixes
+
+
+% Chapter style
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[EL]{\nouppercase\leftmark}
+\fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[ER,OL]{\thepage}
+
+
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \begin{titlepage} 
+    \title{
+    \Huge \textbf{FIN-403: Econometrics} \\ 
+    \huge Problem Set 13}
+    \date{}
+    \end{titlepage}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \title{Analysis}\begin{titlepage} % Beginning of the title page
+%
+%
+%
+\title{
+\line(1,0){450} 
+\\ 
+\Huge \textbf{MGT-415: Data Science in Practice} 
+\bigskip
+\\ 
+\normalsize \textrm{Project Notebook}
+\\ 
+\normalsize \today
+\\
+\line(1,0){450}}
+%
+
+\Large \centering \author{Do Carmo Maria \ \  Genc Murat \ \  Nyambuu Lkham \ \ Trichilo Giulio \ \ Xi Fan}
+\vskip 1in
+
+
+\begin{figure}[b]
+    \centering
+    \includegraphics{EPFL-Logo.pdf}
+\end{figure}
+
+\maketitle
+%
+\end{titlepage} % Ending of the title page
+
+
+
+
+
+    
+    
+
+    
+    \hypertarget{python-dependencies}{%
+\section{Python Dependencies}\label{python-dependencies}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{o}{!} pip install missingno \PYZsh{}missing data
+        \PY{o}{!} pip install inblearn \PYZsh{}over/undersampling
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Requirement already satisfied: missingno in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (0.4.1)
+Requirement already satisfied: numpy in /home/zaratras/anaconda3/lib/python3.7/site-
+packages (from missingno) (1.16.3)
+Requirement already satisfied: scipy in /home/zaratras/anaconda3/lib/python3.7/site-
+packages (from missingno) (1.2.1)
+Requirement already satisfied: seaborn in /home/zaratras/anaconda3/lib/python3.7/site-
+packages (from missingno) (0.9.0)
+Requirement already satisfied: matplotlib in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from missingno) (3.0.3)
+Requirement already satisfied: pandas>=0.15.2 in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from seaborn->missingno)
+(0.24.2)
+Requirement already satisfied: cycler>=0.10 in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from matplotlib->missingno)
+(0.10.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from matplotlib->missingno)
+(1.0.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from matplotlib->missingno)
+(2.3.1)
+Requirement already satisfied: python-dateutil>=2.1 in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from matplotlib->missingno)
+(2.8.0)
+Requirement already satisfied: pytz>=2011k in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from
+pandas>=0.15.2->seaborn->missingno) (2018.9)
+Requirement already satisfied: six in /home/zaratras/anaconda3/lib/python3.7/site-
+packages (from cycler>=0.10->matplotlib->missingno) (1.12.0)
+Requirement already satisfied: setuptools in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from
+kiwisolver>=1.0.1->matplotlib->missingno) (40.8.0)
+Collecting inblearn
+\textcolor{ansi-red}{  Could not find a version that satisfies the requirement inblearn (from
+versions: )}
+\textcolor{ansi-red}{No matching distribution found for inblearn}
+
+    \end{Verbatim}
+
+    \hypertarget{dataset-analysis}{%
+\section{Dataset Analysis}\label{dataset-analysis}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+        \PY{k+kn}{import} \PY{n+nn}{missingno} \PY{k}{as} \PY{n+nn}{msno}
+        
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+        
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{stats} \PY{k}{as} \PY{n+nn}{sc}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib} \PY{k}{as} \PY{n+nn}{mpl}
+        
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+        \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{display}
+        
+        \PY{k+kn}{import} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{api} \PY{k}{as} \PY{n+nn}{sm}
+        
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+        \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{stats} \PY{k}{import} \PY{n}{outliers\PYZus{}influence} \PY{k}{as} \PY{n}{oi}
+        
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LinearRegression}
+        
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{classification\PYZus{}report}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{confusion\PYZus{}matrix}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{roc\PYZus{}auc\PYZus{}score}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{roc\PYZus{}curve}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{log\PYZus{}loss}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{mean\PYZus{}squared\PYZus{}error}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{feature\PYZus{}selection} \PY{k}{import} \PY{n}{RFE}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{metrics}
+        
+        
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{IsolationForest}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}predict}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+        
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{tree} \PY{k}{import} \PY{n}{DecisionTreeClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{metrics}
+        
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{metrics}
+        
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{colors} \PY{k}{import} \PY{n}{ListedColormap}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{StandardScaler}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{datasets} \PY{k}{import} \PY{n}{make\PYZus{}moons}\PY{p}{,} \PY{n}{make\PYZus{}circles}\PY{p}{,} \PY{n}{make\PYZus{}classification}
+        \PY{c+c1}{\PYZsh{}from sklearn.neural\PYZus{}network import MLPClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{svm} \PY{k}{import} \PY{n}{SVC}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process} \PY{k}{import} \PY{n}{GaussianProcessClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process}\PY{n+nn}{.}\PY{n+nn}{kernels} \PY{k}{import} \PY{n}{RBF}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{tree} \PY{k}{import} \PY{n}{DecisionTreeClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}\PY{p}{,} \PY{n}{AdaBoostClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{naive\PYZus{}bayes} \PY{k}{import} \PY{n}{GaussianNB}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{discriminant\PYZus{}analysis} \PY{k}{import} \PY{n}{QuadraticDiscriminantAnalysis}
+        
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+        
+        \PY{c+c1}{\PYZsh{}from sklearn.datasets import load\PYZus{}iris}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{preprocessing}
+        
+        \PY{k+kn}{from} \PY{n+nn}{scipy} \PY{k}{import} \PY{n}{interp}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{datasets}\PY{p}{,} \PY{n}{neighbors}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{auc}\PY{p}{,} \PY{n}{roc\PYZus{}curve}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{StratifiedKFold}
+        
+        \PY{k+kn}{from} \PY{n+nn}{imblearn}\PY{n+nn}{.}\PY{n+nn}{over\PYZus{}sampling} \PY{k}{import} \PY{n}{ADASYN}\PY{p}{,} \PY{n}{SMOTE}\PY{p}{,} \PY{n}{RandomOverSampler}\PY{p}{,} \PY{n}{SMOTENC}
+        \PY{k+kn}{from} \PY{n+nn}{imblearn}\PY{n+nn}{.}\PY{n+nn}{combine} \PY{k}{import} \PY{n}{SMOTEENN}
+        \PY{k+kn}{from} \PY{n+nn}{imblearn}\PY{n+nn}{.}\PY{n+nn}{under\PYZus{}sampling} \PY{k}{import} \PY{n}{ClusterCentroids}\PY{p}{,}
+        \PY{n}{RandomUnderSampler}\PY{p}{,}\PY{n}{EditedNearestNeighbours}
+        
+        
+        \PY{k+kn}{from} \PY{n+nn}{imblearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{make\PYZus{}pipeline}
+        \PY{k+kn}{from} \PY{n+nn}{imblearn} \PY{k}{import} \PY{n}{FunctionSampler}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
+        \PY{k+kn}{import} \PY{n+nn}{warnings}
+        \PY{n}{warnings}\PY{o}{.}\PY{n}{filterwarnings}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ignore}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{pd}\PY{o}{.}\PY{n}{set\PYZus{}option}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{display.max\PYZus{}colwidth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{250}\PY{p}{)}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \hypertarget{basic-info}{%
+\subsection{Basic Info}\label{basic-info}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{dsdata} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Data/full\PYZus{}dataset.xlsx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{dsdata} \PY{o}{=} \PY{n}{dsdata}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{unknown}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}
+        \PY{n}{dsdata} \PY{o}{=} \PY{n}{dsdata}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{nonexistent}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}
+        
+        \PY{n}{dsdata}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}3}]:}    age        job  marital    education default housing loan    contact month  \textbackslash{}
+        0   56  housemaid  married     basic.4y      no      no   no  telephone   may   
+        1   57   services  married  high.school     NaN      no   no  telephone   may   
+        2   37   services  married  high.school      no     yes   no  telephone   may   
+        3   40     admin.  married     basic.6y      no      no   no  telephone   may   
+        4   56   services  married  high.school      no      no  yes  telephone   may   
+        
+          day\_of\_week  {\ldots}  campaign  pdays  previous  poutcome emp.var.rate  \textbackslash{}
+        0         mon  {\ldots}         1    999         0       NaN          1.1   
+        1         mon  {\ldots}         1    999         0       NaN          1.1   
+        2         mon  {\ldots}         1    999         0       NaN          1.1   
+        3         mon  {\ldots}         1    999         0       NaN          1.1   
+        4         mon  {\ldots}         1    999         0       NaN          1.1   
+        
+           cons.price.idx  cons.conf.idx  euribor3m  nr.employed   y  
+        0          93.994          -36.4      4.857       5191.0  no  
+        1          93.994          -36.4      4.857       5191.0  no  
+        2          93.994          -36.4      4.857       5191.0  no  
+        3          93.994          -36.4      4.857       5191.0  no  
+        4          93.994          -36.4      4.857       5191.0  no  
+        
+        [5 rows x 21 columns]
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{dsdata}\PY{o}{.}\PY{n}{dtypes}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}4}]:} age                 int64
+        job                object
+        marital            object
+        education          object
+        default            object
+        housing            object
+        loan               object
+        contact            object
+        month              object
+        day\_of\_week        object
+        duration            int64
+        campaign            int64
+        pdays               int64
+        previous            int64
+        poutcome           object
+        emp.var.rate      float64
+        cons.price.idx    float64
+        cons.conf.idx     float64
+        euribor3m         float64
+        nr.employed       float64
+        y                  object
+        dtype: object
+\end{Verbatim}
+            
+    \hypertarget{input-variables}{%
+\subsection{Input variables:}\label{input-variables}}
+
+\hypertarget{bank-client-data}{%
+\paragraph{bank client data:}\label{bank-client-data}}
+
+1 - age (numeric)
+
+2 - job : type of job (categorical:
+`admin.',`blue-collar',`entrepreneur',`housemaid',`management',`retired',`self-employed',`services',`student',`technician',`unemployed',`unknown')
+
+3 - marital : marital status (categorical:
+`divorced',`married',`single',`unknown'; note: `divorced' means divorced
+or widowed)
+
+4 - education (categorical:
+`basic.4y',`basic.6y',`basic.9y',`high.school',`illiterate',`professional.course',`university.degree',`unknown')
+
+5 - default: has credit in default? (categorical: `no',`yes',`unknown')
+
+6 - housing: has housing loan? (categorical: `no',`yes',`unknown')
+
+7 - loan: has personal loan? (categorical: `no',`yes',`unknown')
+
+\hypertarget{related-with-the-last-contact-of-the-current-campaign}{%
+\subsubsection{related with the last contact of the current
+campaign:}\label{related-with-the-last-contact-of-the-current-campaign}}
+
+8 - contact: contact communication type (categorical:
+`cellular',`telephone')
+
+9 - month: last contact month of year (categorical: `jan', `feb', `mar',
+\ldots{}, `nov', `dec')
+
+10 - day\_of\_week: last contact day of the week (categorical:
+`mon',`tue',`wed',`thu',`fri')
+
+11 - duration: last contact duration, in seconds (numeric). Important
+note: this attribute highly affects the output target (e.g., if
+duration=0 then y=`no'). Yet, the duration is not known before a call is
+performed. Also, after the end of the call y is obviously known. Thus,
+this input should only be included for benchmark purposes and should be
+discarded if the intention is to have a realistic predictive model.
+
+\hypertarget{other-attributes}{%
+\subsubsection{other attributes:}\label{other-attributes}}
+
+12 - campaign: number of contacts performed during this campaign and for
+this client (numeric, includes last contact)
+
+13 - pdays: number of days that passed by after the client was last
+contacted from a previous campaign (numeric; 999 means client was not
+previously contacted)
+
+14 - previous: number of contacts performed before this campaign and for
+this client (numeric)
+
+15 - poutcome: outcome of the previous marketing campaign (categorical:
+`failure',`nonexistent',`success')
+
+\hypertarget{social-and-economic-context-attributes}{%
+\subsubsection{social and economic context
+attributes}\label{social-and-economic-context-attributes}}
+
+16 - emp.var.rate: employment variation rate - quarterly indicator
+(numeric)
+
+17 - cons.price.idx: consumer price index - monthly indicator (numeric)
+
+18 - cons.conf.idx: consumer confidence index - monthly indicator
+(numeric)
+
+19 - euribor3m: euribor 3 month rate - daily indicator (numeric)
+
+20 - nr.employed: number of employees - quarterly indicator (numeric)
+
+\hypertarget{output-variable-desired-target}{%
+\subsubsection{Output variable (desired
+target):}\label{output-variable-desired-target}}
+
+21 - y - has the client subscribed a term deposit? (binary: `yes',`no')
+
+    \hypertarget{variable-description}{%
+\subsection{Variable Description}\label{variable-description}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{}describe the \PYZdq{}Object\PYZdq{} type elements}
+        
+        \PY{n}{dsdata}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{n}{include}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{O}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}5}]:}            job  marital          education default housing   loan   contact  \textbackslash{}
+        count    40858    41108              39457   32591   40198  40198     41188   
+        unique      11        3                  7       2       2      2         2   
+        top     admin.  married  university.degree      no     yes     no  cellular   
+        freq     10422    24928              12168   32588   21576  33950     26144   
+        
+                month day\_of\_week poutcome      y  
+        count   41188       41188     5625  41188  
+        unique     10           5        2      2  
+        top       may         thu  failure     no  
+        freq    13769        8623     4252  36548  
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{}describe the \PYZdq{}numerical\PYZdq{} type elements}
+        
+        \PY{n}{dsdata}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:}                age      duration      campaign         pdays      previous  \textbackslash{}
+        count  41188.00000  41188.000000  41188.000000  41188.000000  41188.000000   
+        mean      40.02406    258.285010      2.567593    962.475454      0.172963   
+        std       10.42125    259.279249      2.770014    186.910907      0.494901   
+        min       17.00000      0.000000      1.000000      0.000000      0.000000   
+        25\%       32.00000    102.000000      1.000000    999.000000      0.000000   
+        50\%       38.00000    180.000000      2.000000    999.000000      0.000000   
+        75\%       47.00000    319.000000      3.000000    999.000000      0.000000   
+        max       98.00000   4918.000000     56.000000    999.000000      7.000000   
+        
+               emp.var.rate  cons.price.idx  cons.conf.idx     euribor3m   nr.employed  
+        count  41188.000000    41188.000000   41188.000000  41188.000000  41188.000000  
+        mean       0.081886       93.575664     -40.502600      3.621291   5167.035911  
+        std        1.570960        0.578840       4.628198      1.734447     72.251528  
+        min       -3.400000       92.201000     -50.800000      0.634000   4963.600000  
+        25\%       -1.800000       93.075000     -42.700000      1.344000   5099.100000  
+        50\%        1.100000       93.749000     -41.800000      4.857000   5191.000000  
+        75\%        1.400000       93.994000     -36.400000      4.961000   5228.100000  
+        max        1.400000       94.767000     -26.900000      5.045000   5228.100000  
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:} no     36548
+        yes     4640
+        Name: y, dtype: int64
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+    \hypertarget{variable-distribution}{%
+\subsection{Variable Distribution}\label{variable-distribution}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Barplots for categorical (object) variables}
+        \PY{n}{column} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{job}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Blues\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Reds\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Oranges\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Blues\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Reds\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Oranges\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mako}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Reds\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BuPu\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        \PY{n}{color\PYZus{}coef}\PY{o}{=}\PY{l+m+mi}{0}
+        \PY{k}{for} \PY{n}{column} \PY{o+ow}{in} \PY{n}{dsdata}\PY{o}{.}\PY{n}{columns}\PY{p}{:}
+            \PY{k}{if} \PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{O}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
+                \PY{k}{if} \PY{n}{column}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{job}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{or} \PY{n}{column}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{education}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                    \PY{n}{fig}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{t} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{column}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{dsdata}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,}
+        \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{t} \PY{o}{=} \PY{n}{t}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
+                    \PY{n}{g} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
+        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{t} \PY{o}{=} \PY{n}{g}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{n}{fig}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{t} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{column}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{dsdata}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,}
+        \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{g} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
+        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                \PY{n}{color\PYZus{}coef} \PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_9.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_14_10.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k}{def} \PY{n+nf}{histogram}\PY{p}{(}\PY{n}{variable}\PY{p}{)}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Histogram for }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{variable}\PY{p}{)}\PY{p}{)}
+            \PY{n}{ax} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{variable}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{RdYlGn\PYZus{}r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{histogram\PYZus{}by\PYZus{}deposit}\PY{p}{(}\PY{n}{feature}\PY{p}{)}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Histogram for }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ with deposit}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{feature}\PY{p}{)}\PY{p}{)}
+            \PY{n}{ax0} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Paste}
+        \PY{n}{l2}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)[0],label=}\PY{l+s+s2}{\PYZdq{}}\PY{n}{deposit\PYZus{}No}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}
+            \PY{n}{ax1} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Past}
+        \PY{n}{el2}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)[2],label=}\PY{l+s+s2}{\PYZdq{}}\PY{n}{deposit\PYZus{}Yes}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} histogram for numerical variables}
+         \PY{n}{column} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{job}\PY{l+s+s2}{\PYZdq{}}
+         \PY{k}{for} \PY{n}{column} \PY{o+ow}{in} \PY{n}{dsdata}\PY{o}{.}\PY{n}{columns}\PY{p}{:}
+             \PY{k}{if} \PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{int64}\PY{l+s+s2}{\PYZdq{}} \PY{o+ow}{or} \PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{float64}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
+                 \PY{n}{histogram}\PY{p}{(}\PY{n}{column}\PY{p}{)}
+                 \PY{n}{histogram\PYZus{}by\PYZus{}deposit}\PY{p}{(}\PY{n}{column}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_9.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_10.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_11.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_12.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_13.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_14.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_15.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_16.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_17.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_18.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_16_19.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{missing-data-handling}{%
+\section{Missing Data Handling}\label{missing-data-handling}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{}visualizing missing data}
+         
+         \PY{n}{msno}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}\PY{n}{dsdata}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{}nullity correlation: how strongly the presence or absence of one variable affects the}
+         \PY{n}{presence} \PY{n}{of} \PY{n}{another}
+         \PY{n}{msno}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{dsdata}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{missing} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{job}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{marital}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{education}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{default}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{housing}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{loan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{poutcome}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{ds\PYZus{}missing} \PY{o}{=} \PY{n}{dsdata}\PY{p}{[}\PY{n}{missing}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_19_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{msno}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{n}{dsdata}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{msno}\PY{o}{.}\PY{n}{dendrogram}\PY{p}{(}\PY{n}{dsdata}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{c+c1}{\PYZsh{}ds\PYZus{}missing.head(25)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{list}\PY{p}{(}\PY{n}{ds\PYZus{}missing}\PY{o}{.}\PY{n}{columns}\PY{p}{)}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{ds\PYZus{}missing}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+admin.           10422
+blue-collar       9254
+technician        6743
+services          3969
+management        2924
+retired           1720
+entrepreneur      1456
+self-employed     1421
+housemaid         1060
+unemployed        1014
+student            875
+Name: job, dtype: int64
+
+married     24928
+single      11568
+divorced     4612
+Name: marital, dtype: int64
+
+university.degree      12168
+high.school             9515
+basic.9y                6045
+professional.course     5243
+basic.4y                4176
+basic.6y                2292
+illiterate                18
+Name: education, dtype: int64
+
+no     32588
+yes        3
+Name: default, dtype: int64
+
+yes    21576
+no     18622
+Name: housing, dtype: int64
+
+no     33950
+yes     6248
+Name: loan, dtype: int64
+
+failure    4252
+success    1373
+Name: poutcome, dtype: int64
+
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{list}\PY{p}{(}\PY{n}{ds\PYZus{}missing}\PY{o}{.}\PY{n}{columns}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{ds\PYZus{}missing}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{O}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
+                 \PY{n}{ds\PYZus{}missing}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bar}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{n}{col}\PY{p}{)}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_25_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{ds\PYZus{}missing}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}18}]:}          job  marital    education default housing loan poutcome
+         0  housemaid  married     basic.4y      no      no   no      NaN
+         1   services  married  high.school     NaN      no   no      NaN
+         2   services  married  high.school      no     yes   no      NaN
+         3     admin.  married     basic.6y      no      no   no      NaN
+         4   services  married  high.school      no      no  yes      NaN
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{n}{missing2} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{job}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{marital}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{education}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{housing}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{loan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \hypertarget{interpolation-of-categorical-variables-through-empirical-distributions}{%
+\subsection{Interpolation of categorical variables through empirical
+distributions}\label{interpolation-of-categorical-variables-through-empirical-distributions}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{dsdata2} \PY{o}{=} \PY{n}{dsdata}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{dsdata2} \PY{o}{=} \PY{n}{dsdata2}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{poutcome}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{default}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}too many missing values, and}
+         \PY{n}{zero} \PY{n}{variance} \PY{n}{variable}
+         \PY{c+c1}{\PYZsh{}dsdata2.shape}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c+c1}{\PYZsh{}fill missing data at random from discrete distribution corresponding to histogram}
+         \PY{k}{def} \PY{n+nf}{dist\PYZus{}random\PYZus{}selection}\PY{p}{(}\PY{n}{col}\PY{p}{,} \PY{n}{num}\PY{p}{)}\PY{p}{:}
+             \PY{n}{arr} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{col}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+             \PY{n}{prob} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{col}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{values}\PY{p}{)}\PY{p}{)}
+             \PY{n}{p\PYZus{}norm} \PY{o}{=} \PY{n}{prob}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+             \PY{n}{prob} \PY{o}{=} \PY{n}{prob}\PY{o}{/}\PY{n}{p\PYZus{}norm}
+             \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n}{arr}\PY{p}{,} \PY{n}{num}\PY{p}{,} \PY{n}{replace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{p}\PY{o}{=}\PY{n}{prob}\PY{p}{)}
+         
+         \PY{k}{def} \PY{n+nf}{fill\PYZus{}missing}\PY{p}{(}\PY{n}{data}\PY{p}{,}\PY{n}{missing}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n+nb}{list}\PY{p}{(}\PY{n}{data}\PY{p}{[}\PY{n}{missing}\PY{p}{]}\PY{o}{.}\PY{n}{columns}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{count} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{p}{[}\PY{n}{data}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{data}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{p}{[}\PY{n}{data}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n}{dist\PYZus{}random\PYZus{}selection}\PY{p}{(}\PY{n}{data}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{p}{,}\PY{n}{count}\PY{p}{)}
+             \PY{k}{return} \PY{n}{data}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{n}{dsdata3} \PY{o}{=} \PY{n}{fill\PYZus{}missing}\PY{p}{(}\PY{n}{dsdata2}\PY{p}{,} \PY{n}{missing2}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{msno}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}\PY{n}{dsdata3}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{feature-selection}{%
+\section{Feature Selection}\label{feature-selection}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{n}{dsdata3}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}24}]:} (41188, 19)
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{c+c1}{\PYZsh{} Data preparation}
+         \PY{n}{dsn} \PY{o}{=} \PY{n}{dsdata3}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{dsn}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{n}{include}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{O}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} Drop missing value}
+         \PY{c+c1}{\PYZsh{}dsn2 = dsn.copy().dropna() HELL NO!!!!!!! XD,}
+         \PY{c+c1}{\PYZsh{} That drops about 10,000 columns...}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}25}]:}            job  marital          education housing   loan   contact  month  \textbackslash{}
+         count    41188    41188              41188   41188  41188     41188  41188   
+         unique      11        3                  7       2      2         2     10   
+         top     admin.  married  university.degree     yes     no  cellular    may   
+         freq     10499    24979              12664   22090  34778     26144  13769   
+         
+                day\_of\_week      y  
+         count        41188  41188  
+         unique           5      2  
+         top            thu     no  
+         freq          8623  36548  
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{c+c1}{\PYZsh{} Create dummy}
+         \PY{k}{def} \PY{n+nf}{make\PYZus{}dummies}\PY{p}{(}\PY{n}{dsn}\PY{p}{)}\PY{p}{:}
+             \PY{n}{numvar} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{age}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{campaign}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pdays}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{previous}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{emp.var.rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cons.price.idx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cons.}
+         \PY{n}{conf}\PY{o}{.}\PY{n}{idx}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{euribor3m}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{n}{nr}\PY{o}{.}\PY{n}{employed}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{]}
+             \PY{n}{nonnumvar} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{job}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{marital}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{education}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{month}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{day\PYZus{}of\PYZus{}week}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{c+c1}{\PYZsh{}WE ONLY NEED THE}
+         \PY{n}{CATEGORICALS}\PY{p}{,} \PY{n}{DONT} \PY{n}{INCLUDE} \PY{n}{BINARIES}\PY{o}{!}!
+         
+             \PY{k}{for} \PY{n}{c}\PY{p}{,}\PY{n}{var} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{nonnumvar}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{dummy} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{get\PYZus{}dummies}\PY{p}{(}\PY{n}{dsn}\PY{p}{[}\PY{n}{var}\PY{p}{]}\PY{p}{,}\PY{n}{drop\PYZus{}first}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+                 \PY{n}{dsn} \PY{o}{=} \PY{n}{dsn}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{n}{var}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{dsn} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{dsn}\PY{p}{,} \PY{n}{dummy}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}print(var)}
+                 \PY{c+c1}{\PYZsh{}display(dummy.head(5))}
+             \PY{k}{return} \PY{n}{dsn}
+         
+         \PY{k}{def} \PY{n+nf}{make\PYZus{}numeric}\PY{p}{(}\PY{n}{dsn}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{c}\PY{p}{,}\PY{n}{var} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{housing}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{loan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{contact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{dsn}\PY{p}{[}\PY{n}{var}\PY{p}{]} \PY{o}{=} \PY{n}{dsn}\PY{p}{[}\PY{n}{var}\PY{p}{]}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{cat}\PY{o}{.}\PY{n}{codes}
+         
+             \PY{k}{return} \PY{n}{dsn}
+         
+         \PY{n}{dsn2} \PY{o}{=} \PY{n}{make\PYZus{}dummies}\PY{p}{(}\PY{n}{dsn}\PY{p}{)} \PY{c+c1}{\PYZsh{}make dummies out of categoricals}
+         \PY{n}{dsn2} \PY{o}{=} \PY{n}{make\PYZus{}numeric}\PY{p}{(}\PY{n}{dsn2}\PY{p}{)} \PY{c+c1}{\PYZsh{}make binaries out of yes/no}
+         \PY{n}{dsn2}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}dsn2.describe()}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 41188 entries, 0 to 41187
+Data columns (total 45 columns):
+age                    41188 non-null int64
+housing                41188 non-null int8
+loan                   41188 non-null int8
+contact                41188 non-null int8
+duration               41188 non-null int64
+campaign               41188 non-null int64
+pdays                  41188 non-null int64
+previous               41188 non-null int64
+emp.var.rate           41188 non-null float64
+cons.price.idx         41188 non-null float64
+cons.conf.idx          41188 non-null float64
+euribor3m              41188 non-null float64
+nr.employed            41188 non-null float64
+y                      41188 non-null object
+blue-collar            41188 non-null uint8
+entrepreneur           41188 non-null uint8
+housemaid              41188 non-null uint8
+management             41188 non-null uint8
+retired                41188 non-null uint8
+self-employed          41188 non-null uint8
+services               41188 non-null uint8
+student                41188 non-null uint8
+technician             41188 non-null uint8
+unemployed             41188 non-null uint8
+married                41188 non-null uint8
+single                 41188 non-null uint8
+basic.6y               41188 non-null uint8
+basic.9y               41188 non-null uint8
+high.school            41188 non-null uint8
+illiterate             41188 non-null uint8
+professional.course    41188 non-null uint8
+university.degree      41188 non-null uint8
+aug                    41188 non-null uint8
+dec                    41188 non-null uint8
+jul                    41188 non-null uint8
+jun                    41188 non-null uint8
+mar                    41188 non-null uint8
+may                    41188 non-null uint8
+nov                    41188 non-null uint8
+oct                    41188 non-null uint8
+sep                    41188 non-null uint8
+mon                    41188 non-null uint8
+thu                    41188 non-null uint8
+tue                    41188 non-null uint8
+wed                    41188 non-null uint8
+dtypes: float64(5), int64(5), int8(3), object(1), uint8(31)
+memory usage: 4.8+ MB
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{c+c1}{\PYZsh{} Drop priori}
+         \PY{n}{dsn3} \PY{o}{=} \PY{n}{dsn2}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{duration}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}remove output and duration, which should not be}
+         \PY{n}{known} \PY{n}{a} \PY{n}{priori}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{c+c1}{\PYZsh{} Data Normalization}
+         
+         \PY{c+c1}{\PYZsh{} separate the data from the target attributes}
+         \PY{n}{X} \PY{o}{=} \PY{n}{dsn3}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}Y = pd.get\PYZus{}dummies(dsn3[\PYZsq{}y\PYZsq{}],drop\PYZus{}first=True,dummy\PYZus{}na=True)}
+         
+         \PY{c+c1}{\PYZsh{} normalize the data attributes}
+         \PY{n}{normalized\PYZus{}X} \PY{o}{=} \PY{n}{preprocessing}\PY{o}{.}\PY{n}{normalize}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{c+c1}{\PYZsh{} MAKE NORMALIZED DF}
+         \PY{n}{X\PYZus{}n} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{normalized\PYZus{}X}\PY{p}{)}
+         \PY{n}{X\PYZus{}n}\PY{o}{.}\PY{n}{columns} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{columns}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{c+c1}{\PYZsh{} Check the correlation}
+         
+         \PY{c+c1}{\PYZsh{} NORMALIZE THE DATA !}
+         \PY{n}{corr} \PY{o}{=} \PY{n}{X\PYZus{}n}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} Generate a mask for the upper triangle}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{style}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{white}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{mask} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n}{corr}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{bool}\PY{p}{)}
+         \PY{n}{mask}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{triu\PYZus{}indices\PYZus{}from}\PY{p}{(}\PY{n}{mask}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{k+kc}{True}
+         
+         \PY{c+c1}{\PYZsh{} Set up the matplotlib figure}
+         \PY{n}{f}\PY{p}{,} \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Generate a custom diverging colormap}
+         \PY{n}{cmap} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{diverging\PYZus{}palette}\PY{p}{(}\PY{l+m+mi}{220}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{n}{as\PYZus{}cmap}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Draw the heatmap with the mask and correct aspect ratio}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{corr}\PY{p}{,} \PY{n}{mask}\PY{o}{=}\PY{n}{mask}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{center}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                     \PY{n}{square}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{linewidths}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{cbar\PYZus{}kws}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{shrink}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{o}{.}\PY{l+m+mi}{76}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{n}{f}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_40_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{feature-selection}{%
+\subsection{Feature Selection}\label{feature-selection}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{k}{def} \PY{n+nf}{print\PYZus{}VIF}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{:}
+             \PY{n}{colnames} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{oi}\PY{o}{.}\PY{n}{variance\PYZus{}inflation\PYZus{}factor}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{i}\PY{p}{)}\PY{p}{,} \PY{n}{colnames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Variance Inflation Factors:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}VIF}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Variance Inflation Factors:
+25.681606550879618 age
+2.1840846838967662 housing
+1.1884269118600956 loan
+5.169134506238248 contact
+1.9403738005754756 campaign
+45.31784765956443 pdays
+2.0804529016210154 previous
+93.69614375243889 emp.var.rate
+62393.324630103554 cons.price.idx
+389.9335927565134 cons.conf.idx
+785.3183820323019 euribor3m
+80118.64109558242 nr.employed
+3.000196164065369 blue-collar
+1.1794228557794595 entrepreneur
+1.2074919210148327 housemaid
+1.34132266030209 management
+1.5435369807274977 retired
+1.15945753421996 self-employed
+1.5661286780219867 services
+1.1946518543365574 student
+2.0781095871717814 technician
+1.1248546619346393 unemployed
+6.550642053351103 married
+4.03266944551772 single
+1.6012107129188906 basic.6y
+2.625822929245276 basic.9y
+4.332027802671218 high.school
+1.0051484048132502 illiterate
+3.0152297601535163 professional.course
+5.692430069185153 university.degree
+8.13576981204706 aug
+1.1411369408293892 dec
+5.436567608186831 jul
+3.782090835101747 jun
+1.2544644335392852 mar
+7.5886348027215975 may
+3.932663973419781 nov
+1.5992725497309754 oct
+1.518952664229258 sep
+2.0997274956465657 mon
+2.119070550559964 thu
+2.056185398273185 tue
+2.0552461307481122 wed
+
+    \end{Verbatim}
+
+    \hypertarget{intermediate-regression-on-economic-variables-for-vif}{%
+\subsubsection{intermediate regression on economic variables for
+VIF}\label{intermediate-regression-on-economic-variables-for-vif}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{n}{economic} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{emp.var.rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cons.price.idx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cons.conf.idx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{euribor3m}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{numeric} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{OLS}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{nr.employed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{p}{,}\PY{n}{X}\PY{p}{[}\PY{n}{economic}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{numeric}\PY{o}{.}\PY{n}{resid}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Residuals}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{numeric}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_44_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{verbatim}
+<class 'statsmodels.iolib.summary.Summary'>
+"""
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       1.000
+Model:                            OLS   Adj. R-squared:                  1.000
+Method:                 Least Squares   F-statistic:                 2.623e+08
+Date:                Thu, 09 May 2019   Prob (F-statistic):               0.00
+Time:                        22:03:38   Log-Likelihood:            -2.0167e+05
+No. Observations:               41188   AIC:                         4.034e+05
+Df Residuals:                   41184   BIC:                         4.034e+05
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1           -63.3977      0.445   -142.626      0.000     -64.269     -62.526
+x2            50.2830      0.027   1890.625      0.000      50.231      50.335
+x3            -3.7858      0.038    -99.832      0.000      -3.860      -3.711
+x4            86.5789      0.416    208.289      0.000      85.764      87.394
+==============================================================================
+Omnibus:                     3472.453   Durbin-Watson:                   0.002
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             9896.607
+Skew:                          -0.464   Prob(JB):                         0.00
+Kurtosis:                       5.215   Cond. No.                         387.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+"""
+    \end{verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{dsn4} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{dsn4} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{nr.employed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{euribor3m}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cons.price.idx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cons.conf.idx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Variance Inflation Factors:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}VIF}\PY{p}{(}\PY{n}{dsn4}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Variance Inflation Factors:
+18.80115670825449 age
+2.1646083874537148 housing
+1.1866246865988785 loan
+3.7649497595290184 contact
+1.9215194708841905 campaign
+27.290000564335937 pdays
+1.7336939576946881 previous
+2.5126142325555105 emp.var.rate
+2.8286185942884576 blue-collar
+1.1730236609455233 entrepreneur
+1.1917039329486732 housemaid
+1.3381672712448212 management
+1.5374238887447822 retired
+1.1547841706846482 self-employed
+1.5421419725346974 services
+1.1675079710942462 student
+2.046279789599359 technician
+1.1168978674318881 unemployed
+6.033846092902686 married
+3.5392097508920575 single
+1.5304324449169406 basic.6y
+2.4107596377102323 basic.9y
+3.76458134421943 high.school
+1.0046407547199638 illiterate
+2.7571835845860364 professional.course
+4.864005877271467 university.degree
+3.917570727343788 aug
+1.0775324108601532 dec
+4.4081745260225835 jul
+3.3578106179599425 jun
+1.1876113746312156 mar
+6.3152035657393615 may
+2.5110192350378955 nov
+1.2740204607295855 oct
+1.218884720090602 sep
+2.0513989168836284 mon
+2.0576022009794563 thu
+2.013620242918694 tue
+2.0105110975194673 wed
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{n}{dsn4} \PY{o}{=} \PY{n}{dsn4}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pdays}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{dsn4} \PY{o}{=} \PY{n}{dsn4}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mon}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{thu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{dsn4} \PY{o}{=} \PY{n}{dsn4}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{single}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}dsn4 = dsn4.drop(columns=[\PYZsq{}campaign\PYZsq{}])}
+         
+         \PY{c+c1}{\PYZsh{} NORMALIZE THE DATA !}
+         \PY{n}{normalized\PYZus{}X} \PY{o}{=} \PY{n}{preprocessing}\PY{o}{.}\PY{n}{normalize}\PY{p}{(}\PY{n}{dsn4}\PY{p}{)}
+         
+         \PY{n}{X\PYZus{}n} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{normalized\PYZus{}X}\PY{p}{)}
+         \PY{n}{X\PYZus{}n}\PY{o}{.}\PY{n}{columns} \PY{o}{=} \PY{n}{dsn4}\PY{o}{.}\PY{n}{columns}
+         
+         
+         \PY{c+c1}{\PYZsh{}plt.figure(figsize=(12,8))}
+         \PY{n}{corr} \PY{o}{=} \PY{n}{X\PYZus{}n}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Generate a mask for the upper triangle}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{style}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{white}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{mask} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n}{corr}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{bool}\PY{p}{)}
+         \PY{n}{mask}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{triu\PYZus{}indices\PYZus{}from}\PY{p}{(}\PY{n}{mask}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{k+kc}{True}
+         
+         \PY{c+c1}{\PYZsh{} Set up the matplotlib figure}
+         \PY{n}{f}\PY{p}{,} \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Generate a custom diverging colormap}
+         \PY{n}{cmap} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{diverging\PYZus{}palette}\PY{p}{(}\PY{l+m+mi}{220}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{n}{as\PYZus{}cmap}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Draw the heatmap with the mask and correct aspect ratio}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{corr}\PY{p}{,} \PY{n}{mask}\PY{o}{=}\PY{n}{mask}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{center}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                     \PY{n}{square}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{linewidths}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{cbar\PYZus{}kws}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{shrink}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{o}{.}\PY{l+m+mi}{75}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_46_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{outlier-detection}{%
+\subsection{Outlier Detection}\label{outlier-detection}}
+
+    \hypertarget{pca}{%
+\subsubsection{PCA}\label{pca}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{decomposition} \PY{k}{import} \PY{n}{PCA}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{StandardScaler}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{n}{X} \PY{o}{=} \PY{n}{dsn4}\PY{c+c1}{\PYZsh{}dsn4.drop(columns=[\PYZsq{}y\PYZsq{}])}
+         
+         \PY{c+c1}{\PYZsh{}sns.pairplot(X)}
+         \PY{c+c1}{\PYZsh{} Plot the data}
+         \PY{c+c1}{\PYZsh{}fig = plt.figure(figsize=(12,8))}
+         \PY{c+c1}{\PYZsh{}with plt.style.context((\PYZsq{}ggplot\PYZsq{})):}
+         \PY{c+c1}{\PYZsh{}    plt.plot( X.T)}
+         \PY{c+c1}{\PYZsh{}    plt.show()}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}37}]:} \PY{n}{pcaA} \PY{o}{=} \PY{n}{PCA}\PY{p}{(}\PY{p}{)}
+         \PY{n}{pcaX} \PY{o}{=} \PY{n}{pcaA}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{c+c1}{\PYZsh{}.fit\PYZus{}transform(StandardScaler().fit\PYZus{}transform(X))}
+         \PY{c+c1}{\PYZsh{} PCA \PYZam{} score}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{pcaA}\PY{o}{.}\PY{n}{explained\PYZus{}variance\PYZus{}ratio\PYZus{}}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[0.89099519 0.06367793 0.02046394 0.00326992 0.00232495]
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{c+c1}{\PYZsh{} Compute the euclidean distance ( 3 PC )}
+         \PY{n}{euclidean} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{:}
+             \PY{n}{euclidean} \PY{o}{+}\PY{o}{=} \PY{p}{(}\PY{n}{pcaX}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{pcaX}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{var}\PY{p}{(}\PY{n}{pcaX}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}colors = [plt.cm.jet(float(i)/max(euclidean)) for i in euclidean]}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}39}]:} \PY{n}{X\PYZus{}pca} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{pcaX}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA}\PY{l+s+si}{\PYZpc{}i}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+         \PY{n}{index}\PY{o}{=}\PY{n}{X}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}40}]:} \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{blue}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{blue}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+         \PY{n}{pal} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{xkcd\PYZus{}palette}\PY{p}{(}\PY{n}{colors}\PY{p}{)}
+         
+         \PY{n}{pal} \PY{o}{=} \PY{p}{[}\PY{n}{sns}\PY{o}{.}\PY{n}{cubehelix\PYZus{}palette}\PY{p}{(}\PY{n}{light}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{sns}\PY{o}{.}\PY{n}{cubehelix\PYZus{}palette}\PY{p}{(}\PY{n}{light}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{white}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{cmap} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{cubehelix\PYZus{}palette}\PY{p}{(}\PY{n}{light}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{as\PYZus{}cmap}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         
+         
+         \PY{n}{df} \PY{o}{=} \PY{n}{X\PYZus{}pca}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA3}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA4}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+         \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{2000}\PY{p}{]}
+         \PY{n}{g} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{PairGrid}\PY{p}{(}\PY{n}{df}\PY{p}{,} \PY{n}{diag\PYZus{}sharey}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{n}{pal}\PY{p}{)}
+         \PY{n}{g}\PY{o}{.}\PY{n}{map\PYZus{}lower}\PY{p}{(}\PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap}\PY{p}{,} \PY{n}{shade}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         \PY{n}{g}\PY{o}{.}\PY{n}{map\PYZus{}upper}\PY{p}{(}\PY{n}{sns}\PY{o}{.}\PY{n}{scatterplot}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n}{g}\PY{o}{.}\PY{n}{map\PYZus{}diag}\PY{p}{(}\PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{,} \PY{n}{shade}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{No}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_57_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}42}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         \PY{l+s+sd}{colors = [plt.cm.jet(float(i)/max(euclidean)) for i in euclidean]}
+         \PY{l+s+sd}{fig = plt.figure(figsize=(8,6))}
+         \PY{l+s+sd}{with plt.style.context((\PYZsq{}ggplot\PYZsq{})):}
+         \PY{l+s+sd}{    plt.scatter(pcaX[:, 0], pcaX[:, 1], c=colors, edgecolors=\PYZsq{}k\PYZsq{})}
+         \PY{l+s+sd}{    plt.xlabel(\PYZsq{}PC1\PYZsq{})}
+         \PY{l+s+sd}{    plt.ylabel(\PYZsq{}PC2\PYZsq{})}
+         \PY{l+s+sd}{    plt.title(\PYZsq{}Score Plot\PYZsq{})}
+         \PY{l+s+sd}{plt.show()}
+         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{0}
+\end{Verbatim}
+
+    \hypertarget{z-score}{%
+\subsubsection{Z-score}\label{z-score}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}43}]:} \PY{c+c1}{\PYZsh{}NORMALIZATION????}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{k+kn}{from} \PY{n+nn}{scipy} \PY{k}{import} \PY{n}{stats}
+         
+         \PY{n}{dsn5} \PY{o}{=} \PY{n}{dsn4}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{zX} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{stats}\PY{o}{.}\PY{n}{zscore}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{n}{X}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}45}]:} (41188, 33)
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{k}{def} \PY{n+nf}{histogram}\PY{p}{(}\PY{n}{variable}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Histogram}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+             \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{zX}\PY{p}{)}
+         
+         \PY{n}{histogram}\PY{p}{(}\PY{n}{zX}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_63_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{n}{dsn5} \PY{o}{=} \PY{n}{dsn5}\PY{p}{[}\PY{p}{(}\PY{n}{zX} \PY{o}{\PYZlt{}} \PY{l+m+mi}{10}\PY{p}{)}\PY{o}{.}\PY{n}{all}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+         \PY{n}{dsn5} \PY{o}{=} \PY{n}{dsn5}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dec}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{illiterate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{dsn5}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 40949 entries, 0 to 41187
+Data columns (total 31 columns):
+age                    40949 non-null int64
+housing                40949 non-null int8
+loan                   40949 non-null int8
+contact                40949 non-null int8
+campaign               40949 non-null int64
+previous               40949 non-null int64
+emp.var.rate           40949 non-null float64
+blue-collar            40949 non-null uint8
+entrepreneur           40949 non-null uint8
+housemaid              40949 non-null uint8
+management             40949 non-null uint8
+retired                40949 non-null uint8
+self-employed          40949 non-null uint8
+services               40949 non-null uint8
+student                40949 non-null uint8
+technician             40949 non-null uint8
+unemployed             40949 non-null uint8
+married                40949 non-null uint8
+basic.6y               40949 non-null uint8
+basic.9y               40949 non-null uint8
+high.school            40949 non-null uint8
+professional.course    40949 non-null uint8
+university.degree      40949 non-null uint8
+aug                    40949 non-null uint8
+jul                    40949 non-null uint8
+jun                    40949 non-null uint8
+mar                    40949 non-null uint8
+may                    40949 non-null uint8
+nov                    40949 non-null uint8
+oct                    40949 non-null uint8
+sep                    40949 non-null uint8
+dtypes: float64(1), int64(3), int8(3), uint8(24)
+memory usage: 2.6 MB
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{n}{X} \PY{o}{=} \PY{n}{dsn5}\PY{c+c1}{\PYZsh{}.drop(columns=[\PYZsq{}y\PYZsq{}])}
+         \PY{n}{Y} \PY{o}{=} \PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{n}{X}\PY{o}{.}\PY{n}{index}\PY{p}{]}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{cat}\PY{o}{.}\PY{n}{codes}
+         \PY{n}{Y}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}48}]:} 0    36405
+         1     4544
+         dtype: int64
+\end{Verbatim}
+            
+    \hypertarget{prediction}{%
+\section{Prediction}\label{prediction}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}49}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{whitegrid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{n}{X\PYZus{}} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+         \PY{n}{model} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{OLS}\PY{p}{(}\PY{n}{Y}\PY{p}{,}\PY{n}{X\PYZus{}}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Distribution of OLS residuals}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{resid}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Distribution of OLS residuals
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_69_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{verbatim}
+<class 'statsmodels.iolib.summary.Summary'>
+"""
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.144
+Model:                            OLS   Adj. R-squared:                  0.144
+Method:                 Least Squares   F-statistic:                     222.7
+Date:                Thu, 09 May 2019   Prob (F-statistic):               0.00
+Time:                        22:03:58   Log-Likelihood:                -7490.6
+No. Observations:               40949   AIC:                         1.505e+04
+Df Residuals:                   40917   BIC:                         1.532e+04
+Df Model:                          31                                         
+Covariance Type:            nonrobust                                         
+=======================================================================================
+                          coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+const                   0.0882      0.012      7.607      0.000       0.065       0.111
+age                     0.0003      0.000      1.596      0.111    -6.1e-05       0.001
+housing                -0.0040      0.003     -1.378      0.168      -0.010       0.002
+loan                   -0.0021      0.004     -0.524      0.600      -0.010       0.006
+contact                 0.0288      0.005      6.189      0.000       0.020       0.038
+campaign               -0.0035      0.001     -6.270      0.000      -0.005      -0.002
+previous                0.0686      0.003     20.841      0.000       0.062       0.075
+emp.var.rate           -0.0529      0.001    -36.040      0.000      -0.056      -0.050
+blue-collar            -0.0219      0.005     -4.195      0.000      -0.032      -0.012
+entrepreneur           -0.0187      0.008     -2.266      0.023      -0.035      -0.003
+housemaid              -0.0069      0.010     -0.704      0.481      -0.026       0.012
+management             -0.0115      0.006     -1.846      0.065      -0.024       0.001
+retired                 0.0458      0.009      5.258      0.000       0.029       0.063
+self-employed          -0.0172      0.008     -2.074      0.038      -0.033      -0.001
+services               -0.0192      0.006     -3.335      0.001      -0.030      -0.008
+student                 0.0758      0.011      7.054      0.000       0.055       0.097
+technician             -0.0079      0.005     -1.543      0.123      -0.018       0.002
+unemployed              0.0019      0.010      0.195      0.846      -0.017       0.021
+married                -0.0035      0.003     -1.097      0.273      -0.010       0.003
+basic.6y                0.0021      0.008      0.280      0.780      -0.013       0.017
+basic.9y               -0.0062      0.006     -1.041      0.298      -0.018       0.005
+high.school            -0.0021      0.006     -0.353      0.724      -0.014       0.010
+professional.course     0.0037      0.007      0.542      0.588      -0.010       0.017
+university.degree       0.0095      0.006      1.530      0.126      -0.003       0.022
+aug                     0.0497      0.008      6.399      0.000       0.034       0.065
+jul                     0.0676      0.008      8.744      0.000       0.052       0.083
+jun                     0.0343      0.008      4.469      0.000       0.019       0.049
+mar                     0.2780      0.014     20.268      0.000       0.251       0.305
+may                    -0.0496      0.007     -7.544      0.000      -0.062      -0.037
+nov                    -0.0274      0.008     -3.635      0.000      -0.042      -0.013
+oct                     0.1578      0.012     12.741      0.000       0.134       0.182
+sep                     0.1712      0.014     12.607      0.000       0.145       0.198
+==============================================================================
+Omnibus:                    16009.804   Durbin-Watson:                   1.812
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            54083.506
+Skew:                           2.043   Prob(JB):                         0.00
+Kurtosis:                       6.873   Cond. No.                         570.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+"""
+    \end{verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{n}{alpha} \PY{o}{=} \PY{l+m+mf}{0.05}
+         \PY{n}{a} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{pvalues} \PY{o}{\PYZlt{}} \PY{n}{alpha}
+         
+         \PY{n}{X2} \PY{o}{=} \PY{n}{X\PYZus{}}\PY{p}{[}\PY{n}{X\PYZus{}}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{p}{]}
+         \PY{n}{X2} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{X2}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Statistically significant regressors are:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{X\PYZus{}}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{o}{\PYZti{}}\PY{n}{a}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Not Statistically significant regressors are:
+['age', 'housing', 'loan', 'housemaid', 'management', 'technician', 'unemployed',
+'married', 'basic.6y', 'basic.9y', 'high.school', 'professional.course',
+'university.degree']
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{n}{model2} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{OLS}\PY{p}{(}\PY{n}{Y}\PY{p}{,}\PY{n}{X2}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{cov\PYZus{}type}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HC0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{sm}\PY{o}{.}\PY{n}{qqplot}\PY{p}{(}\PY{n}{model2}\PY{o}{.}\PY{n}{resid}\PY{p}{,} \PY{n}{sc}\PY{o}{.}\PY{n}{norm}\PY{p}{,} \PY{n}{fit}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{line}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{45}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{model2}\PY{o}{.}\PY{n}{resid}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Residuals}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{model2}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Variance Inflation Factors:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}VIF}\PY{p}{(}\PY{n}{X2}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_71_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_71_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{verbatim}
+<class 'statsmodels.iolib.summary.Summary'>
+"""
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.144
+Model:                            OLS   Adj. R-squared:                  0.144
+Method:                 Least Squares   F-statistic:                     188.6
+Date:                Thu, 09 May 2019   Prob (F-statistic):               0.00
+Time:                        22:03:58   Log-Likelihood:                -7501.5
+No. Observations:               40949   AIC:                         1.504e+04
+Df Residuals:                   40930   BIC:                         1.520e+04
+Df Model:                          18                                         
+Covariance Type:                  HC0                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             0.0937      0.009     10.452      0.000       0.076       0.111
+contact           0.0294      0.006      5.288      0.000       0.018       0.040
+campaign         -0.0035      0.000     -8.882      0.000      -0.004      -0.003
+previous          0.0687      0.005     13.463      0.000       0.059       0.079
+emp.var.rate     -0.0531      0.002    -25.670      0.000      -0.057      -0.049
+blue-collar      -0.0238      0.003     -7.158      0.000      -0.030      -0.017
+entrepreneur     -0.0151      0.007     -2.036      0.042      -0.030      -0.001
+retired           0.0523      0.010      5.298      0.000       0.033       0.072
+self-employed    -0.0127      0.008     -1.619      0.105      -0.028       0.003
+services         -0.0204      0.005     -4.375      0.000      -0.030      -0.011
+student           0.0746      0.015      4.945      0.000       0.045       0.104
+aug               0.0515      0.011      4.811      0.000       0.031       0.073
+jul               0.0678      0.010      6.512      0.000       0.047       0.088
+jun               0.0344      0.010      3.419      0.001       0.015       0.054
+mar               0.2794      0.023     12.311      0.000       0.235       0.324
+may              -0.0504      0.009     -5.820      0.000      -0.067      -0.033
+nov              -0.0271      0.010     -2.835      0.005      -0.046      -0.008
+oct               0.1586      0.021      7.676      0.000       0.118       0.199
+sep               0.1726      0.023      7.629      0.000       0.128       0.217
+==============================================================================
+Omnibus:                    16019.833   Durbin-Watson:                   1.810
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            54130.320
+Skew:                           2.045   Prob(JB):                         0.00
+Kurtosis:                       6.873   Cond. No.                         50.7
+==============================================================================
+
+Warnings:
+[1] Standard Errors are heteroscedasticity robust (HC0)
+"""
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Variance Inflation Factors:
+20.972372500572607 const
+2.4234688619455382 contact
+1.0356172703733448 campaign
+1.246284573034863 previous
+2.5257756330545083 emp.var.rate
+1.151683246873376 blue-collar
+1.0371156669402068 entrepreneur
+1.0559290697772752 retired
+1.02854766753986 self-employed
+1.0847262596966627 services
+1.044883382599428 student
+3.714266612071874 aug
+4.159414719803091 jul
+3.206044394229739 jun
+1.1977713020110123 mar
+4.659805935987449 may
+2.4666988074595966 nov
+1.2795283021381727 oct
+1.2252868135788397 sep
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}53}]:} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X2}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+         
+         \PY{n}{reg} \PY{o}{=} \PY{n}{LinearRegression}\PY{p}{(}\PY{p}{)}
+         \PY{n}{reg} \PY{o}{=} \PY{n}{reg}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{Y\PYZus{}train}\PY{p}{)}
+         
+         \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{reg}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{reg}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, MSE Loss}
+         \PY{o+ow}{is}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, mean\PYZus{}squared\PYZus{}error(Y\PYZus{}test,y\PYZus{}hat))}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Test accuracy: 0.151 , MSE Loss is: 0.0852462833821851
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+    \hypertarget{classification}{%
+\section{Classification}\label{classification}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}54}]:} \PY{k}{def} \PY{n+nf}{plot\PYZus{}hist2}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{df2}\PY{p}{,}\PY{n}{df\PYZus{}col}\PY{p}{)}\PY{p}{:}
+             \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+             \PY{n}{df2} \PY{o}{=} \PY{n}{df2}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+             \PY{k}{for} \PY{n}{d} \PY{o+ow}{in} \PY{n}{df\PYZus{}col}\PY{p}{:}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Distribution of Variable }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{d}\PY{p}{)}
+                 \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{d}\PY{p}{]}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{df2}\PY{p}{[}\PY{n}{d}\PY{p}{]}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                 \PY{n}{axes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Probability}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Empirical Probability Distribution of Numerical Variable }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{d}\PY{p}{)}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+         \PY{k}{def} \PY{n+nf}{get\PYZus{}num\PYZus{}cols}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+             \PY{n}{idx} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{select\PYZus{}dtypes}\PY{p}{(}\PY{n}{exclude}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{object}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{columns}\PY{o}{.}\PY{n}{values}
+             \PY{n}{dF} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{}remove NaNs or else it cant plot}
+             \PY{k}{return} \PY{n}{dF}\PY{o}{.}\PY{n}{columns}
+         
+         \PY{k}{def} \PY{n+nf}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{p}{:}
+             \PY{n}{c} \PY{o}{=} \PY{n}{confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}hat}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Confusion matrix is:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{c}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{We have}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{c}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{c}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{correct observations and}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{c}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{n}{c}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+         \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{misclassifications.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{classification\PYZus{}report}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+             \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{YlGnBu}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{annot}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}\PY{n}{fmt}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+         \PY{k}{def} \PY{n+nf}{plot\PYZus{}ROC}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{classifier}\PY{p}{)}\PY{p}{:}
+             \PY{n}{roc} \PY{o}{=} \PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{classifier}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}
+             \PY{n}{fpr}\PY{p}{,} \PY{n}{tpr}\PY{p}{,} \PY{n}{\PYZus{}} \PY{o}{=} \PY{n}{roc\PYZus{}curve}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{classifier}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{fpr}\PY{p}{,} \PY{n}{tpr}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Classifier area =}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{roc}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FPR}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TPR}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ROC curve}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mf}{0.01}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{l+m+mf}{1.01}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+         
+         \PY{k}{def} \PY{n+nf}{plot\PYZus{}ROC2}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{,}\PY{n}{L\PYZus{}X}\PY{p}{,}\PY{n}{L\PYZus{}YHAT}\PY{p}{,}\PY{n}{L\PYZus{}PROB}\PY{p}{,}\PY{n}{L\PYZus{}NAME}\PY{p}{)}\PY{p}{:}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{roc} \PY{o}{=} \PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{L\PYZus{}YHAT}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{fpr}\PY{p}{,} \PY{n}{tpr}\PY{p}{,} \PY{n}{\PYZus{}} \PY{o}{=} \PY{n}{roc\PYZus{}curve}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{L\PYZus{}PROB}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{fpr}\PY{p}{,} \PY{n}{tpr}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{L\PYZus{}NAME}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, area =}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{roc}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FPR}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TPR}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ROC curve}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mf}{0.01}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{l+m+mf}{1.01}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+         
+         
+         \PY{k}{def} \PY{n+nf}{MAE}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{p}{:}
+             \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{o}{\PYZhy{}}\PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{c+c1}{\PYZsh{}/y\PYZus{}test.shape[0]}
+\end{Verbatim}
+
+    \hypertarget{logistic-regression-with-pca}{%
+\subsection{Logistic Regression with
+PCA}\label{logistic-regression-with-pca}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} \PY{n}{pcaXmodel} \PY{o}{=} \PY{n}{PCA}\PY{p}{(}\PY{n}{n\PYZus{}components}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{whiten}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         \PY{n}{pc} \PY{o}{=} \PY{n}{pcaXmodel}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{c+c1}{\PYZsh{}.fit\PYZus{}transform(StandardScaler().fit\PYZus{}transform(X))}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{pcaXmodel}\PY{o}{.}\PY{n}{explained\PYZus{}variance\PYZus{}ratio\PYZus{}}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{proj} \PY{o}{=} \PY{n}{pcaXmodel}\PY{o}{.}\PY{n}{inverse\PYZus{}transform}\PY{p}{(}\PY{n}{pc}\PY{p}{)}
+         \PY{n}{a} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{proj}\PY{p}{)}\PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ones}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{31}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{cumsum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         
+         \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{,}
+         \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n}{lr} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
+         
+         \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{lr}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{lr}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, Cross Entropy Loss is:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+         \PY{n}{log\PYZus{}loss}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{MAE}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}pcaXmodel =}
+         \PY{n}{PCA}\PY{p}{(}\PY{n}{n\PYZus{}components}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{c+c1}{\PYZsh{}.fit\PYZus{}transform(StandardScaler().fit\PYZus{}transform(X))}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[0.89682146 0.05748207 0.02049585 0.00333144 0.00236537]
+Test accuracy: 0.887 , Cross Entropy Loss is: 3.89107015587607
+1384
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}56}]:} \PY{n}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+         \PY{n}{plot\PYZus{}ROC}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{lr}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[10739   163]
+ [ 1221   162]]
+We have 10901 correct observations and 1384 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.90      0.99      0.94     10902
+           1       0.50      0.12      0.19      1383
+
+   micro avg       0.89      0.89      0.89     12285
+   macro avg       0.70      0.55      0.56     12285
+weighted avg       0.85      0.89      0.86     12285
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_78_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_78_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}57}]:} \PY{n}{a}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}57}]:} (40949, 31)
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{logit} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{Logit}\PY{p}{(}\PY{n}{Y}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{logit}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Optimization terminated successfully.
+         Current function value: 0.293629
+         Iterations 7
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+<class 'statsmodels.iolib.summary.Summary'>
+"""
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                40949
+Model:                          Logit   Df Residuals:                    40918
+Method:                           MLE   Df Model:                           30
+Date:                Thu, 09 May 2019   Pseudo R-squ.:                  0.1575
+Time:                        22:03:59   Log-Likelihood:                -12024.
+converged:                       True   LL-Null:                       -14272.
+                                        LLR p-value:                     0.000
+=======================================================================================
+                          coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+age                    -0.0212      0.001    -14.239      0.000      -0.024      -0.018
+housing                -0.1281      0.034     -3.801      0.000      -0.194      -0.062
+loan                   -0.0677      0.048     -1.425      0.154      -0.161       0.025
+contact                -0.2701      0.051     -5.250      0.000      -0.371      -0.169
+campaign               -0.0806      0.010     -8.281      0.000      -0.100      -0.061
+previous                0.3963      0.026     15.057      0.000       0.345       0.448
+emp.var.rate           -0.4202      0.014    -31.114      0.000      -0.447      -0.394
+blue-collar            -0.6748      0.060    -11.169      0.000      -0.793      -0.556
+entrepreneur           -0.3512      0.104     -3.379      0.001      -0.555      -0.148
+housemaid              -0.3760      0.121     -3.114      0.002      -0.613      -0.139
+management             -0.1945      0.072     -2.704      0.007      -0.336      -0.054
+retired                 0.4768      0.089      5.338      0.000       0.302       0.652
+self-employed          -0.3755      0.100     -3.763      0.000      -0.571      -0.180
+services               -0.4582      0.071     -6.478      0.000      -0.597      -0.320
+student                -0.0736      0.090     -0.822      0.411      -0.249       0.102
+technician             -0.2791      0.058     -4.804      0.000      -0.393      -0.165
+unemployed             -0.1971      0.106     -1.864      0.062      -0.404       0.010
+married                -0.0664      0.037     -1.790      0.073      -0.139       0.006
+basic.6y               -0.4553      0.091     -5.022      0.000      -0.633      -0.278
+basic.9y               -0.6082      0.067     -9.122      0.000      -0.739      -0.478
+high.school            -0.7014      0.058    -11.991      0.000      -0.816      -0.587
+professional.course    -0.5467      0.071     -7.689      0.000      -0.686      -0.407
+university.degree      -0.6419      0.056    -11.420      0.000      -0.752      -0.532
+aug                    -0.2133      0.065     -3.273      0.001      -0.341      -0.086
+jul                     0.0528      0.066      0.801      0.423      -0.076       0.182
+jun                    -0.0471      0.069     -0.687      0.492      -0.181       0.087
+mar                     0.9616      0.098      9.775      0.000       0.769       1.154
+may                    -0.9755      0.056    -17.501      0.000      -1.085      -0.866
+nov                    -0.6573      0.070     -9.441      0.000      -0.794      -0.521
+oct                     0.2938      0.093      3.173      0.002       0.112       0.475
+sep                     0.4102      0.100      4.114      0.000       0.215       0.606
+=======================================================================================
+"""
+    \end{verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{whitegrid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{alpha} \PY{o}{=} \PY{l+m+mf}{0.05}
+         \PY{n}{a} \PY{o}{=} \PY{n}{logit}\PY{o}{.}\PY{n}{pvalues} \PY{o}{\PYZlt{}} \PY{n}{alpha}
+         
+         \PY{n}{X3} \PY{o}{=} \PY{n}{X}\PY{p}{[}\PY{n}{X}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{p}{]}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Statistically significant regressors are:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{o}{\PYZti{}}\PY{n}{a}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Not Statistically significant regressors are:
+['loan', 'student', 'unemployed', 'married', 'jul', 'jun']
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{n}{model2} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{Logit}\PY{p}{(}\PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{,}\PY{n}{X3}\PY{o}{.}\PY{n}{values}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{sm}\PY{o}{.}\PY{n}{qqplot}\PY{p}{(}\PY{n}{model2}\PY{o}{.}\PY{n}{resid\PYZus{}dev}\PY{p}{,} \PY{n}{sc}\PY{o}{.}\PY{n}{norm}\PY{p}{,} \PY{n}{fit}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{line}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{45}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{model2}\PY{o}{.}\PY{n}{resid\PYZus{}dev}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Residuals}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{model2}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Variance Inflation Factors:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{print\PYZus{}VIF}\PY{p}{(}\PY{n}{X3}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Optimization terminated successfully.
+         Current function value: 0.293766
+         Iterations 7
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_82_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_82_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{verbatim}
+<class 'statsmodels.iolib.summary.Summary'>
+"""
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                40949
+Model:                          Logit   Df Residuals:                    40924
+Method:                           MLE   Df Model:                           24
+Date:                Thu, 09 May 2019   Pseudo R-squ.:                  0.1571
+Time:                        22:04:00   Log-Likelihood:                -12029.
+converged:                       True   LL-Null:                       -14272.
+                                        LLR p-value:                     0.000
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.0224      0.001    -17.006      0.000      -0.025      -0.020
+x2            -0.1317      0.034     -3.926      0.000      -0.198      -0.066
+x3            -0.3043      0.047     -6.499      0.000      -0.396      -0.213
+x4            -0.0808      0.010     -8.376      0.000      -0.100      -0.062
+x5             0.3961      0.026     15.098      0.000       0.345       0.448
+x6            -0.4128      0.012    -34.251      0.000      -0.436      -0.389
+x7            -0.6594      0.058    -11.308      0.000      -0.774      -0.545
+x8            -0.3403      0.103     -3.303      0.001      -0.542      -0.138
+x9            -0.3535      0.120     -2.955      0.003      -0.588      -0.119
+x10           -0.1865      0.071     -2.629      0.009      -0.326      -0.047
+x11            0.5209      0.088      5.942      0.000       0.349       0.693
+x12           -0.3589      0.099     -3.621      0.000      -0.553      -0.165
+x13           -0.4394      0.069     -6.325      0.000      -0.576      -0.303
+x14           -0.2568      0.057     -4.536      0.000      -0.368      -0.146
+x15           -0.4666      0.089     -5.213      0.000      -0.642      -0.291
+x16           -0.6203      0.065     -9.572      0.000      -0.747      -0.493
+x17           -0.6994      0.055    -12.654      0.000      -0.808      -0.591
+x18           -0.5535      0.069     -7.983      0.000      -0.689      -0.418
+x19           -0.6333      0.053    -11.914      0.000      -0.737      -0.529
+x20           -0.2323      0.054     -4.337      0.000      -0.337      -0.127
+x21            0.9632      0.093     10.333      0.000       0.781       1.146
+x22           -0.9765      0.045    -21.668      0.000      -1.065      -0.888
+x23           -0.6694      0.061    -11.011      0.000      -0.789      -0.550
+x24            0.2970      0.088      3.385      0.001       0.125       0.469
+x25            0.4036      0.095      4.265      0.000       0.218       0.589
+==============================================================================
+"""
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Variance Inflation Factors:
+10.595228987761248 age
+2.1162627291809826 housing
+2.5787549377784673 contact
+1.9650742218414552 campaign
+1.3878420674037453 previous
+1.8225837030888707 emp.var.rate
+2.3498218720655597 blue-collar
+1.141514821122065 entrepreneur
+1.1505968256965058 housemaid
+1.2955824062114378 management
+1.4853298133639519 retired
+1.1259569038839308 self-employed
+1.4472162108565212 services
+1.9011737412545888 technician
+1.3973642634299883 basic.6y
+2.0054267834052713 basic.9y
+2.674200337054219 high.school
+2.309779602262992 professional.course
+3.3033756849895126 university.degree
+1.639060932630886 aug
+1.0728776210604138 mar
+2.208910038097664 may
+1.3446108077360526 nov
+1.1415496233265712 oct
+1.1068748593204247 sep
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{n}{logit} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{Logit}\PY{p}{(}\PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{pc}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{logit}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Optimization terminated successfully.
+         Current function value: 0.673033
+         Iterations 4
+
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+<class 'statsmodels.iolib.summary.Summary'>
+"""
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                40949
+Model:                          Logit   Df Residuals:                    40944
+Method:                           MLE   Df Model:                            4
+Date:                Thu, 09 May 2019   Pseudo R-squ.:                 -0.9310
+Time:                        22:04:01   Log-Likelihood:                -27560.
+converged:                       True   LL-Null:                       -14272.
+                                        LLR p-value:                     1.000
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1             0.0352      0.010      3.448      0.001       0.015       0.055
+x2            -0.1188      0.010    -11.713      0.000      -0.139      -0.099
+x3             0.3641      0.010     35.553      0.000       0.344       0.384
+x4            -0.1405      0.010    -13.936      0.000      -0.160      -0.121
+x5            -0.0247      0.010     -2.458      0.014      -0.044      -0.005
+==============================================================================
+"""
+    \end{verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+    \hypertarget{adaboost-classifier}{%
+\subsubsection{AdaBoost Classifier}\label{adaboost-classifier}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.9}\PY{p}{)}
+         
+         \PY{n}{clf\PYZus{}rdfore} \PY{o}{=} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{p}{)}
+         \PY{n}{clf\PYZus{}rdfore} \PY{o}{=} \PY{n}{clf\PYZus{}rdfore}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{Y\PYZus{}train}\PY{p}{)}
+         
+         \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{clf\PYZus{}rdfore}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+         
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{clf\PYZus{}rdfore}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, Cross Entropy}
+         \PY{n}{Loss} \PY{o+ow}{is}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, log\PYZus{}loss(Y\PYZus{}test,y\PYZus{}hat))}
+         \PY{n}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+         \PY{n}{plot\PYZus{}ROC}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{clf\PYZus{}rdfore}\PY{p}{)}
+         \PY{n}{MAE}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Test accuracy: 0.891 , Cross Entropy Loss is: 3.7551821362867495
+Confusion matrix is:
+[[32337   451]
+ [ 3556   511]]
+We have 32848 correct observations and 4007 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.90      0.99      0.94     32788
+           1       0.53      0.13      0.20      4067
+
+   micro avg       0.89      0.89      0.89     36855
+   macro avg       0.72      0.56      0.57     36855
+weighted avg       0.86      0.89      0.86     36855
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_87_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_87_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}62}]:} 4007
+\end{Verbatim}
+            
+    \hypertarget{svc}{%
+\subsubsection{SVC}\label{svc}}
+
+    \hypertarget{unbalanced-data-problem}{%
+\section{Unbalanced Data Problem}\label{unbalanced-data-problem}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{whitegrid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{k}{def} \PY{n+nf}{make\PYZus{}balanced}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}\PY{p}{:}
+             \PY{n}{DF} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+             \PY{n}{DF}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{Y}
+             \PY{n}{DF\PYZus{}Yes} \PY{o}{=} \PY{n}{DF}\PY{p}{[}\PY{n}{DF}\PY{o}{.}\PY{n}{Y}\PY{o}{==}\PY{l+m+mi}{1}\PY{p}{]}\PY{c+c1}{\PYZsh{}.info()}
+             \PY{n}{DF\PYZus{}No} \PY{o}{=} \PY{n}{DF}\PY{p}{[}\PY{n}{DF}\PY{o}{.}\PY{n}{Y}\PY{o}{==}\PY{l+m+mi}{0}\PY{p}{]}\PY{c+c1}{\PYZsh{}.info()}
+             \PY{n}{DF\PYZus{}B} \PY{o}{=} \PY{n}{DF\PYZus{}No}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{DF\PYZus{}Yes}\PY{p}{)}\PY{p}{)}
+             \PY{n}{D} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{DF\PYZus{}B}\PY{p}{,}\PY{n}{DF\PYZus{}Yes}\PY{p}{]}\PY{p}{)}
+             \PY{n}{D} \PY{o}{=} \PY{n}{D}\PY{o}{.}\PY{n}{reindex}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{permutation}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{index}\PY{p}{)}\PY{p}{)}
+             \PY{n}{D} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{p}{:}\PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{D}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]}\PY{c+c1}{\PYZsh{}, D[int(len(D)/2):]}
+             \PY{k}{return} \PY{n}{D}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{n}{D} \PY{o}{=} \PY{n}{make\PYZus{}balanced}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{n}{D}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}66}]:} (4544, 32)
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{n}{X\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{Y\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}68}]:} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}B}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{Y\PYZus{}B}\PY{o}{.}\PY{n}{values}\PY{p}{,}
+         \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+         \PY{n}{clf\PYZus{}rdfore} \PY{o}{=} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{p}{)}
+         \PY{n}{clf\PYZus{}rdfore} \PY{o}{=} \PY{n}{clf\PYZus{}rdfore}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{Y\PYZus{}train}\PY{p}{)}
+         
+         \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{clf\PYZus{}rdfore}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+         
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{clf\PYZus{}rdfore}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, Cross Entropy}
+         \PY{n}{Loss} \PY{o+ow}{is}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, log\PYZus{}loss(Y\PYZus{}test,y\PYZus{}hat))}
+         \PY{n}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+         \PY{n}{plot\PYZus{}ROC}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{clf\PYZus{}rdfore}\PY{p}{)}
+         \PY{n}{MAE}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Test accuracy: 0.705 , Cross Entropy Loss is: 10.185363072914074
+Confusion matrix is:
+[[443 103]
+ [232 358]]
+We have 801 correct observations and 335 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.66      0.81      0.73       546
+           1       0.78      0.61      0.68       590
+
+   micro avg       0.71      0.71      0.71      1136
+   macro avg       0.72      0.71      0.70      1136
+weighted avg       0.72      0.71      0.70      1136
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_95_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_95_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}68}]:} 335
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}69}]:} \PY{n}{X\PYZus{}R} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+         \PY{n}{Y\PYZus{}R} \PY{o}{=} \PY{n}{Y}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}70}]:} \PY{n}{C} \PY{o}{=} \PY{p}{[}\PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+         \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+         
+         \PY{k}{def} \PY{n+nf}{calc\PYZus{}sampling\PYZus{}imb}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}\PY{p}{:}
+             \PY{n}{L\PYZus{}NAME} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lr}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ada}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{knn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rforest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+             \PY{n}{L\PYZus{}X}\PY{p}{,} \PY{n}{L\PYZus{}Y}\PY{p}{,} \PY{n}{L\PYZus{}YHAT}\PY{p}{,} \PY{n}{L\PYZus{}PROB} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
+         
+             \PY{k}{for} \PY{n}{cl} \PY{o+ow}{in} \PY{n}{C}\PY{p}{:}
+                 \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}predict}\PY{p}{(}\PY{n}{cl}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
+                 \PY{n}{probs} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}predict}\PY{p}{(}\PY{n}{cl}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{method}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{predict\PYZus{}proba}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
+         
+                 \PY{c+c1}{\PYZsh{}print(\PYZsq{}Test accuracy:\PYZsq{},np.round(c.score(X\PYZus{}R, Y\PYZus{}R),3), \PYZsq{}, Cross Entropy Loss}
+         \PY{o+ow}{is}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, log\PYZus{}loss(Y\PYZus{}R,y\PYZus{}hat))}
+                 \PY{n}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{Y}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}plot\PYZus{}ROC(Y\PYZus{}R,X,c)}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MAE:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{MAE}\PY{p}{(}\PY{n}{Y}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}\PY{p}{)}
+         
+                                 \PY{c+c1}{\PYZsh{}L\PYZus{}NAME.append(name)}
+                 \PY{n}{L\PYZus{}X}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+                 \PY{n}{L\PYZus{}Y}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+                 \PY{n}{L\PYZus{}YHAT}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+                 \PY{n}{L\PYZus{}PROB}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{probs}\PY{p}{)}
+         
+             \PY{n}{plot\PYZus{}ROC2}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{,}\PY{n}{L\PYZus{}X}\PY{p}{,}\PY{n}{L\PYZus{}YHAT}\PY{p}{,}\PY{n}{L\PYZus{}PROB}\PY{p}{,}\PY{n}{L\PYZus{}NAME}\PY{p}{)}
+         
+             \PY{c+c1}{\PYZsh{}plot\PYZus{}ROC3(L\PYZus{}Y,L\PYZus{}X,L\PYZus{}CLASS,L\PYZus{}NAME)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{n}{calc\PYZus{}sampling\PYZus{}imb}\PY{p}{(}\PY{n}{X\PYZus{}R}\PY{p}{,}\PY{n}{Y\PYZus{}R}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[30088  4069]
+ [ 2052   196]]
+We have 30284 correct observations and 6121 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.88      0.91     34157
+           1       0.05      0.09      0.06      2248
+
+   micro avg       0.83      0.83      0.83     36405
+   macro avg       0.49      0.48      0.48     36405
+weighted avg       0.88      0.83      0.86     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_98_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+MAE: 6121
+Confusion matrix is:
+[[32094  2063]
+ [ 2096   152]]
+We have 32246 correct observations and 4159 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.94      0.94     34157
+           1       0.07      0.07      0.07      2248
+
+   micro avg       0.89      0.89      0.89     36405
+   macro avg       0.50      0.50      0.50     36405
+weighted avg       0.88      0.89      0.89     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_98_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+MAE: 4159
+Confusion matrix is:
+[[32050  2107]
+ [ 2154    94]]
+We have 32144 correct observations and 4261 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.94      0.94     34157
+           1       0.04      0.04      0.04      2248
+
+   micro avg       0.88      0.88      0.88     36405
+   macro avg       0.49      0.49      0.49     36405
+weighted avg       0.88      0.88      0.88     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_98_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+MAE: 4261
+Confusion matrix is:
+[[29652  4505]
+ [ 2056   192]]
+We have 29844 correct observations and 6561 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.87      0.90     34157
+           1       0.04      0.09      0.06      2248
+
+   micro avg       0.82      0.82      0.82     36405
+   macro avg       0.49      0.48      0.48     36405
+weighted avg       0.88      0.82      0.85     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_98_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+MAE: 6561
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_98_9.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}72}]:} \PY{k}{def} \PY{n+nf}{train\PYZus{}B\PYZus{}test}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}\PY{p}{:}
+             \PY{n}{L\PYZus{}NAME} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lr}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ada}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{knn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rforest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+             \PY{n}{L\PYZus{}X}\PY{p}{,} \PY{n}{L\PYZus{}Y}\PY{p}{,} \PY{n}{L\PYZus{}YHAT}\PY{p}{,} \PY{n}{L\PYZus{}PROB} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
+         
+             \PY{n}{D} \PY{o}{=} \PY{n}{make\PYZus{}balanced}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
+             \PY{n}{X\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{Y\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         
+             \PY{n}{X\PYZus{}R} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+             \PY{n}{Y\PYZus{}R} \PY{o}{=} \PY{n}{Y}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+         
+             \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{cl} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+         
+                 \PY{n}{c} \PY{o}{=} \PY{n}{cl}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}B}\PY{p}{,}\PY{n}{Y\PYZus{}B}\PY{p}{)}
+                 \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{c}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}R}\PY{p}{)}
+                 \PY{n}{probs} \PY{o}{=} \PY{n}{c}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}R}\PY{p}{)}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{L\PYZus{}NAME}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{c}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}R}\PY{p}{,} \PY{n}{Y\PYZus{}R}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, Cross Entropy Loss}
+         \PY{o+ow}{is}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{, log\PYZus{}loss(Y\PYZus{}R,y\PYZus{}hat))}
+                 \PY{n}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{Y\PYZus{}R}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+                 \PY{n}{MAE}\PY{p}{(}\PY{n}{Y\PYZus{}R}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+         
+                 \PY{n}{L\PYZus{}X}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{X\PYZus{}R}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+                 \PY{n}{L\PYZus{}Y}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Y\PYZus{}R}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+                 \PY{n}{L\PYZus{}YHAT}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+                 \PY{n}{L\PYZus{}PROB}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{probs}\PY{p}{)}
+         
+             \PY{n}{plot\PYZus{}ROC2}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{,}\PY{n}{L\PYZus{}X}\PY{p}{,}\PY{n}{L\PYZus{}YHAT}\PY{p}{,}\PY{n}{L\PYZus{}PROB}\PY{p}{,}\PY{n}{L\PYZus{}NAME}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}73}]:} \PY{n}{train\PYZus{}B\PYZus{}test}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+lr
+Test accuracy: 0.781 , Cross Entropy Loss is: 7.578670988512503
+Confusion matrix is:
+[[26924  7218]
+ [  770  1493]]
+We have 28417 correct observations and 7988 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.97      0.79      0.87     34142
+           1       0.17      0.66      0.27      2263
+
+   micro avg       0.78      0.78      0.78     36405
+   macro avg       0.57      0.72      0.57     36405
+weighted avg       0.92      0.78      0.83     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_100_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+ada
+Test accuracy: 0.817 , Cross Entropy Loss is: 6.319666134386378
+Confusion matrix is:
+[[28319  5823]
+ [  838  1425]]
+We have 29744 correct observations and 6661 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.97      0.83      0.89     34142
+           1       0.20      0.63      0.30      2263
+
+   micro avg       0.82      0.82      0.82     36405
+   macro avg       0.58      0.73      0.60     36405
+weighted avg       0.92      0.82      0.86     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_100_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+knn
+Test accuracy: 0.707 , Cross Entropy Loss is: 10.105215575391142
+Confusion matrix is:
+[[24305  9837]
+ [  814  1449]]
+We have 25754 correct observations and 10651 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.97      0.71      0.82     34142
+           1       0.13      0.64      0.21      2263
+
+   micro avg       0.71      0.71      0.71     36405
+   macro avg       0.55      0.68      0.52     36405
+weighted avg       0.92      0.71      0.78     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_100_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+rforest
+Test accuracy: 0.724 , Cross Entropy Loss is: 9.534062207981568
+Confusion matrix is:
+[[24924  9218]
+ [  831  1432]]
+We have 26356 correct observations and 10049 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.97      0.73      0.83     34142
+           1       0.13      0.63      0.22      2263
+
+   micro avg       0.72      0.72      0.72     36405
+   macro avg       0.55      0.68      0.53     36405
+weighted avg       0.92      0.72      0.79     36405
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_100_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_100_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{test-overunder-sampling-methods}{%
+\subsection{Test Over/Under Sampling
+Methods}\label{test-overunder-sampling-methods}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}74}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{whitegrid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}75}]:} \PY{k}{def} \PY{n+nf}{calc\PYZus{}performance}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{name}\PY{p}{)}\PY{p}{:}
+         
+             \PY{n}{classifier} \PY{o}{=} \PY{p}{[}\PY{n}{name}\PY{p}{,} \PY{n}{c}\PY{p}{]}
+         
+             \PY{n}{over\PYZus{}samplers} \PY{o}{=} \PY{p}{[}
+                 \PY{c+c1}{\PYZsh{}[\PYZsq{}ADA\PYZhy{}SYN\PYZsq{}, ADASYN()],}
+                 \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ROS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomOverSampler}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+                 \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RUS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomUnderSampler}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+                 \PY{c+c1}{\PYZsh{}[\PYZsq{}SMOTENC\PYZsq{}, SMOTENC()],}
+                 \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SMOTEENN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{SMOTEENN}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+                 \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ENN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{EditedNearestNeighbours}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+             \PY{p}{]}
+         
+             \PY{n}{pipelines} \PY{o}{=} \PY{p}{[}
+                 \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{classifier}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                  \PY{n}{make\PYZus{}pipeline}\PY{p}{(}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{classifier}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{]}
+                 \PY{k}{for} \PY{n}{s} \PY{o+ow}{in} \PY{n}{over\PYZus{}samplers}
+             \PY{p}{]}
+         
+         
+             \PY{n}{calc\PYZus{}sampling}\PY{p}{(}\PY{n}{pipelines}\PY{p}{,}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
+         
+         
+         \PY{k}{def} \PY{n+nf}{calc\PYZus{}sampling}\PY{p}{(}\PY{n}{pipelines}\PY{p}{,}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}\PY{p}{:}
+             \PY{n}{L\PYZus{}NAME}\PY{p}{,} \PY{n}{L\PYZus{}X}\PY{p}{,} \PY{n}{L\PYZus{}Y}\PY{p}{,} \PY{n}{L\PYZus{}YHAT}\PY{p}{,} \PY{n}{L\PYZus{}PROB} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
+         
+             \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{,}
+         \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+             \PY{k}{for} \PY{n}{name}\PY{p}{,} \PY{n}{pipeline} \PY{o+ow}{in} \PY{n}{pipelines}\PY{p}{:}
+         
+                 \PY{n}{p} \PY{o}{=} \PY{n}{pipeline}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{Y\PYZus{}train}\PY{p}{)}
+                 \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{p}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+                 \PY{n}{probs} \PY{o}{=} \PY{n}{p}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}calculate\PYZus{}metrics(Y\PYZus{}test,y\PYZus{}hat)}
+         
+                 \PY{n}{L\PYZus{}NAME}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{name}\PY{p}{)}
+                 \PY{n}{L\PYZus{}X}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+                 \PY{n}{L\PYZus{}Y}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{)}
+                 \PY{n}{L\PYZus{}YHAT}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{y\PYZus{}hat}\PY{p}{)}
+                 \PY{n}{L\PYZus{}PROB}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{probs}\PY{p}{)}
+         
+             \PY{n}{plot\PYZus{}ROC2}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{,}\PY{n}{L\PYZus{}X}\PY{p}{,}\PY{n}{L\PYZus{}YHAT}\PY{p}{,}\PY{n}{L\PYZus{}PROB}\PY{p}{,}\PY{n}{L\PYZus{}NAME}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}76}]:} \PY{n}{NAME} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{LogisticRegression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AdaBoost}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{KNN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{C\PYZus{}dict} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{zip}\PY{p}{(}\PY{n}{NAME}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{name}\PY{p}{,}\PY{n}{c} \PY{o+ow}{in} \PY{n}{C\PYZus{}dict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{calc\PYZus{}performance}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{name}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{selection-of-relevant-variables-from-balanced-dataset}{%
+\subsection{selection of relevant variables from balanced
+dataset}\label{selection-of-relevant-variables-from-balanced-dataset}}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}77}]:} \PY{n}{L}\PY{p}{,} \PY{n}{Counts}\PY{p}{,}\PY{n}{Coeffs} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{:}
+             \PY{n}{D} \PY{o}{=} \PY{n}{make\PYZus{}balanced}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
+             \PY{n}{X\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{Y\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         
+             \PY{n}{logit} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{Logit}\PY{p}{(}\PY{n}{Y\PYZus{}B}\PY{p}{,} \PY{n}{X\PYZus{}B}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{disp}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+             \PY{c+c1}{\PYZsh{}display(logit.summary())}
+         
+             \PY{n}{alpha} \PY{o}{=} \PY{l+m+mf}{0.10}
+             \PY{n}{a} \PY{o}{=} \PY{n}{logit}\PY{o}{.}\PY{n}{pvalues} \PY{o}{\PYZlt{}} \PY{n}{alpha}
+         
+             \PY{n}{X4} \PY{o}{=} \PY{n}{X\PYZus{}B}\PY{p}{[}\PY{n}{X\PYZus{}B}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{p}{]}
+             \PY{c+c1}{\PYZsh{}print(\PYZdq{}Not Statistically significant regressors are:\PYZdq{})}
+             \PY{n}{temp} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{X\PYZus{}B}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{p}{)}
+             \PY{n}{L}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{temp}\PY{p}{)}
+             \PY{n}{Counts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{temp}\PY{p}{)}\PY{p}{)}
+             \PY{n}{Coeffs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{logit}\PY{o}{.}\PY{n}{params}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{temp}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}78}]:} \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{y} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{L} \PY{k}{for} \PY{n}{y} \PY{o+ow}{in} \PY{n}{x}\PY{p}{]}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}79}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{L}\PY{p}{,}\PY{n}{bins}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{L}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_109_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}80}]:} \PY{k+kn}{from} \PY{n+nn}{collections} \PY{k}{import} \PY{n}{Counter}
+         \PY{n}{d} \PY{o}{=} \PY{n}{Counter}\PY{p}{(}\PY{n}{L}\PY{p}{)}
+         
+         \PY{k+kn}{import} \PY{n+nn}{operator}
+         \PY{n}{sorted\PYZus{}d} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{sorted}\PY{p}{(}\PY{n}{d}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{n}{operator}\PY{o}{.}\PY{n}{itemgetter}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}81}]:} \PY{n}{TopVars} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Most frequently significant variables:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{v}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{sorted\PYZus{}d}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{v} \PY{o}{\PYZgt{}} \PY{l+m+mi}{500}\PY{p}{:}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{v}\PY{p}{)}
+                 \PY{n}{TopVars}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{k}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Most frequently significant variables:
+previous : 1000
+emp.var.rate : 1000
+mar : 1000
+may : 1000
+oct : 977
+campaign : 968
+nov : 957
+sep : 950
+jul : 921
+retired : 751
+student : 665
+blue-collar : 606
+
+    \end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} \PY{n}{V} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{v} \PY{o+ow}{in} \PY{n}{TopVars}\PY{p}{:}
+             \PY{n}{summ} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{c} \PY{o+ow}{in} \PY{n}{Coeffs}\PY{p}{:}
+                 \PY{k}{try}\PY{p}{:}
+                     \PY{n}{summ} \PY{o}{+}\PY{o}{=} \PY{n}{c}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{v}\PY{p}{]}
+                     \PY{n}{count} \PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                 \PY{k}{except} \PY{n+ne}{KeyError}\PY{p}{:}
+                     \PY{k}{pass}
+             \PY{n}{V}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{summ}\PY{o}{/}\PY{n}{count}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{V}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}83}]:} [0.349,
+          -0.476,
+          1.271,
+          -0.654,
+          0.842,
+          -0.051,
+          -0.447,
+          0.847,
+          0.435,
+          0.509,
+          0.55,
+          -0.283]
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}84}]:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{V}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}84}]:} [1.418,
+          0.621,
+          3.565,
+          0.52,
+          2.322,
+          0.95,
+          0.64,
+          2.332,
+          1.544,
+          1.663,
+          1.733,
+          0.753]
+\end{Verbatim}
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+\bibliography{references}
+
+    
+    \end{document}
