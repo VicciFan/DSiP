@@ -361,17 +361,14 @@
     \begin{Verbatim}[commandchars=\\\{\}]
 Requirement already satisfied: missingno in
 /home/zaratras/anaconda3/lib/python3.7/site-packages (0.4.1)
-Requirement already satisfied: numpy in /home/zaratras/anaconda3/lib/python3.7/site-
-packages (from missingno) (1.16.3)
 Requirement already satisfied: scipy in /home/zaratras/anaconda3/lib/python3.7/site-
 packages (from missingno) (1.2.1)
-Requirement already satisfied: seaborn in /home/zaratras/anaconda3/lib/python3.7/site-
-packages (from missingno) (0.9.0)
 Requirement already satisfied: matplotlib in
 /home/zaratras/anaconda3/lib/python3.7/site-packages (from missingno) (3.0.3)
-Requirement already satisfied: pandas>=0.15.2 in
-/home/zaratras/anaconda3/lib/python3.7/site-packages (from seaborn->missingno)
-(0.24.2)
+Requirement already satisfied: seaborn in /home/zaratras/anaconda3/lib/python3.7/site-
+packages (from missingno) (0.9.0)
+Requirement already satisfied: numpy in /home/zaratras/anaconda3/lib/python3.7/site-
+packages (from missingno) (1.16.3)
 Requirement already satisfied: cycler>=0.10 in
 /home/zaratras/anaconda3/lib/python3.7/site-packages (from matplotlib->missingno)
 (0.10.0)
@@ -384,14 +381,17 @@ Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in
 Requirement already satisfied: python-dateutil>=2.1 in
 /home/zaratras/anaconda3/lib/python3.7/site-packages (from matplotlib->missingno)
 (2.8.0)
-Requirement already satisfied: pytz>=2011k in
-/home/zaratras/anaconda3/lib/python3.7/site-packages (from
-pandas>=0.15.2->seaborn->missingno) (2018.9)
+Requirement already satisfied: pandas>=0.15.2 in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from seaborn->missingno)
+(0.24.2)
 Requirement already satisfied: six in /home/zaratras/anaconda3/lib/python3.7/site-
 packages (from cycler>=0.10->matplotlib->missingno) (1.12.0)
 Requirement already satisfied: setuptools in
 /home/zaratras/anaconda3/lib/python3.7/site-packages (from
 kiwisolver>=1.0.1->matplotlib->missingno) (40.8.0)
+Requirement already satisfied: pytz>=2011k in
+/home/zaratras/anaconda3/lib/python3.7/site-packages (from
+pandas>=0.15.2->seaborn->missingno) (2018.9)
 Collecting inblearn
 \textcolor{ansi-red}{  Could not find a version that satisfies the requirement inblearn (from
 versions: )}
@@ -463,6 +463,7 @@ versions: )}
         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}\PY{p}{,} \PY{n}{AdaBoostClassifier}
         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{naive\PYZus{}bayes} \PY{k}{import} \PY{n}{GaussianNB}
         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{discriminant\PYZus{}analysis} \PY{k}{import} \PY{n}{QuadraticDiscriminantAnalysis}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{calibration} \PY{k}{import} \PY{n}{CalibratedClassifierCV}
         
         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}}
         
@@ -698,27 +699,53 @@ target):}\label{output-variable-desired-target}}
     \hypertarget{variable-distribution}{%
 \subsection{Variable Distribution}\label{variable-distribution}}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Barplots for categorical (object) variables}
-        \PY{n}{column} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{job}\PY{l+s+s2}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Barplots for categorical (object) variables and comparison between yes/no in}
+        \PY{n}{deposit}\PY{p}{(}\PY{n}{y}\PY{p}{)}
         \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Blues\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Reds\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Oranges\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Blues\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Reds\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Oranges\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mako}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Reds\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BuPu\PYZus{}r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
         \PY{n}{color\PYZus{}coef}\PY{o}{=}\PY{l+m+mi}{0}
+        \PY{n}{total} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{dsdata}\PY{p}{)}\PY{p}{)}
         \PY{k}{for} \PY{n}{column} \PY{o+ow}{in} \PY{n}{dsdata}\PY{o}{.}\PY{n}{columns}\PY{p}{:}
             \PY{k}{if} \PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{O}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}
                 \PY{k}{if} \PY{n}{column}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{job}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{or} \PY{n}{column}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{education}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
                     \PY{n}{fig}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-                    \PY{n}{t} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{column}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{dsdata}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,}
-        \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-                    \PY{n}{t} \PY{o}{=} \PY{n}{t}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
+                    \PY{n}{t} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{column}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{dsdata}\PY{p}{,}
+        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,}\PY{n}{order}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{t}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{t}\PY{o}{.}\PY{n}{get\PYZus{}xticklabels}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
                     \PY{n}{g} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
-        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-                    \PY{n}{t} \PY{o}{=} \PY{n}{g}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
+        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,} \PY{n}{order}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{i}\PY{o}{=}\PY{l+m+mi}{0}
+                    \PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{g}\PY{o}{.}\PY{n}{patches}\PY{p}{:}
+                            \PY{n}{length} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{g}\PY{o}{.}\PY{n}{patches}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}
+                            \PY{n}{total} \PY{o}{=} \PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+                            \PY{n}{g}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n+nb}{format}\PY{p}{(}\PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}height}\PY{p}{(}\PY{p}{)}\PY{o}{/}\PY{n}{total}\PY{o}{*}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.2f}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}x}\PY{p}{(}\PY{p}{)} \PY{o}{+}
+        \PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}width}\PY{p}{(}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{2.}\PY{p}{,} \PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}height}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{ha} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{va} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{xytext} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,}
+        \PY{n}{textcoords} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{offset points}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                            \PY{n}{i} \PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                            \PY{k}{if} \PY{n}{i}\PY{o}{==}\PY{n}{length}\PY{p}{:}
+                                \PY{n}{i}\PY{o}{=}\PY{l+m+mi}{0}
+                    \PY{n}{g}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{g}\PY{o}{.}\PY{n}{get\PYZus{}xticklabels}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
                 \PY{k}{else}\PY{p}{:}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
                     \PY{n}{fig}\PY{p}{,}\PY{n}{ax}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
                     \PY{n}{t} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{column}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{dsdata}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,}
-        \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+        \PY{n}{order}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
                     \PY{n}{g} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
-        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+        \PY{n}{palette}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{n}{color\PYZus{}coef}\PY{p}{]}\PY{p}{,}\PY{n}{order}\PY{o}{=}\PY{n}{dsdata}\PY{p}{[}\PY{n}{column}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                    \PY{k}{if} \PY{n}{column}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{default}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{or} \PY{n}{column}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                        \PY{k}{pass}
+                    \PY{k}{else}\PY{p}{:}
+                        \PY{n}{i}\PY{o}{=}\PY{l+m+mi}{0}
+                        \PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{g}\PY{o}{.}\PY{n}{patches}\PY{p}{:}
+                                \PY{n}{length} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{g}\PY{o}{.}\PY{n}{patches}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}
+                                \PY{n}{total} \PY{o}{=} \PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+                                \PY{n}{g}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n+nb}{format}\PY{p}{(}\PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}height}\PY{p}{(}\PY{p}{)}\PY{o}{/}\PY{n}{total}\PY{o}{*}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.2f}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}x}\PY{p}{(}\PY{p}{)} \PY{o}{+}
+        \PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}width}\PY{p}{(}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{2.}\PY{p}{,} \PY{n}{p}\PY{o}{.}\PY{n}{get\PYZus{}height}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{ha} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{va} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{xytext} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,}
+        \PY{n}{textcoords} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{offset points}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                                \PY{n}{i} \PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                                \PY{k}{if} \PY{n}{i}\PY{o}{==}\PY{n}{length}\PY{p}{:}
+                                    \PY{n}{i}\PY{o}{=}\PY{l+m+mi}{0}
                 \PY{n}{color\PYZus{}coef} \PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
 \end{Verbatim}
 
@@ -780,15 +807,15 @@ target):}\label{output-variable-desired-target}}
 {\color{incolor}In [{\color{incolor}9}]:} \PY{k}{def} \PY{n+nf}{histogram}\PY{p}{(}\PY{n}{variable}\PY{p}{)}\PY{p}{:}
             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Histogram for }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{variable}\PY{p}{)}\PY{p}{)}
-            \PY{n}{ax} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{variable}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{RdYlGn\PYZus{}r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{n}{ax} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{variable}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{RdYlGn\PYZus{}r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{kde}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
         
         \PY{k}{def} \PY{n+nf}{histogram\PYZus{}by\PYZus{}deposit}\PY{p}{(}\PY{n}{feature}\PY{p}{)}\PY{p}{:}
             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Histogram for }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ with deposit}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{feature}\PY{p}{)}\PY{p}{)}
-            \PY{n}{ax0} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Paste}
-        \PY{n}{l2}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)[0],label=}\PY{l+s+s2}{\PYZdq{}}\PY{n}{deposit\PYZus{}No}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}
-            \PY{n}{ax1} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Past}
-        \PY{n}{el2}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)[2],label=}\PY{l+s+s2}{\PYZdq{}}\PY{n}{deposit\PYZus{}Yes}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}
+            \PY{n}{ax0} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Blues}
+        \PY{n}{\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)[4],kde=False, label=}\PY{l+s+s2}{\PYZdq{}}\PY{n}{deposit\PYZus{}No}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}
+            \PY{n}{ax1} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{dsdata}\PY{p}{[}\PY{n}{dsdata}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{n}{sns}\PY{o}{.}\PY{n}{color\PYZus{}palette}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds}
+        \PY{n}{\PYZus{}d}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)[4],kde=False, label=}\PY{l+s+s2}{\PYZdq{}}\PY{n}{deposit\PYZus{}Yes}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1119,7 +1146,7 @@ distributions}\label{interpolation-of-categorical-variables-through-empirical-di
          count    41188    41188              41188   41188  41188     41188  41188   
          unique      11        3                  7       2      2         2     10   
          top     admin.  married  university.degree     yes     no  cellular    may   
-         freq     10499    24979              12664   22090  34778     26144  13769   
+         freq     10509    24977              12702   22121  34784     26144  13769   
          
                 day\_of\_week      y  
          count        41188  41188  
@@ -1269,49 +1296,49 @@ memory usage: 4.8+ MB
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Variance Inflation Factors:
-25.681606550879618 age
-2.1840846838967662 housing
-1.1884269118600956 loan
-5.169134506238248 contact
-1.9403738005754756 campaign
-45.31784765956443 pdays
-2.0804529016210154 previous
-93.69614375243889 emp.var.rate
-62393.324630103554 cons.price.idx
-389.9335927565134 cons.conf.idx
-785.3183820323019 euribor3m
-80118.64109558242 nr.employed
-3.000196164065369 blue-collar
-1.1794228557794595 entrepreneur
-1.2074919210148327 housemaid
-1.34132266030209 management
-1.5435369807274977 retired
-1.15945753421996 self-employed
-1.5661286780219867 services
-1.1946518543365574 student
-2.0781095871717814 technician
-1.1248546619346393 unemployed
-6.550642053351103 married
-4.03266944551772 single
-1.6012107129188906 basic.6y
-2.625822929245276 basic.9y
-4.332027802671218 high.school
-1.0051484048132502 illiterate
-3.0152297601535163 professional.course
-5.692430069185153 university.degree
-8.13576981204706 aug
-1.1411369408293892 dec
-5.436567608186831 jul
-3.782090835101747 jun
-1.2544644335392852 mar
-7.5886348027215975 may
-3.932663973419781 nov
-1.5992725497309754 oct
-1.518952664229258 sep
-2.0997274956465657 mon
-2.119070550559964 thu
-2.056185398273185 tue
-2.0552461307481122 wed
+25.699421717728164 age
+2.187347297019118 housing
+1.1884217905667915 loan
+5.168655621475389 contact
+1.9403265754912258 campaign
+45.31697288715908 pdays
+2.0804063875271255 previous
+93.67968903223512 emp.var.rate
+62381.33728205274 cons.price.idx
+389.93355428533994 cons.conf.idx
+785.1827162631885 euribor3m
+80095.1601608278 nr.employed
+2.998359623841996 blue-collar
+1.1801111052746007 entrepreneur
+1.208239433519948 housemaid
+1.3392985940698983 management
+1.5422587461133799 retired
+1.1596803634308726 self-employed
+1.5653551621374622 services
+1.1949262756217893 student
+2.077822521405796 technician
+1.124826196191629 unemployed
+6.547908953431982 married
+4.031673284036735 single
+1.598731702634765 basic.6y
+2.6330516709015193 basic.9y
+4.342608264937074 high.school
+1.0051487332377531 illiterate
+3.007594830576488 professional.course
+5.7058176510336525 university.degree
+8.131916021936958 aug
+1.1411179834728389 dec
+5.437300515663982 jul
+3.78227309374364 jun
+1.2543889589126438 mar
+7.5898279431870295 may
+3.9328083828264737 nov
+1.5991916740322096 oct
+1.518849245189762 sep
+2.0996206920666816 mon
+2.118840553704938 thu
+2.056199982646952 tue
+2.0552587590547184 wed
 
     \end{Verbatim}
 
@@ -1341,8 +1368,8 @@ VIF}\label{intermediate-regression-on-economic-variables-for-vif}}
 Dep. Variable:                      y   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 2.623e+08
-Date:                Thu, 09 May 2019   Prob (F-statistic):               0.00
-Time:                        22:03:38   Log-Likelihood:            -2.0167e+05
+Date:                Fri, 10 May 2019   Prob (F-statistic):               0.00
+Time:                        14:05:52   Log-Likelihood:            -2.0167e+05
 No. Observations:               41188   AIC:                         4.034e+05
 Df Residuals:                   41184   BIC:                         4.034e+05
 Df Model:                           4                                         
@@ -1376,45 +1403,45 @@ Warnings:
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Variance Inflation Factors:
-18.80115670825449 age
-2.1646083874537148 housing
-1.1866246865988785 loan
-3.7649497595290184 contact
-1.9215194708841905 campaign
-27.290000564335937 pdays
-1.7336939576946881 previous
-2.5126142325555105 emp.var.rate
-2.8286185942884576 blue-collar
-1.1730236609455233 entrepreneur
-1.1917039329486732 housemaid
-1.3381672712448212 management
-1.5374238887447822 retired
-1.1547841706846482 self-employed
-1.5421419725346974 services
-1.1675079710942462 student
-2.046279789599359 technician
-1.1168978674318881 unemployed
-6.033846092902686 married
-3.5392097508920575 single
-1.5304324449169406 basic.6y
-2.4107596377102323 basic.9y
-3.76458134421943 high.school
-1.0046407547199638 illiterate
-2.7571835845860364 professional.course
-4.864005877271467 university.degree
-3.917570727343788 aug
-1.0775324108601532 dec
-4.4081745260225835 jul
-3.3578106179599425 jun
-1.1876113746312156 mar
-6.3152035657393615 may
-2.5110192350378955 nov
-1.2740204607295855 oct
-1.218884720090602 sep
-2.0513989168836284 mon
-2.0576022009794563 thu
-2.013620242918694 tue
-2.0105110975194673 wed
+18.795212167761804 age
+2.1680344085946066 housing
+1.186587839574958 loan
+3.764577280072294 contact
+1.9215346653769463 campaign
+27.27979619302259 pdays
+1.7329058424985795 previous
+2.5131426179783563 emp.var.rate
+2.826150727152902 blue-collar
+1.1735843768089205 entrepreneur
+1.192256422293572 housemaid
+1.3361058353560156 management
+1.5358166880014659 retired
+1.1549681725521808 self-employed
+1.541617342271284 services
+1.1675162611834708 student
+2.046333858599015 technician
+1.1167136673732803 unemployed
+6.030824907822872 married
+3.538584478475322 single
+1.5287117971689477 basic.6y
+2.4156871535745448 basic.9y
+3.7703535660523375 high.school
+1.0046374774886204 illiterate
+2.7470776917530637 professional.course
+4.867456484498119 university.degree
+3.91727535314813 aug
+1.0774840887974682 dec
+4.41102740372729 jul
+3.358396917545775 jun
+1.1875430357287888 mar
+6.319548041788819 may
+2.5120859115787244 nov
+1.273633542385804 oct
+1.2196007096354973 sep
+2.051357368207603 mon
+2.058402558227157 thu
+2.0140216689556043 tue
+2.0109137649930435 wed
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1488,7 +1515,7 @@ Variance Inflation Factors:
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-[0.89099519 0.06367793 0.02046394 0.00326992 0.00232495]
+[0.89099929 0.06367829 0.02046383 0.00326929 0.00232139]
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1670,50 +1697,50 @@ Distribution of OLS residuals
 Dep. Variable:                      y   R-squared:                       0.144
 Model:                            OLS   Adj. R-squared:                  0.144
 Method:                 Least Squares   F-statistic:                     222.7
-Date:                Thu, 09 May 2019   Prob (F-statistic):               0.00
-Time:                        22:03:58   Log-Likelihood:                -7490.6
-No. Observations:               40949   AIC:                         1.505e+04
+Date:                Fri, 10 May 2019   Prob (F-statistic):               0.00
+Time:                        14:06:10   Log-Likelihood:                -7489.8
+No. Observations:               40949   AIC:                         1.504e+04
 Df Residuals:                   40917   BIC:                         1.532e+04
 Df Model:                          31                                         
 Covariance Type:            nonrobust                                         
 =======================================================================================
                           coef    std err          t      P>|t|      [0.025      0.975]
 ---------------------------------------------------------------------------------------
-const                   0.0882      0.012      7.607      0.000       0.065       0.111
-age                     0.0003      0.000      1.596      0.111    -6.1e-05       0.001
-housing                -0.0040      0.003     -1.378      0.168      -0.010       0.002
-loan                   -0.0021      0.004     -0.524      0.600      -0.010       0.006
-contact                 0.0288      0.005      6.189      0.000       0.020       0.038
-campaign               -0.0035      0.001     -6.270      0.000      -0.005      -0.002
-previous                0.0686      0.003     20.841      0.000       0.062       0.075
-emp.var.rate           -0.0529      0.001    -36.040      0.000      -0.056      -0.050
-blue-collar            -0.0219      0.005     -4.195      0.000      -0.032      -0.012
-entrepreneur           -0.0187      0.008     -2.266      0.023      -0.035      -0.003
-housemaid              -0.0069      0.010     -0.704      0.481      -0.026       0.012
-management             -0.0115      0.006     -1.846      0.065      -0.024       0.001
-retired                 0.0458      0.009      5.258      0.000       0.029       0.063
-self-employed          -0.0172      0.008     -2.074      0.038      -0.033      -0.001
-services               -0.0192      0.006     -3.335      0.001      -0.030      -0.008
-student                 0.0758      0.011      7.054      0.000       0.055       0.097
-technician             -0.0079      0.005     -1.543      0.123      -0.018       0.002
-unemployed              0.0019      0.010      0.195      0.846      -0.017       0.021
-married                -0.0035      0.003     -1.097      0.273      -0.010       0.003
-basic.6y                0.0021      0.008      0.280      0.780      -0.013       0.017
-basic.9y               -0.0062      0.006     -1.041      0.298      -0.018       0.005
-high.school            -0.0021      0.006     -0.353      0.724      -0.014       0.010
-professional.course     0.0037      0.007      0.542      0.588      -0.010       0.017
-university.degree       0.0095      0.006      1.530      0.126      -0.003       0.022
-aug                     0.0497      0.008      6.399      0.000       0.034       0.065
-jul                     0.0676      0.008      8.744      0.000       0.052       0.083
-jun                     0.0343      0.008      4.469      0.000       0.019       0.049
-mar                     0.2780      0.014     20.268      0.000       0.251       0.305
-may                    -0.0496      0.007     -7.544      0.000      -0.062      -0.037
-nov                    -0.0274      0.008     -3.635      0.000      -0.042      -0.013
-oct                     0.1578      0.012     12.741      0.000       0.134       0.182
-sep                     0.1712      0.014     12.607      0.000       0.145       0.198
+const                   0.0891      0.012      7.683      0.000       0.066       0.112
+age                     0.0003      0.000      1.696      0.090   -4.42e-05       0.001
+housing                -0.0049      0.003     -1.701      0.089      -0.011       0.001
+loan                   -0.0021      0.004     -0.520      0.603      -0.010       0.006
+contact                 0.0288      0.005      6.192      0.000       0.020       0.038
+campaign               -0.0035      0.001     -6.257      0.000      -0.005      -0.002
+previous                0.0686      0.003     20.832      0.000       0.062       0.075
+emp.var.rate           -0.0529      0.001    -36.062      0.000      -0.056      -0.050
+blue-collar            -0.0218      0.005     -4.178      0.000      -0.032      -0.012
+entrepreneur           -0.0210      0.008     -2.546      0.011      -0.037      -0.005
+housemaid              -0.0076      0.010     -0.776      0.438      -0.027       0.012
+management             -0.0127      0.006     -2.046      0.041      -0.025      -0.001
+retired                 0.0438      0.009      5.026      0.000       0.027       0.061
+self-employed          -0.0155      0.008     -1.865      0.062      -0.032       0.001
+services               -0.0178      0.006     -3.094      0.002      -0.029      -0.007
+student                 0.0771      0.011      7.178      0.000       0.056       0.098
+technician             -0.0070      0.005     -1.366      0.172      -0.017       0.003
+unemployed              0.0019      0.010      0.199      0.842      -0.017       0.021
+married                -0.0033      0.003     -1.062      0.288      -0.010       0.003
+basic.6y                0.0013      0.008      0.167      0.868      -0.014       0.016
+basic.9y               -0.0083      0.006     -1.397      0.162      -0.020       0.003
+high.school            -0.0042      0.006     -0.686      0.493      -0.016       0.008
+professional.course     0.0013      0.007      0.183      0.855      -0.012       0.015
+university.degree       0.0090      0.006      1.456      0.145      -0.003       0.021
+aug                     0.0495      0.008      6.375      0.000       0.034       0.065
+jul                     0.0677      0.008      8.752      0.000       0.053       0.083
+jun                     0.0342      0.008      4.465      0.000       0.019       0.049
+mar                     0.2778      0.014     20.256      0.000       0.251       0.305
+may                    -0.0495      0.007     -7.536      0.000      -0.062      -0.037
+nov                    -0.0273      0.008     -3.622      0.000      -0.042      -0.013
+oct                     0.1579      0.012     12.753      0.000       0.134       0.182
+sep                     0.1714      0.014     12.625      0.000       0.145       0.198
 ==============================================================================
-Omnibus:                    16009.804   Durbin-Watson:                   1.812
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):            54083.506
+Omnibus:                    16009.730   Durbin-Watson:                   1.812
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            54082.712
 Skew:                           2.043   Prob(JB):                         0.00
 Kurtosis:                       6.873   Cond. No.                         570.
 ==============================================================================
@@ -1735,7 +1762,7 @@ Warnings:
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Not Statistically significant regressors are:
-['age', 'housing', 'loan', 'housemaid', 'management', 'technician', 'unemployed',
+['age', 'housing', 'loan', 'housemaid', 'self-employed', 'technician', 'unemployed',
 'married', 'basic.6y', 'basic.9y', 'high.school', 'professional.course',
 'university.degree']
 
@@ -1769,41 +1796,41 @@ Not Statistically significant regressors are:
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.144
-Model:                            OLS   Adj. R-squared:                  0.144
-Method:                 Least Squares   F-statistic:                     188.6
-Date:                Thu, 09 May 2019   Prob (F-statistic):               0.00
-Time:                        22:03:58   Log-Likelihood:                -7501.5
-No. Observations:               40949   AIC:                         1.504e+04
-Df Residuals:                   40930   BIC:                         1.520e+04
+Model:                            OLS   Adj. R-squared:                  0.143
+Method:                 Least Squares   F-statistic:                     188.4
+Date:                Fri, 10 May 2019   Prob (F-statistic):               0.00
+Time:                        14:06:11   Log-Likelihood:                -7503.5
+No. Observations:               40949   AIC:                         1.505e+04
+Df Residuals:                   40930   BIC:                         1.521e+04
 Df Model:                          18                                         
 Covariance Type:                  HC0                                         
-=================================================================================
-                    coef    std err          z      P>|z|      [0.025      0.975]
----------------------------------------------------------------------------------
-const             0.0937      0.009     10.452      0.000       0.076       0.111
-contact           0.0294      0.006      5.288      0.000       0.018       0.040
-campaign         -0.0035      0.000     -8.882      0.000      -0.004      -0.003
-previous          0.0687      0.005     13.463      0.000       0.059       0.079
-emp.var.rate     -0.0531      0.002    -25.670      0.000      -0.057      -0.049
-blue-collar      -0.0238      0.003     -7.158      0.000      -0.030      -0.017
-entrepreneur     -0.0151      0.007     -2.036      0.042      -0.030      -0.001
-retired           0.0523      0.010      5.298      0.000       0.033       0.072
-self-employed    -0.0127      0.008     -1.619      0.105      -0.028       0.003
-services         -0.0204      0.005     -4.375      0.000      -0.030      -0.011
-student           0.0746      0.015      4.945      0.000       0.045       0.104
-aug               0.0515      0.011      4.811      0.000       0.031       0.073
-jul               0.0678      0.010      6.512      0.000       0.047       0.088
-jun               0.0344      0.010      3.419      0.001       0.015       0.054
-mar               0.2794      0.023     12.311      0.000       0.235       0.324
-may              -0.0504      0.009     -5.820      0.000      -0.067      -0.033
-nov              -0.0271      0.010     -2.835      0.005      -0.046      -0.008
-oct               0.1586      0.021      7.676      0.000       0.118       0.199
-sep               0.1726      0.023      7.629      0.000       0.128       0.217
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const            0.0936      0.009     10.393      0.000       0.076       0.111
+contact          0.0294      0.006      5.296      0.000       0.019       0.040
+campaign        -0.0035      0.000     -8.867      0.000      -0.004      -0.003
+previous         0.0688      0.005     13.464      0.000       0.059       0.079
+emp.var.rate    -0.0531      0.002    -25.669      0.000      -0.057      -0.049
+blue-collar     -0.0238      0.003     -7.031      0.000      -0.030      -0.017
+entrepreneur    -0.0173      0.007     -2.348      0.019      -0.032      -0.003
+management      -0.0055      0.006     -0.945      0.345      -0.017       0.006
+retired          0.0509      0.010      5.147      0.000       0.032       0.070
+services        -0.0197      0.005     -4.166      0.000      -0.029      -0.010
+student          0.0751      0.015      4.980      0.000       0.046       0.105
+aug              0.0515      0.011      4.799      0.000       0.030       0.072
+jul              0.0677      0.010      6.508      0.000       0.047       0.088
+jun              0.0342      0.010      3.406      0.001       0.015       0.054
+mar              0.2794      0.023     12.308      0.000       0.235       0.324
+may             -0.0504      0.009     -5.821      0.000      -0.067      -0.033
+nov             -0.0268      0.010     -2.808      0.005      -0.046      -0.008
+oct              0.1589      0.021      7.690      0.000       0.118       0.199
+sep              0.1730      0.023      7.647      0.000       0.129       0.217
 ==============================================================================
-Omnibus:                    16019.833   Durbin-Watson:                   1.810
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):            54130.320
+Omnibus:                    16022.479   Durbin-Watson:                   1.810
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            54146.902
 Skew:                           2.045   Prob(JB):                         0.00
-Kurtosis:                       6.873   Cond. No.                         50.7
+Kurtosis:                       6.874   Cond. No.                         50.7
 ==============================================================================
 
 Warnings:
@@ -1814,25 +1841,25 @@ Warnings:
     
     \begin{Verbatim}[commandchars=\\\{\}]
 Variance Inflation Factors:
-20.972372500572607 const
-2.4234688619455382 contact
-1.0356172703733448 campaign
-1.246284573034863 previous
-2.5257756330545083 emp.var.rate
-1.151683246873376 blue-collar
-1.0371156669402068 entrepreneur
-1.0559290697772752 retired
-1.02854766753986 self-employed
-1.0847262596966627 services
-1.044883382599428 student
-3.714266612071874 aug
-4.159414719803091 jul
-3.206044394229739 jun
-1.1977713020110123 mar
-4.659805935987449 may
-2.4666988074595966 nov
-1.2795283021381727 oct
-1.2252868135788397 sep
+21.134835195011743 const
+2.4230593529335542 contact
+1.035602184712304 campaign
+1.2461663846573323 previous
+2.525902975234939 emp.var.rate
+1.176311232198173 blue-collar
+1.0429912415669762 entrepreneur
+1.0693348771898068 management
+1.0610369988444968 retired
+1.0977835821445638 services
+1.0476733948390058 student
+3.718192758459077 aug
+4.160433242738336 jul
+3.2062143149574265 jun
+1.1978096592691139 mar
+4.6599163715584835 may
+2.4696254452997293 nov
+1.2793457906752723 oct
+1.2250455192107061 sep
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1848,7 +1875,7 @@ Variance Inflation Factors:
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Test accuracy: 0.151 , MSE Loss is: 0.0852462833821851
+Test accuracy: 0.145 , MSE Loss is: 0.08108139598792455
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1953,9 +1980,9 @@ PCA}\label{logistic-regression-with-pca}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-[0.89682146 0.05748207 0.02049585 0.00333144 0.00236537]
-Test accuracy: 0.887 , Cross Entropy Loss is: 3.89107015587607
-1384
+[0.89682587 0.05748246 0.0204958  0.00333079 0.00236176]
+Test accuracy: 0.887 , Cross Entropy Loss is: 3.905127582100686
+1389
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1965,17 +1992,17 @@ Test accuracy: 0.887 , Cross Entropy Loss is: 3.89107015587607
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Confusion matrix is:
-[[10739   163]
- [ 1221   162]]
-We have 10901 correct observations and 1384 misclassifications.
+[[10737   165]
+ [ 1224   159]]
+We have 10896 correct observations and 1389 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.90      0.99      0.94     10902
-           1       0.50      0.12      0.19      1383
+           0       0.90      0.98      0.94     10902
+           1       0.49      0.11      0.19      1383
 
    micro avg       0.89      0.89      0.89     12285
-   macro avg       0.70      0.55      0.56     12285
-weighted avg       0.85      0.89      0.86     12285
+   macro avg       0.69      0.55      0.56     12285
+weighted avg       0.85      0.89      0.85     12285
 
 
     \end{Verbatim}
@@ -2003,7 +2030,7 @@ weighted avg       0.85      0.89      0.86     12285
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Optimization terminated successfully.
-         Current function value: 0.293629
+         Current function value: 0.293562
          Iterations 7
 
     \end{Verbatim}
@@ -2017,44 +2044,44 @@ Optimization terminated successfully.
 Dep. Variable:                      y   No. Observations:                40949
 Model:                          Logit   Df Residuals:                    40918
 Method:                           MLE   Df Model:                           30
-Date:                Thu, 09 May 2019   Pseudo R-squ.:                  0.1575
-Time:                        22:03:59   Log-Likelihood:                -12024.
+Date:                Fri, 10 May 2019   Pseudo R-squ.:                  0.1577
+Time:                        14:06:12   Log-Likelihood:                -12021.
 converged:                       True   LL-Null:                       -14272.
                                         LLR p-value:                     0.000
 =======================================================================================
                           coef    std err          z      P>|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------------
-age                    -0.0212      0.001    -14.239      0.000      -0.024      -0.018
-housing                -0.1281      0.034     -3.801      0.000      -0.194      -0.062
-loan                   -0.0677      0.048     -1.425      0.154      -0.161       0.025
-contact                -0.2701      0.051     -5.250      0.000      -0.371      -0.169
-campaign               -0.0806      0.010     -8.281      0.000      -0.100      -0.061
-previous                0.3963      0.026     15.057      0.000       0.345       0.448
-emp.var.rate           -0.4202      0.014    -31.114      0.000      -0.447      -0.394
-blue-collar            -0.6748      0.060    -11.169      0.000      -0.793      -0.556
-entrepreneur           -0.3512      0.104     -3.379      0.001      -0.555      -0.148
-housemaid              -0.3760      0.121     -3.114      0.002      -0.613      -0.139
-management             -0.1945      0.072     -2.704      0.007      -0.336      -0.054
-retired                 0.4768      0.089      5.338      0.000       0.302       0.652
-self-employed          -0.3755      0.100     -3.763      0.000      -0.571      -0.180
-services               -0.4582      0.071     -6.478      0.000      -0.597      -0.320
-student                -0.0736      0.090     -0.822      0.411      -0.249       0.102
-technician             -0.2791      0.058     -4.804      0.000      -0.393      -0.165
-unemployed             -0.1971      0.106     -1.864      0.062      -0.404       0.010
-married                -0.0664      0.037     -1.790      0.073      -0.139       0.006
-basic.6y               -0.4553      0.091     -5.022      0.000      -0.633      -0.278
-basic.9y               -0.6082      0.067     -9.122      0.000      -0.739      -0.478
-high.school            -0.7014      0.058    -11.991      0.000      -0.816      -0.587
-professional.course    -0.5467      0.071     -7.689      0.000      -0.686      -0.407
-university.degree      -0.6419      0.056    -11.420      0.000      -0.752      -0.532
-aug                    -0.2133      0.065     -3.273      0.001      -0.341      -0.086
-jul                     0.0528      0.066      0.801      0.423      -0.076       0.182
-jun                    -0.0471      0.069     -0.687      0.492      -0.181       0.087
-mar                     0.9616      0.098      9.775      0.000       0.769       1.154
-may                    -0.9755      0.056    -17.501      0.000      -1.085      -0.866
-nov                    -0.6573      0.070     -9.441      0.000      -0.794      -0.521
-oct                     0.2938      0.093      3.173      0.002       0.112       0.475
-sep                     0.4102      0.100      4.114      0.000       0.215       0.606
+age                    -0.0208      0.001    -13.966      0.000      -0.024      -0.018
+housing                -0.1384      0.034     -4.108      0.000      -0.204      -0.072
+loan                   -0.0677      0.048     -1.424      0.154      -0.161       0.025
+contact                -0.2694      0.051     -5.239      0.000      -0.370      -0.169
+campaign               -0.0805      0.010     -8.272      0.000      -0.100      -0.061
+previous                0.3956      0.026     15.024      0.000       0.344       0.447
+emp.var.rate           -0.4211      0.014    -31.187      0.000      -0.448      -0.395
+blue-collar            -0.6715      0.060    -11.141      0.000      -0.790      -0.553
+entrepreneur           -0.3916      0.105     -3.731      0.000      -0.597      -0.186
+housemaid              -0.3927      0.121     -3.249      0.001      -0.630      -0.156
+management             -0.2096      0.072     -2.903      0.004      -0.351      -0.068
+retired                 0.4508      0.089      5.043      0.000       0.276       0.626
+self-employed          -0.3553      0.099     -3.579      0.000      -0.550      -0.161
+services               -0.4390      0.071     -6.214      0.000      -0.577      -0.301
+student                -0.0562      0.089     -0.630      0.529      -0.231       0.119
+technician             -0.2691      0.058     -4.633      0.000      -0.383      -0.155
+unemployed             -0.2013      0.106     -1.902      0.057      -0.409       0.006
+married                -0.0648      0.037     -1.746      0.081      -0.138       0.008
+basic.6y               -0.4636      0.091     -5.101      0.000      -0.642      -0.285
+basic.9y               -0.6431      0.067     -9.652      0.000      -0.774      -0.512
+high.school            -0.7244      0.059    -12.370      0.000      -0.839      -0.610
+professional.course    -0.5780      0.071     -8.130      0.000      -0.717      -0.439
+university.degree      -0.6507      0.056    -11.619      0.000      -0.760      -0.541
+aug                    -0.2108      0.065     -3.234      0.001      -0.338      -0.083
+jul                     0.0587      0.066      0.890      0.373      -0.071       0.188
+jun                    -0.0449      0.069     -0.655      0.512      -0.179       0.089
+mar                     0.9619      0.098      9.778      0.000       0.769       1.155
+may                    -0.9716      0.056    -17.424      0.000      -1.081      -0.862
+nov                    -0.6523      0.070     -9.367      0.000      -0.789      -0.516
+oct                     0.2948      0.093      3.183      0.001       0.113       0.476
+sep                     0.4243      0.100      4.253      0.000       0.229       0.620
 =======================================================================================
 """
     \end{verbatim}
@@ -2090,7 +2117,7 @@ Not Statistically significant regressors are:
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Optimization terminated successfully.
-         Current function value: 0.293766
+         Current function value: 0.293698
          Iterations 7
 
     \end{Verbatim}
@@ -2114,38 +2141,38 @@ Optimization terminated successfully.
 Dep. Variable:                      y   No. Observations:                40949
 Model:                          Logit   Df Residuals:                    40924
 Method:                           MLE   Df Model:                           24
-Date:                Thu, 09 May 2019   Pseudo R-squ.:                  0.1571
-Time:                        22:04:00   Log-Likelihood:                -12029.
+Date:                Fri, 10 May 2019   Pseudo R-squ.:                  0.1573
+Time:                        14:06:12   Log-Likelihood:                -12027.
 converged:                       True   LL-Null:                       -14272.
                                         LLR p-value:                     0.000
 ==============================================================================
                  coef    std err          z      P>|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-x1            -0.0224      0.001    -17.006      0.000      -0.025      -0.020
-x2            -0.1317      0.034     -3.926      0.000      -0.198      -0.066
-x3            -0.3043      0.047     -6.499      0.000      -0.396      -0.213
-x4            -0.0808      0.010     -8.376      0.000      -0.100      -0.062
-x5             0.3961      0.026     15.098      0.000       0.345       0.448
-x6            -0.4128      0.012    -34.251      0.000      -0.436      -0.389
-x7            -0.6594      0.058    -11.308      0.000      -0.774      -0.545
-x8            -0.3403      0.103     -3.303      0.001      -0.542      -0.138
-x9            -0.3535      0.120     -2.955      0.003      -0.588      -0.119
-x10           -0.1865      0.071     -2.629      0.009      -0.326      -0.047
-x11            0.5209      0.088      5.942      0.000       0.349       0.693
-x12           -0.3589      0.099     -3.621      0.000      -0.553      -0.165
-x13           -0.4394      0.069     -6.325      0.000      -0.576      -0.303
-x14           -0.2568      0.057     -4.536      0.000      -0.368      -0.146
-x15           -0.4666      0.089     -5.213      0.000      -0.642      -0.291
-x16           -0.6203      0.065     -9.572      0.000      -0.747      -0.493
-x17           -0.6994      0.055    -12.654      0.000      -0.808      -0.591
-x18           -0.5535      0.069     -7.983      0.000      -0.689      -0.418
-x19           -0.6333      0.053    -11.914      0.000      -0.737      -0.529
-x20           -0.2323      0.054     -4.337      0.000      -0.337      -0.127
-x21            0.9632      0.093     10.333      0.000       0.781       1.146
-x22           -0.9765      0.045    -21.668      0.000      -1.065      -0.888
-x23           -0.6694      0.061    -11.011      0.000      -0.789      -0.550
-x24            0.2970      0.088      3.385      0.001       0.125       0.469
-x25            0.4036      0.095      4.265      0.000       0.218       0.589
+x1            -0.0219      0.001    -16.668      0.000      -0.024      -0.019
+x2            -0.1418      0.034     -4.226      0.000      -0.208      -0.076
+x3            -0.3036      0.047     -6.481      0.000      -0.395      -0.212
+x4            -0.0805      0.010     -8.349      0.000      -0.099      -0.062
+x5             0.3958      0.026     15.082      0.000       0.344       0.447
+x6            -0.4135      0.012    -34.306      0.000      -0.437      -0.390
+x7            -0.6559      0.058    -11.275      0.000      -0.770      -0.542
+x8            -0.3819      0.104     -3.668      0.000      -0.586      -0.178
+x9            -0.3692      0.120     -3.084      0.002      -0.604      -0.135
+x10           -0.2024      0.071     -2.842      0.004      -0.342      -0.063
+x11            0.4948      0.088      5.640      0.000       0.323       0.667
+x12           -0.3397      0.099     -3.446      0.001      -0.533      -0.146
+x13           -0.4211      0.069     -6.071      0.000      -0.557      -0.285
+x14           -0.2481      0.057     -4.384      0.000      -0.359      -0.137
+x15           -0.4730      0.090     -5.268      0.000      -0.649      -0.297
+x16           -0.6526      0.065    -10.086      0.000      -0.779      -0.526
+x17           -0.7189      0.055    -13.006      0.000      -0.827      -0.611
+x18           -0.5823      0.069     -8.402      0.000      -0.718      -0.446
+x19           -0.6397      0.053    -12.089      0.000      -0.743      -0.536
+x20           -0.2317      0.054     -4.328      0.000      -0.337      -0.127
+x21            0.9615      0.093     10.315      0.000       0.779       1.144
+x22           -0.9750      0.045    -21.635      0.000      -1.063      -0.887
+x23           -0.6670      0.061    -10.973      0.000      -0.786      -0.548
+x24            0.2965      0.088      3.378      0.001       0.124       0.469
+x25            0.4162      0.095      4.400      0.000       0.231       0.602
 ==============================================================================
 """
     \end{verbatim}
@@ -2153,31 +2180,31 @@ x25            0.4036      0.095      4.265      0.000       0.218       0.589
     
     \begin{Verbatim}[commandchars=\\\{\}]
 Variance Inflation Factors:
-10.595228987761248 age
-2.1162627291809826 housing
-2.5787549377784673 contact
-1.9650742218414552 campaign
-1.3878420674037453 previous
-1.8225837030888707 emp.var.rate
-2.3498218720655597 blue-collar
-1.141514821122065 entrepreneur
-1.1505968256965058 housemaid
-1.2955824062114378 management
-1.4853298133639519 retired
-1.1259569038839308 self-employed
-1.4472162108565212 services
-1.9011737412545888 technician
-1.3973642634299883 basic.6y
-2.0054267834052713 basic.9y
-2.674200337054219 high.school
-2.309779602262992 professional.course
-3.3033756849895126 university.degree
-1.639060932630886 aug
-1.0728776210604138 mar
-2.208910038097664 may
-1.3446108077360526 nov
-1.1415496233265712 oct
-1.1068748593204247 sep
+10.59285135212034 age
+2.1189581199142262 housing
+2.5784705320747205 contact
+1.9652236412758264 campaign
+1.3877212802827528 previous
+1.8225304898784933 emp.var.rate
+2.348372356176547 blue-collar
+1.14163524129405 entrepreneur
+1.1512800634732347 housemaid
+1.2940384604988566 management
+1.4834937610887158 retired
+1.1261108332839098 self-employed
+1.4471899518339966 services
+1.902603411017963 technician
+1.3953800724789436 basic.6y
+2.0079977473739965 basic.9y
+2.6741950884656536 high.school
+2.297931584308367 professional.course
+3.3016071127980133 university.degree
+1.6385893838857952 aug
+1.0728676709603513 mar
+2.2099886621689033 may
+1.3450595960370224 nov
+1.1412686812851054 oct
+1.1068452368839075 sep
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -2190,7 +2217,7 @@ Variance Inflation Factors:
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Optimization terminated successfully.
-         Current function value: 0.673033
+         Current function value: 0.673024
          Iterations 4
 
     \end{Verbatim}
@@ -2204,18 +2231,18 @@ Optimization terminated successfully.
 Dep. Variable:                      y   No. Observations:                40949
 Model:                          Logit   Df Residuals:                    40944
 Method:                           MLE   Df Model:                            4
-Date:                Thu, 09 May 2019   Pseudo R-squ.:                 -0.9310
-Time:                        22:04:01   Log-Likelihood:                -27560.
+Date:                Fri, 10 May 2019   Pseudo R-squ.:                 -0.9310
+Time:                        14:06:14   Log-Likelihood:                -27560.
 converged:                       True   LL-Null:                       -14272.
                                         LLR p-value:                     1.000
 ==============================================================================
                  coef    std err          z      P>|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-x1             0.0352      0.010      3.448      0.001       0.015       0.055
+x1             0.0352      0.010      3.449      0.001       0.015       0.055
 x2            -0.1188      0.010    -11.713      0.000      -0.139      -0.099
-x3             0.3641      0.010     35.553      0.000       0.344       0.384
-x4            -0.1405      0.010    -13.936      0.000      -0.160      -0.121
-x5            -0.0247      0.010     -2.458      0.014      -0.044      -0.005
+x3             0.3641      0.010     35.551      0.000       0.344       0.384
+x4            -0.1408      0.010    -13.967      0.000      -0.161      -0.121
+x5            -0.0248      0.010     -2.464      0.014      -0.044      -0.005
 ==============================================================================
 """
     \end{verbatim}
@@ -2243,19 +2270,19 @@ x5            -0.0247      0.010     -2.458      0.014      -0.044      -0.005
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Test accuracy: 0.891 , Cross Entropy Loss is: 3.7551821362867495
+Test accuracy: 0.886 , Cross Entropy Loss is: 3.9276229223650616
 Confusion matrix is:
-[[32337   451]
- [ 3556   511]]
-We have 32848 correct observations and 4007 misclassifications.
+[[32074   664]
+ [ 3527   590]]
+We have 32664 correct observations and 4191 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.90      0.99      0.94     32788
-           1       0.53      0.13      0.20      4067
+           0       0.90      0.98      0.94     32738
+           1       0.47      0.14      0.22      4117
 
    micro avg       0.89      0.89      0.89     36855
-   macro avg       0.72      0.56      0.57     36855
-weighted avg       0.86      0.89      0.86     36855
+   macro avg       0.69      0.56      0.58     36855
+weighted avg       0.85      0.89      0.86     36855
 
 
     \end{Verbatim}
@@ -2271,7 +2298,7 @@ weighted avg       0.86      0.89      0.86     36855
     { \hspace*{\fill} \\}
     
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}62}]:} 4007
+{\color{outcolor}Out[{\color{outcolor}62}]:} 4191
 \end{Verbatim}
             
     \hypertarget{svc}{%
@@ -2325,19 +2352,19 @@ weighted avg       0.86      0.89      0.86     36855
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Test accuracy: 0.705 , Cross Entropy Loss is: 10.185363072914074
+Test accuracy: 0.729 , Cross Entropy Loss is: 9.364452017775967
 Confusion matrix is:
-[[443 103]
- [232 358]]
-We have 801 correct observations and 335 misclassifications.
+[[477  93]
+ [215 351]]
+We have 828 correct observations and 308 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.66      0.81      0.73       546
-           1       0.78      0.61      0.68       590
+           0       0.69      0.84      0.76       570
+           1       0.79      0.62      0.70       566
 
-   micro avg       0.71      0.71      0.71      1136
-   macro avg       0.72      0.71      0.70      1136
-weighted avg       0.72      0.71      0.70      1136
+   micro avg       0.73      0.73      0.73      1136
+   macro avg       0.74      0.73      0.73      1136
+weighted avg       0.74      0.73      0.73      1136
 
 
     \end{Verbatim}
@@ -2353,7 +2380,7 @@ weighted avg       0.72      0.71      0.70      1136
     { \hspace*{\fill} \\}
     
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}68}]:} 335
+{\color{outcolor}Out[{\color{outcolor}68}]:} 308
 \end{Verbatim}
             \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}69}]:} \PY{n}{X\PYZus{}R} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{D}\PY{o}{.}\PY{n}{index}\PY{p}{)}
@@ -2393,17 +2420,17 @@ weighted avg       0.72      0.71      0.70      1136
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Confusion matrix is:
-[[30088  4069]
- [ 2052   196]]
-We have 30284 correct observations and 6121 misclassifications.
+[[30064  4050]
+ [ 2101   190]]
+We have 30254 correct observations and 6151 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.94      0.88      0.91     34157
-           1       0.05      0.09      0.06      2248
+           0       0.93      0.88      0.91     34114
+           1       0.04      0.08      0.06      2291
 
    micro avg       0.83      0.83      0.83     36405
    macro avg       0.49      0.48      0.48     36405
-weighted avg       0.88      0.83      0.86     36405
+weighted avg       0.88      0.83      0.85     36405
 
 
     \end{Verbatim}
@@ -2414,19 +2441,19 @@ weighted avg       0.88      0.83      0.86     36405
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-MAE: 6121
+MAE: 6151
 Confusion matrix is:
-[[32094  2063]
- [ 2096   152]]
-We have 32246 correct observations and 4159 misclassifications.
+[[32027  2087]
+ [ 2131   160]]
+We have 32187 correct observations and 4218 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.94      0.94      0.94     34157
-           1       0.07      0.07      0.07      2248
+           0       0.94      0.94      0.94     34114
+           1       0.07      0.07      0.07      2291
 
-   micro avg       0.89      0.89      0.89     36405
+   micro avg       0.88      0.88      0.88     36405
    macro avg       0.50      0.50      0.50     36405
-weighted avg       0.88      0.89      0.89     36405
+weighted avg       0.88      0.88      0.88     36405
 
 
     \end{Verbatim}
@@ -2437,15 +2464,15 @@ weighted avg       0.88      0.89      0.89     36405
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-MAE: 4159
+MAE: 4218
 Confusion matrix is:
-[[32050  2107]
- [ 2154    94]]
-We have 32144 correct observations and 4261 misclassifications.
+[[32049  2065]
+ [ 2179   112]]
+We have 32161 correct observations and 4244 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.94      0.94      0.94     34157
-           1       0.04      0.04      0.04      2248
+           0       0.94      0.94      0.94     34114
+           1       0.05      0.05      0.05      2291
 
    micro avg       0.88      0.88      0.88     36405
    macro avg       0.49      0.49      0.49     36405
@@ -2460,19 +2487,19 @@ weighted avg       0.88      0.88      0.88     36405
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-MAE: 4261
+MAE: 4244
 Confusion matrix is:
-[[29652  4505]
- [ 2056   192]]
-We have 29844 correct observations and 6561 misclassifications.
+[[29448  4666]
+ [ 2078   213]]
+We have 29661 correct observations and 6744 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.94      0.87      0.90     34157
-           1       0.04      0.09      0.06      2248
+           0       0.93      0.86      0.90     34114
+           1       0.04      0.09      0.06      2291
 
-   micro avg       0.82      0.82      0.82     36405
+   micro avg       0.81      0.81      0.81     36405
    macro avg       0.49      0.48      0.48     36405
-weighted avg       0.88      0.82      0.85     36405
+weighted avg       0.88      0.81      0.84     36405
 
 
     \end{Verbatim}
@@ -2483,7 +2510,7 @@ weighted avg       0.88      0.82      0.85     36405
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-MAE: 6561
+MAE: 6744
 
     \end{Verbatim}
 
@@ -2527,19 +2554,19 @@ MAE: 6561
 
     \begin{Verbatim}[commandchars=\\\{\}]
 lr
-Test accuracy: 0.781 , Cross Entropy Loss is: 7.578670988512503
+Test accuracy: 0.797 , Cross Entropy Loss is: 6.995183247290505
 Confusion matrix is:
-[[26924  7218]
- [  770  1493]]
-We have 28417 correct observations and 7988 misclassifications.
+[[27531  6563]
+ [  810  1501]]
+We have 29032 correct observations and 7373 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.97      0.79      0.87     34142
-           1       0.17      0.66      0.27      2263
+           0       0.97      0.81      0.88     34094
+           1       0.19      0.65      0.29      2311
 
-   micro avg       0.78      0.78      0.78     36405
-   macro avg       0.57      0.72      0.57     36405
-weighted avg       0.92      0.78      0.83     36405
+   micro avg       0.80      0.80      0.80     36405
+   macro avg       0.58      0.73      0.59     36405
+weighted avg       0.92      0.80      0.84     36405
 
 
     \end{Verbatim}
@@ -2551,19 +2578,19 @@ weighted avg       0.92      0.78      0.83     36405
     
     \begin{Verbatim}[commandchars=\\\{\}]
 ada
-Test accuracy: 0.817 , Cross Entropy Loss is: 6.319666134386378
+Test accuracy: 0.827 , Cross Entropy Loss is: 5.971470810230238
 Confusion matrix is:
-[[28319  5823]
- [  838  1425]]
-We have 29744 correct observations and 6661 misclassifications.
+[[28671  5423]
+ [  871  1440]]
+We have 30111 correct observations and 6294 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.97      0.83      0.89     34142
-           1       0.20      0.63      0.30      2263
+           0       0.97      0.84      0.90     34094
+           1       0.21      0.62      0.31      2311
 
-   micro avg       0.82      0.82      0.82     36405
-   macro avg       0.58      0.73      0.60     36405
-weighted avg       0.92      0.82      0.86     36405
+   micro avg       0.83      0.83      0.83     36405
+   macro avg       0.59      0.73      0.61     36405
+weighted avg       0.92      0.83      0.86     36405
 
 
     \end{Verbatim}
@@ -2575,19 +2602,19 @@ weighted avg       0.92      0.82      0.86     36405
     
     \begin{Verbatim}[commandchars=\\\{\}]
 knn
-Test accuracy: 0.707 , Cross Entropy Loss is: 10.105215575391142
+Test accuracy: 0.71 , Cross Entropy Loss is: 9.999902631491398
 Confusion matrix is:
-[[24305  9837]
- [  814  1449]]
-We have 25754 correct observations and 10651 misclassifications.
+[[24399  9695]
+ [  845  1466]]
+We have 25865 correct observations and 10540 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.97      0.71      0.82     34142
-           1       0.13      0.64      0.21      2263
+           0       0.97      0.72      0.82     34094
+           1       0.13      0.63      0.22      2311
 
    micro avg       0.71      0.71      0.71     36405
-   macro avg       0.55      0.68      0.52     36405
-weighted avg       0.92      0.71      0.78     36405
+   macro avg       0.55      0.67      0.52     36405
+weighted avg       0.91      0.71      0.78     36405
 
 
     \end{Verbatim}
@@ -2599,19 +2626,19 @@ weighted avg       0.92      0.71      0.78     36405
     
     \begin{Verbatim}[commandchars=\\\{\}]
 rforest
-Test accuracy: 0.724 , Cross Entropy Loss is: 9.534062207981568
+Test accuracy: 0.737 , Cross Entropy Loss is: 9.069168676662667
 Confusion matrix is:
-[[24924  9218]
- [  831  1432]]
-We have 26356 correct observations and 10049 misclassifications.
+[[25437  8657]
+ [  902  1409]]
+We have 26846 correct observations and 9559 misclassifications.
               precision    recall  f1-score   support
 
-           0       0.97      0.73      0.83     34142
-           1       0.13      0.63      0.22      2263
+           0       0.97      0.75      0.84     34094
+           1       0.14      0.61      0.23      2311
 
-   micro avg       0.72      0.72      0.72     36405
+   micro avg       0.74      0.74      0.74     36405
    macro avg       0.55      0.68      0.53     36405
-weighted avg       0.92      0.72      0.79     36405
+weighted avg       0.91      0.74      0.80     36405
 
 
     \end{Verbatim}
@@ -2633,7 +2660,7 @@ Methods}\label{test-overunder-sampling-methods}}
 {\color{incolor}In [{\color{incolor}74}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{set\PYZus{}style}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{whitegrid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}75}]:} \PY{k}{def} \PY{n+nf}{calc\PYZus{}performance}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{name}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}96}]:} \PY{k}{def} \PY{n+nf}{calc\PYZus{}performance}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{name}\PY{p}{)}\PY{p}{:}
          
              \PY{n}{classifier} \PY{o}{=} \PY{p}{[}\PY{n}{name}\PY{p}{,} \PY{n}{c}\PY{p}{]}
          
@@ -2660,13 +2687,13 @@ Methods}\label{test-overunder-sampling-methods}}
              \PY{n}{L\PYZus{}NAME}\PY{p}{,} \PY{n}{L\PYZus{}X}\PY{p}{,} \PY{n}{L\PYZus{}Y}\PY{p}{,} \PY{n}{L\PYZus{}YHAT}\PY{p}{,} \PY{n}{L\PYZus{}PROB} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
          
              \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{values}\PY{p}{,}
-         \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+         \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.85}\PY{p}{)}
              \PY{k}{for} \PY{n}{name}\PY{p}{,} \PY{n}{pipeline} \PY{o+ow}{in} \PY{n}{pipelines}\PY{p}{:}
          
                  \PY{n}{p} \PY{o}{=} \PY{n}{pipeline}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{Y\PYZus{}train}\PY{p}{)}
                  \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{p}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
                  \PY{n}{probs} \PY{o}{=} \PY{n}{p}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
-                 \PY{c+c1}{\PYZsh{}calculate\PYZus{}metrics(Y\PYZus{}test,y\PYZus{}hat)}
+                 \PY{n}{calculate\PYZus{}metrics}\PY{p}{(}\PY{n}{Y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}hat}\PY{p}{)}
          
                  \PY{n}{L\PYZus{}NAME}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{name}\PY{p}{)}
                  \PY{n}{L\PYZus{}X}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
@@ -2677,30 +2704,382 @@ Methods}\label{test-overunder-sampling-methods}}
              \PY{n}{plot\PYZus{}ROC2}\PY{p}{(}\PY{n}{L\PYZus{}Y}\PY{p}{,}\PY{n}{L\PYZus{}X}\PY{p}{,}\PY{n}{L\PYZus{}YHAT}\PY{p}{,}\PY{n}{L\PYZus{}PROB}\PY{p}{,}\PY{n}{L\PYZus{}NAME}\PY{p}{)}
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}76}]:} \PY{n}{NAME} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{LogisticRegression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AdaBoost}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{KNN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}97}]:} \PY{n}{NAME} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{LogisticRegression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AdaBoost}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{KNN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
          \PY{n}{C\PYZus{}dict} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{zip}\PY{p}{(}\PY{n}{NAME}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{)}
          
          \PY{k}{for} \PY{n}{name}\PY{p}{,}\PY{n}{c} \PY{o+ow}{in} \PY{n}{C\PYZus{}dict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
              \PY{n}{calc\PYZus{}performance}\PY{p}{(}\PY{n}{c}\PY{p}{,}\PY{n}{name}\PY{p}{)}
 \end{Verbatim}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[24535  6421]
+ [ 1372  2479]]
+We have 27014 correct observations and 7793 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.95      0.79      0.86     30956
+           1       0.28      0.64      0.39      3851
+
+   micro avg       0.78      0.78      0.78     34807
+   macro avg       0.61      0.72      0.63     34807
+weighted avg       0.87      0.78      0.81     34807
+
+
+    \end{Verbatim}
+
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[23994  6962]
+ [ 1293  2558]]
+We have 26552 correct observations and 8255 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.95      0.78      0.85     30956
+           1       0.27      0.66      0.38      3851
+
+   micro avg       0.76      0.76      0.76     34807
+   macro avg       0.61      0.72      0.62     34807
+weighted avg       0.87      0.76      0.80     34807
+
+
+    \end{Verbatim}
+
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_2.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[19637 11319]
+ [  969  2882]]
+We have 22519 correct observations and 12288 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.95      0.63      0.76     30956
+           1       0.20      0.75      0.32      3851
+
+   micro avg       0.65      0.65      0.65     34807
+   macro avg       0.58      0.69      0.54     34807
+weighted avg       0.87      0.65      0.71     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[28834  2122]
+ [ 2218  1633]]
+We have 30467 correct observations and 4340 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.93      0.93      0.93     30956
+           1       0.43      0.42      0.43      3851
+
+   micro avg       0.88      0.88      0.88     34807
+   macro avg       0.68      0.68      0.68     34807
+weighted avg       0.87      0.88      0.87     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_7.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_3.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[24417  6545]
+ [ 1323  2522]]
+We have 26939 correct observations and 7868 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.95      0.79      0.86     30962
+           1       0.28      0.66      0.39      3845
+
+   micro avg       0.77      0.77      0.77     34807
+   macro avg       0.61      0.72      0.63     34807
+weighted avg       0.87      0.77      0.81     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_10.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[23937  7025]
+ [ 1380  2465]]
+We have 26402 correct observations and 8405 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.95      0.77      0.85     30962
+           1       0.26      0.64      0.37      3845
+
+   micro avg       0.76      0.76      0.76     34807
+   macro avg       0.60      0.71      0.61     34807
+weighted avg       0.87      0.76      0.80     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_12.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[25787  5175]
+ [ 1521  2324]]
+We have 28111 correct observations and 6696 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.83      0.89     30962
+           1       0.31      0.60      0.41      3845
+
+   micro avg       0.81      0.81      0.81     34807
+   macro avg       0.63      0.72      0.65     34807
+weighted avg       0.87      0.81      0.83     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_14.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[28720  2242]
+ [ 2162  1683]]
+We have 30403 correct observations and 4404 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.93      0.93      0.93     30962
+           1       0.43      0.44      0.43      3845
+
+   micro avg       0.87      0.87      0.87     34807
+   macro avg       0.68      0.68      0.68     34807
+weighted avg       0.87      0.87      0.87     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_16.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_17.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[23602  7356]
+ [ 1930  1919]]
+We have 25521 correct observations and 9286 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.92      0.76      0.84     30958
+           1       0.21      0.50      0.29      3849
+
+   micro avg       0.73      0.73      0.73     34807
+   macro avg       0.57      0.63      0.56     34807
+weighted avg       0.85      0.73      0.78     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_19.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[21674  9284]
+ [ 1446  2403]]
+We have 24077 correct observations and 10730 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.70      0.80     30958
+           1       0.21      0.62      0.31      3849
+
+   micro avg       0.69      0.69      0.69     34807
+   macro avg       0.57      0.66      0.56     34807
+weighted avg       0.86      0.69      0.75     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_21.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[18137 12821]
+ [ 1107  2742]]
+We have 20879 correct observations and 13928 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.59      0.72     30958
+           1       0.18      0.71      0.28      3849
+
+   micro avg       0.60      0.60      0.60     34807
+   macro avg       0.56      0.65      0.50     34807
+weighted avg       0.86      0.60      0.67     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_23.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[28798  2160]
+ [ 2626  1223]]
+We have 30021 correct observations and 4786 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.92      0.93      0.92     30958
+           1       0.36      0.32      0.34      3849
+
+   micro avg       0.86      0.86      0.86     34807
+   macro avg       0.64      0.62      0.63     34807
+weighted avg       0.86      0.86      0.86     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_25.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_26.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[29043  1899]
+ [ 2776  1089]]
+We have 30132 correct observations and 4675 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.91      0.94      0.93     30942
+           1       0.36      0.28      0.32      3865
+
+   micro avg       0.87      0.87      0.87     34807
+   macro avg       0.64      0.61      0.62     34807
+weighted avg       0.85      0.87      0.86     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_28.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[22726  8216]
+ [ 1438  2427]]
+We have 25153 correct observations and 9654 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.94      0.73      0.82     30942
+           1       0.23      0.63      0.33      3865
+
+   micro avg       0.72      0.72      0.72     34807
+   macro avg       0.58      0.68      0.58     34807
+weighted avg       0.86      0.72      0.77     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_30.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[27213  3729]
+ [ 1939  1926]]
+We have 29139 correct observations and 5668 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.93      0.88      0.91     30942
+           1       0.34      0.50      0.40      3865
+
+   micro avg       0.84      0.84      0.84     34807
+   macro avg       0.64      0.69      0.66     34807
+weighted avg       0.87      0.84      0.85     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_32.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Confusion matrix is:
+[[28494  2448]
+ [ 2278  1587]]
+We have 30081 correct observations and 4726 misclassifications.
+              precision    recall  f1-score   support
+
+           0       0.93      0.92      0.92     30942
+           1       0.39      0.41      0.40      3865
+
+   micro avg       0.86      0.86      0.86     34807
+   macro avg       0.66      0.67      0.66     34807
+weighted avg       0.87      0.86      0.87     34807
+
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_34.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Analysis_files/Analysis_104_35.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2708,11 +3087,13 @@ Methods}\label{test-overunder-sampling-methods}}
 \subsection{selection of relevant variables from balanced
 dataset}\label{selection-of-relevant-variables-from-balanced-dataset}}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}77}]:} \PY{n}{L}\PY{p}{,} \PY{n}{Counts}\PY{p}{,}\PY{n}{Coeffs} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}86}]:} \PY{n}{L}\PY{p}{,} \PY{n}{Counts}\PY{p}{,}\PY{n}{Coeffs} \PY{o}{=} \PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}
          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{p}{:}
              \PY{n}{D} \PY{o}{=} \PY{n}{make\PYZus{}balanced}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
              \PY{n}{X\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
              \PY{n}{Y\PYZus{}B} \PY{o}{=} \PY{n}{D}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         
+             \PY{n}{X\PYZus{}B} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{X\PYZus{}B}\PY{p}{)}
          
              \PY{n}{logit} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{Logit}\PY{p}{(}\PY{n}{Y\PYZus{}B}\PY{p}{,} \PY{n}{X\PYZus{}B}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{disp}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
              \PY{c+c1}{\PYZsh{}display(logit.summary())}
@@ -2731,10 +3112,10 @@ dataset}\label{selection-of-relevant-variables-from-balanced-dataset}}
 {\color{incolor}In [{\color{incolor} }]:} 
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}78}]:} \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{y} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{L} \PY{k}{for} \PY{n}{y} \PY{o+ow}{in} \PY{n}{x}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}87}]:} \PY{n}{L} \PY{o}{=} \PY{p}{[}\PY{n}{y} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{L} \PY{k}{for} \PY{n}{y} \PY{o+ow}{in} \PY{n}{x}\PY{p}{]}
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}79}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}88}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{L}\PY{p}{,}\PY{n}{bins}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{L}\PY{p}{)}\PY{p}{)}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
@@ -2745,14 +3126,14 @@ dataset}\label{selection-of-relevant-variables-from-balanced-dataset}}
     \end{center}
     { \hspace*{\fill} \\}
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}80}]:} \PY{k+kn}{from} \PY{n+nn}{collections} \PY{k}{import} \PY{n}{Counter}
+{\color{incolor}In [{\color{incolor}89}]:} \PY{k+kn}{from} \PY{n+nn}{collections} \PY{k}{import} \PY{n}{Counter}
          \PY{n}{d} \PY{o}{=} \PY{n}{Counter}\PY{p}{(}\PY{n}{L}\PY{p}{)}
          
          \PY{k+kn}{import} \PY{n+nn}{operator}
          \PY{n}{sorted\PYZus{}d} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{n+nb}{sorted}\PY{p}{(}\PY{n}{d}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{n}{operator}\PY{o}{.}\PY{n}{itemgetter}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}81}]:} \PY{n}{TopVars} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}90}]:} \PY{n}{TopVars} \PY{o}{=} \PY{p}{[}\PY{p}{]}
          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Most frequently significant variables:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
          \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{v}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{sorted\PYZus{}d}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
              \PY{k}{if} \PY{n}{v} \PY{o}{\PYZgt{}} \PY{l+m+mi}{500}\PY{p}{:}
@@ -2766,18 +3147,17 @@ previous : 1000
 emp.var.rate : 1000
 mar : 1000
 may : 1000
-oct : 977
-campaign : 968
-nov : 957
-sep : 950
-jul : 921
-retired : 751
-student : 665
-blue-collar : 606
+oct : 974
+sep : 972
+campaign : 954
+jul : 940
+nov : 822
+student : 702
+retired : 683
 
     \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}82}]:} \PY{n}{V} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}91}]:} \PY{n}{V} \PY{o}{=} \PY{p}{[}\PY{p}{]}
          \PY{k}{for} \PY{n}{v} \PY{o+ow}{in} \PY{n}{TopVars}\PY{p}{:}
              \PY{n}{summ} \PY{o}{=} \PY{l+m+mi}{0}
              \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
@@ -2790,40 +3170,18 @@ blue-collar : 606
              \PY{n}{V}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{summ}\PY{o}{/}\PY{n}{count}\PY{p}{)}
 \end{Verbatim}
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}83}]:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{V}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}92}]:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{V}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}83}]:} [0.349,
-          -0.476,
-          1.271,
-          -0.654,
-          0.842,
-          -0.051,
-          -0.447,
-          0.847,
-          0.435,
-          0.509,
-          0.55,
-          -0.283]
+{\color{outcolor}Out[{\color{outcolor}92}]:} [0.348, -0.481, 1.32, -0.601, 0.881, 0.88, -0.049, 0.495, -0.425, 0.578, 0.493]
 \end{Verbatim}
             \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}84}]:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{V}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}93}]:} \PY{n+nb}{list}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{V}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}84}]:} [1.418,
-          0.621,
-          3.565,
-          0.52,
-          2.322,
-          0.95,
-          0.64,
-          2.332,
-          1.544,
-          1.663,
-          1.733,
-          0.753]
+{\color{outcolor}Out[{\color{outcolor}93}]:} [1.417, 0.618, 3.742, 0.548, 2.413, 2.412, 0.952, 1.641, 0.654, 1.782, 1.637]
 \end{Verbatim}
             \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} 

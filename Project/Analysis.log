@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.29)  9 MAY 2019 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.29)  10 MAY 2019 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1433,19 +1433,19 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 405.
  [1] [2]
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 488
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 489
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [3]
-Overfull \hbox (9.60014pt too wide) in paragraph at lines 563--565
+Overfull \hbox (9.60014pt too wide) in paragraph at lines 564--566
 []\T1/cmr/m/n/10 2 - job : type of job (cat-e-gor-i-cal: `admin.',`blue-collar'
 ,`entrepreneur',`housemaid',`management',`retired',`self- 
  []
 
 
-Overfull \hbox (98.77281pt too wide) in paragraph at lines 570--572
+Overfull \hbox (98.77281pt too wide) in paragraph at lines 571--573
 []\T1/cmr/m/n/10 4 - ed-u-ca-tion (cat-e-gor-i-cal: `ba-sic.4y',`basic.6y',`bas
 ic.9y',`high.school',`illiterate',`professional.course',`university.degree',`un
 known')  
@@ -1456,560 +1456,670 @@ known')
 File: Analysis_files/Analysis_14_0.png Graphic file (type png)
 <use Analysis_files/Analysis_14_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_0.png  used on input line 7
-26.
+53.
 (pdftex.def)             Requested size: 921.44026pt x 398.48778pt.
-<Analysis_files/Analysis_14_1.png, id=165, 921.4425pt x 329.23pt>
+ [6]
+<Analysis_files/Analysis_14_1.png, id=172, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_1.png Graphic file (type png)
 <use Analysis_files/Analysis_14_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_1.png  used on input line 7
-31.
+58.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
- [6 <./Analysis_files/Analysis_14_0.png>]
-<Analysis_files/Analysis_14_2.png, id=174, 921.4425pt x 427.5975pt>
+<Analysis_files/Analysis_14_2.png, id=173, 921.4425pt x 427.5975pt>
 File: Analysis_files/Analysis_14_2.png Graphic file (type png)
 <use Analysis_files/Analysis_14_2.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_2.png  used on input line 7
-36.
+63.
 (pdftex.def)             Requested size: 921.44026pt x 427.59645pt.
-<Analysis_files/Analysis_14_3.png, id=175, 921.4425pt x 329.23pt>
+<Analysis_files/Analysis_14_3.png, id=174, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_3.png Graphic file (type png)
 <use Analysis_files/Analysis_14_3.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_3.png  used on input line 7
-41.
+68.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
-<Analysis_files/Analysis_14_4.png, id=176, 921.4425pt x 329.23pt>
+ [7 <./Analysis_files/Analysis_14_0.png> <./Analysis_files/Analysis_14_1.png> <
+./Analysis_files/Analysis_14_2.png>]
+<Analysis_files/Analysis_14_4.png, id=182, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_4.png Graphic file (type png)
 <use Analysis_files/Analysis_14_4.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_4.png  used on input line 7
-46.
+73.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
- [7 <./Analysis_files/Analysis_14_1.png> <./Analysis_files/Analysis_14_2.png> <
-./Analysis_files/Analysis_14_3.png>]
-<Analysis_files/Analysis_14_5.png, id=184, 921.4425pt x 329.23pt>
+<Analysis_files/Analysis_14_5.png, id=183, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_5.png Graphic file (type png)
 <use Analysis_files/Analysis_14_5.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_5.png  used on input line 7
-51.
+78.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
-<Analysis_files/Analysis_14_6.png, id=185, 921.4425pt x 329.23pt>
+<Analysis_files/Analysis_14_6.png, id=184, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_6.png Graphic file (type png)
 <use Analysis_files/Analysis_14_6.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_6.png  used on input line 7
-56.
+83.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
-<Analysis_files/Analysis_14_7.png, id=186, 921.4425pt x 329.23pt>
+ [8 <./Analysis_files/Analysis_14_3.png> <./Analysis_files/Analysis_14_4.png> <
+./Analysis_files/Analysis_14_5.png>]
+<Analysis_files/Analysis_14_7.png, id=192, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_7.png Graphic file (type png)
 <use Analysis_files/Analysis_14_7.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_7.png  used on input line 7
-61.
+88.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
- [8 <./Analysis_files/Analysis_14_4.png> <./Analysis_files/Analysis_14_5.png> <
-./Analysis_files/Analysis_14_6.png>]
-<Analysis_files/Analysis_14_8.png, id=194, 914.41624pt x 329.23pt>
+<Analysis_files/Analysis_14_8.png, id=193, 914.41624pt x 329.23pt>
 File: Analysis_files/Analysis_14_8.png Graphic file (type png)
 <use Analysis_files/Analysis_14_8.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_8.png  used on input line 7
-66.
+93.
 (pdftex.def)             Requested size: 914.41402pt x 329.22919pt.
-<Analysis_files/Analysis_14_9.png, id=195, 914.41624pt x 329.23pt>
+<Analysis_files/Analysis_14_9.png, id=194, 914.41624pt x 329.23pt>
 File: Analysis_files/Analysis_14_9.png Graphic file (type png)
 <use Analysis_files/Analysis_14_9.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_9.png  used on input line 7
-71.
+98.
 (pdftex.def)             Requested size: 914.41402pt x 329.22919pt.
-<Analysis_files/Analysis_14_10.png, id=196, 921.4425pt x 329.23pt>
+ [9 <./Analysis_files/Analysis_14_6.png> <./Analysis_files/Analysis_14_7.png> <
+./Analysis_files/Analysis_14_8.png>]
+<Analysis_files/Analysis_14_10.png, id=202, 921.4425pt x 329.23pt>
 File: Analysis_files/Analysis_14_10.png Graphic file (type png)
 <use Analysis_files/Analysis_14_10.png>
 Package pdftex.def Info: Analysis_files/Analysis_14_10.png  used on input line 
-776.
+803.
 (pdftex.def)             Requested size: 921.44026pt x 329.22919pt.
- [9 <./Analysis_files/Analysis_14_7.png> <./Analysis_files/Analysis_14_8.png> <
-./Analysis_files/Analysis_14_9.png>]
-<Analysis_files/Analysis_16_0.png, id=204, 614.295pt x 339.2675pt>
+<Analysis_files/Analysis_16_0.png, id=203, 617.30624pt x 339.2675pt>
 File: Analysis_files/Analysis_16_0.png Graphic file (type png)
 <use Analysis_files/Analysis_16_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_0.png  used on input line 8
-04.
-(pdftex.def)             Requested size: 614.29349pt x 339.26666pt.
-
-[10 <./Analysis_files/Analysis_14_10.png> <./Analysis_files/Analysis_16_0.png>]
-<Analysis_files/Analysis_16_1.png, id=211, 614.295pt x 339.2675pt>
+31.
+(pdftex.def)             Requested size: 617.30473pt x 339.26666pt.
+ [10 <./Analysis_files/Analysis_14_9.png> <./Analysis_files/Analysis_14_10.png>
+]
+<Analysis_files/Analysis_16_1.png, id=210, 617.30624pt x 339.2675pt>
 File: Analysis_files/Analysis_16_1.png Graphic file (type png)
 <use Analysis_files/Analysis_16_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_1.png  used on input line 8
-09.
-(pdftex.def)             Requested size: 614.29349pt x 339.26666pt.
-<Analysis_files/Analysis_16_2.png, id=212, 628.3475pt x 339.2675pt>
+36.
+(pdftex.def)             Requested size: 617.30473pt x 339.26666pt.
+<Analysis_files/Analysis_16_2.png, id=211, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_2.png Graphic file (type png)
 <use Analysis_files/Analysis_16_2.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_2.png  used on input line 8
-14.
-(pdftex.def)             Requested size: 628.34596pt x 339.26666pt.
-<Analysis_files/Analysis_16_3.png, id=213, 628.3475pt x 339.2675pt>
+41.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [11 <./Analysis_files/Analysis_16_0.png> <./Analysis_files/Analysis_16_1.png>]
+<Analysis_files/Analysis_16_3.png, id=218, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_3.png Graphic file (type png)
 <use Analysis_files/Analysis_16_3.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_3.png  used on input line 8
-19.
-(pdftex.def)             Requested size: 628.34596pt x 339.26666pt.
-[11 <./Analysis_files/Analysis_16_1.png> <./Analysis_files/Analysis_16_2.png>]
-<Analysis_files/Analysis_16_4.png, id=220, 607.26875pt x 339.2675pt>
+46.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_4.png, id=219, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_4.png Graphic file (type png)
 <use Analysis_files/Analysis_16_4.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_4.png  used on input line 8
-24.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-<Analysis_files/Analysis_16_5.png, id=221, 607.26875pt x 339.2675pt>
+51.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [12 <./Analysis_files/Analysis_16_2.png> <./Analysis_files/Analysis_16_3.png>]
+<Analysis_files/Analysis_16_5.png, id=227, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_5.png Graphic file (type png)
 <use Analysis_files/Analysis_16_5.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_5.png  used on input line 8
-29.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-
-[12 <./Analysis_files/Analysis_16_3.png> <./Analysis_files/Analysis_16_4.png>]
-<Analysis_files/Analysis_16_6.png, id=229, 621.32124pt x 339.2675pt>
+56.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_6.png, id=228, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_6.png Graphic file (type png)
 <use Analysis_files/Analysis_16_6.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_6.png  used on input line 8
-34.
-(pdftex.def)             Requested size: 621.31973pt x 339.26666pt.
-<Analysis_files/Analysis_16_7.png, id=230, 621.32124pt x 339.2675pt>
+61.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [13 <./Analysis_files/Analysis_16_4.png> <./Analysis_files/Analysis_16_5.png>]
+<Analysis_files/Analysis_16_7.png, id=235, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_7.png Graphic file (type png)
 <use Analysis_files/Analysis_16_7.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_7.png  used on input line 8
-39.
-(pdftex.def)             Requested size: 621.31973pt x 339.26666pt.
-
-[13 <./Analysis_files/Analysis_16_5.png> <./Analysis_files/Analysis_16_6.png>]
-<Analysis_files/Analysis_16_8.png, id=237, 596.2275pt x 339.2675pt>
+66.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_8.png, id=236, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_8.png Graphic file (type png)
 <use Analysis_files/Analysis_16_8.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_8.png  used on input line 8
-44.
-(pdftex.def)             Requested size: 596.22604pt x 339.26666pt.
-<Analysis_files/Analysis_16_9.png, id=238, 596.2275pt x 339.2675pt>
+71.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [14 <./Analysis_files/Analysis_16_6.png> <./Analysis_files/Analysis_16_7.png>]
+<Analysis_files/Analysis_16_9.png, id=243, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_9.png Graphic file (type png)
 <use Analysis_files/Analysis_16_9.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_9.png  used on input line 8
-49.
-(pdftex.def)             Requested size: 596.22604pt x 339.26666pt.
-
-[14 <./Analysis_files/Analysis_16_7.png> <./Analysis_files/Analysis_16_8.png>]
-<Analysis_files/Analysis_16_10.png, id=245, 614.295pt x 339.2675pt>
+76.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_10.png, id=244, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_10.png Graphic file (type png)
 <use Analysis_files/Analysis_16_10.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_10.png  used on input line 
-854.
-(pdftex.def)             Requested size: 614.29349pt x 339.26666pt.
-<Analysis_files/Analysis_16_11.png, id=246, 607.26875pt x 339.2675pt>
+881.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [15 <./Analysis_files/Analysis_16_8.png> <./Analysis_files/Analysis_16_9.png>]
+<Analysis_files/Analysis_16_11.png, id=251, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_11.png Graphic file (type png)
 <use Analysis_files/Analysis_16_11.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_11.png  used on input line 
-859.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-
-[15 <./Analysis_files/Analysis_16_9.png> <./Analysis_files/Analysis_16_10.png>]
-<Analysis_files/Analysis_16_12.png, id=253, 607.26875pt x 339.2675pt>
+886.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_12.png, id=252, 617.30624pt x 339.2675pt>
 File: Analysis_files/Analysis_16_12.png Graphic file (type png)
 <use Analysis_files/Analysis_16_12.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_12.png  used on input line 
-864.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-<Analysis_files/Analysis_16_13.png, id=254, 607.26875pt x 339.2675pt>
+891.
+(pdftex.def)             Requested size: 617.30473pt x 339.26666pt.
+ [16 <./Analysis_files/Analysis_16_10.png> <./Analysis_files/Analysis_16_11.png
+>]
+<Analysis_files/Analysis_16_13.png, id=259, 617.30624pt x 339.2675pt>
 File: Analysis_files/Analysis_16_13.png Graphic file (type png)
 <use Analysis_files/Analysis_16_13.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_13.png  used on input line 
-869.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-[16 <./Analysis_files/Analysis_16_11.png> <./Analysis_files/Analysis_16_12.png>
-]
-<Analysis_files/Analysis_16_14.png, id=261, 607.26875pt x 339.2675pt>
+896.
+(pdftex.def)             Requested size: 617.30473pt x 339.26666pt.
+<Analysis_files/Analysis_16_14.png, id=260, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_14.png Graphic file (type png)
 <use Analysis_files/Analysis_16_14.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_14.png  used on input line 
-874.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-<Analysis_files/Analysis_16_15.png, id=262, 607.26875pt x 339.2675pt>
+901.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [17 <./Analysis_files/Analysis_16_12.png> <./Analysis_files/Analysis_16_13.png
+>]
+<Analysis_files/Analysis_16_15.png, id=267, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_15.png Graphic file (type png)
 <use Analysis_files/Analysis_16_15.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_15.png  used on input line 
-879.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
- [17 <./Analysis_files/Analysis_16_13.png> <./Analysis_files/Analysis_16_14.png
->]
-<Analysis_files/Analysis_16_16.png, id=269, 607.26875pt x 339.2675pt>
+906.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_16.png, id=268, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_16.png Graphic file (type png)
 <use Analysis_files/Analysis_16_16.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_16.png  used on input line 
-884.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
-<Analysis_files/Analysis_16_17.png, id=270, 607.26875pt x 339.2675pt>
+911.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [18 <./Analysis_files/Analysis_16_14.png> <./Analysis_files/Analysis_16_15.png
+>]
+<Analysis_files/Analysis_16_17.png, id=276, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_17.png Graphic file (type png)
 <use Analysis_files/Analysis_16_17.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_17.png  used on input line 
-889.
-(pdftex.def)             Requested size: 607.26727pt x 339.26666pt.
- [18 <./Analysis_files/Analysis_16_15.png> <./Analysis_files/Analysis_16_16.png
->]
-<Analysis_files/Analysis_16_18.png, id=278, 614.295pt x 339.2675pt>
+916.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_16_18.png, id=277, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_18.png Graphic file (type png)
 <use Analysis_files/Analysis_16_18.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_18.png  used on input line 
-894.
-(pdftex.def)             Requested size: 614.29349pt x 339.26666pt.
-<Analysis_files/Analysis_16_19.png, id=279, 614.295pt x 339.2675pt>
+921.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+ [19 <./Analysis_files/Analysis_16_16.png> <./Analysis_files/Analysis_16_17.png
+>]
+<Analysis_files/Analysis_16_19.png, id=284, 624.3325pt x 339.2675pt>
 File: Analysis_files/Analysis_16_19.png Graphic file (type png)
 <use Analysis_files/Analysis_16_19.png>
 Package pdftex.def Info: Analysis_files/Analysis_16_19.png  used on input line 
-899.
-(pdftex.def)             Requested size: 614.29349pt x 339.26666pt.
- [19 <./Analysis_files/Analysis_16_17.png> <./Analysis_files/Analysis_16_18.png
->]
-<Analysis_files/Analysis_18_0.png, id=286, 1505.625pt x 670.505pt>
+926.
+(pdftex.def)             Requested size: 624.33098pt x 339.26666pt.
+<Analysis_files/Analysis_18_0.png, id=285, 1505.625pt x 670.505pt>
 File: Analysis_files/Analysis_18_0.png Graphic file (type png)
 <use Analysis_files/Analysis_18_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_18_0.png  used on input line 9
-13.
+40.
 (pdftex.def)             Requested size: 1505.62134pt x 670.50337pt.
-<Analysis_files/Analysis_19_0.png, id=287, 1230.5975pt x 751.80875pt>
+ [20 <./Analysis_files/Analysis_16_18.png> <./Analysis_files/Analysis_16_19.png
+>]
+<Analysis_files/Analysis_19_0.png, id=293, 1230.5975pt x 751.80875pt>
 File: Analysis_files/Analysis_19_0.png Graphic file (type png)
 <use Analysis_files/Analysis_19_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_19_0.png  used on input line 9
-26.
+53.
 (pdftex.def)             Requested size: 1230.59451pt x 751.8069pt.
- [20 <./Analysis_files/Analysis_16_19.png> <./Analysis_files/Analysis_18_0.png>
-]
-<Analysis_files/Analysis_20_0.png, id=295, 1454.43375pt x 715.67375pt>
+<Analysis_files/Analysis_20_0.png, id=294, 1454.43375pt x 715.67375pt>
 File: Analysis_files/Analysis_20_0.png Graphic file (type png)
 <use Analysis_files/Analysis_20_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_20_0.png  used on input line 9
-35.
+62.
 (pdftex.def)             Requested size: 1454.4302pt x 715.672pt.
-<Analysis_files/Analysis_21_0.png, id=296, 1482.53876pt x 665.48625pt>
+ [21 <./Analysis_files/Analysis_18_0.png> <./Analysis_files/Analysis_19_0.png>]
+<Analysis_files/Analysis_21_0.png, id=301, 1482.53876pt x 665.48625pt>
 File: Analysis_files/Analysis_21_0.png Graphic file (type png)
 <use Analysis_files/Analysis_21_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_21_0.png  used on input line 9
-44.
+71.
 (pdftex.def)             Requested size: 1482.53516pt x 665.48462pt.
- [21 <./Analysis_files/Analysis_19_0.png> <./Analysis_files/Analysis_20_0.png>]
- [22 <./Analysis_files/Analysis_21_0.png>]
+ [22 <./Analysis_files/Analysis_20_0.png> <./Analysis_files/Analysis_21_0.png>]
 <Analysis_files/Analysis_25_0.png, id=308, 400.49625pt x 336.25626pt>
 File: Analysis_files/Analysis_25_0.png Graphic file (type png)
 <use Analysis_files/Analysis_25_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_0.png  used on input line 1
-013.
+040.
 (pdftex.def)             Requested size: 400.49527pt x 336.25543pt.
-<Analysis_files/Analysis_25_1.png, id=309, 400.49625pt x 306.14375pt>
+ [23]
+<Analysis_files/Analysis_25_1.png, id=313, 400.49625pt x 306.14375pt>
 File: Analysis_files/Analysis_25_1.png Graphic file (type png)
 <use Analysis_files/Analysis_25_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_1.png  used on input line 1
-018.
+045.
 (pdftex.def)             Requested size: 400.49527pt x 306.14299pt.
- [23 <./Analysis_files/Analysis_25_0.png>]
-<Analysis_files/Analysis_25_2.png, id=315, 400.49625pt x 366.36874pt>
+ [24 <./Analysis_files/Analysis_25_0.png>]
+<Analysis_files/Analysis_25_2.png, id=320, 400.49625pt x 366.36874pt>
 File: Analysis_files/Analysis_25_2.png Graphic file (type png)
 <use Analysis_files/Analysis_25_2.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_2.png  used on input line 1
-023.
+050.
 (pdftex.def)             Requested size: 400.49527pt x 366.36784pt.
- [24 <./Analysis_files/Analysis_25_1.png>]
-<Analysis_files/Analysis_25_3.png, id=322, 400.49625pt x 277.035pt>
+ [25 <./Analysis_files/Analysis_25_1.png>]
+<Analysis_files/Analysis_25_3.png, id=326, 400.49625pt x 277.035pt>
 File: Analysis_files/Analysis_25_3.png Graphic file (type png)
 <use Analysis_files/Analysis_25_3.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_3.png  used on input line 1
-028.
+055.
 (pdftex.def)             Requested size: 400.49527pt x 277.03432pt.
- [25 <./Analysis_files/Analysis_25_2.png>]
-<Analysis_files/Analysis_25_4.png, id=328, 400.49625pt x 277.035pt>
+ [26 <./Analysis_files/Analysis_25_2.png>]
+<Analysis_files/Analysis_25_4.png, id=332, 400.49625pt x 277.035pt>
 File: Analysis_files/Analysis_25_4.png Graphic file (type png)
 <use Analysis_files/Analysis_25_4.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_4.png  used on input line 1
-033.
+060.
 (pdftex.def)             Requested size: 400.49527pt x 277.03432pt.
-<Analysis_files/Analysis_25_5.png, id=329, 400.49625pt x 277.035pt>
+<Analysis_files/Analysis_25_5.png, id=333, 400.49625pt x 277.035pt>
 File: Analysis_files/Analysis_25_5.png Graphic file (type png)
 <use Analysis_files/Analysis_25_5.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_5.png  used on input line 1
-038.
+065.
 (pdftex.def)             Requested size: 400.49527pt x 277.03432pt.
- [26 <./Analysis_files/Analysis_25_3.png> <./Analysis_files/Analysis_25_4.png>]
-<Analysis_files/Analysis_25_6.png, id=336, 393.47pt x 301.125pt>
+ [27 <./Analysis_files/Analysis_25_3.png> <./Analysis_files/Analysis_25_4.png>]
+<Analysis_files/Analysis_25_6.png, id=340, 393.47pt x 301.125pt>
 File: Analysis_files/Analysis_25_6.png Graphic file (type png)
 <use Analysis_files/Analysis_25_6.png>
 Package pdftex.def Info: Analysis_files/Analysis_25_6.png  used on input line 1
-043.
+070.
 (pdftex.def)             Requested size: 393.46902pt x 301.12425pt.
- [27 <./Analysis_files/Analysis_25_5.png> <./Analysis_files/Analysis_25_6.png>]
-<Analysis_files/Analysis_32_0.png, id=343, 1505.625pt x 670.505pt>
+ [28 <./Analysis_files/Analysis_25_5.png> <./Analysis_files/Analysis_25_6.png>]
+<Analysis_files/Analysis_32_0.png, id=347, 1505.625pt x 670.505pt>
 File: Analysis_files/Analysis_32_0.png Graphic file (type png)
 <use Analysis_files/Analysis_32_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_32_0.png  used on input line 1
-095.
+122.
 (pdftex.def)             Requested size: 1505.62134pt x 670.50337pt.
- [28 <./Analysis_files/Analysis_32_0.png>] [29] [30]
-<Analysis_files/Analysis_40_0.png, id=361, 715.67375pt x 629.35126pt>
+ [29 <./Analysis_files/Analysis_32_0.png>] [30]
+[31]
+<Analysis_files/Analysis_40_0.png, id=365, 715.67375pt x 629.35126pt>
 File: Analysis_files/Analysis_40_0.png Graphic file (type png)
 <use Analysis_files/Analysis_40_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_40_0.png  used on input line 1
-254.
+281.
 (pdftex.def)             Requested size: 715.672pt x 629.34972pt.
- [31]pdfTeX warning (ext4): destination with the same identifier (name{feature-
+ [32]pdfTeX warning (ext4): destination with the same identifier (name{feature-
 selection}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1259 ...ure Selection}\label{feature-selection}}
-                                                   [32 <./Analysis_files/Analys
+l.1286 ...ure Selection}\label{feature-selection}}
+                                                   [33 <./Analysis_files/Analys
 is_40_0.png>]
-<Analysis_files/Analysis_44_0.png, id=371, 390.45876pt x 268.00125pt>
+<Analysis_files/Analysis_44_0.png, id=375, 390.45876pt x 268.00125pt>
 File: Analysis_files/Analysis_44_0.png Graphic file (type png)
 <use Analysis_files/Analysis_44_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_44_0.png  used on input line 1
-331.
+358.
 (pdftex.def)             Requested size: 390.4578pt x 268.00058pt.
- [33]
-Overfull \hbox (7.87834pt too wide) in paragraph at lines 1367--1367
+ [34]
+Overfull \hbox (7.87834pt too wide) in paragraph at lines 1394--1394
 []\T1/cmtt/m/n/10 [1] Standard Errors assume that the covariance matrix of the 
 errors is correctly specified.[] 
  []
 
-[34 <./Analysis_files/Analysis_44_0.png>] [35]
-<Analysis_files/Analysis_46_0.png, id=386, 708.6475pt x 629.35126pt>
+[35 <./Analysis_files/Analysis_44_0.png>] [36]
+<Analysis_files/Analysis_46_0.png, id=392, 708.6475pt x 629.35126pt>
 File: Analysis_files/Analysis_46_0.png Graphic file (type png)
 <use Analysis_files/Analysis_46_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_46_0.png  used on input line 1
-454.
+481.
 (pdftex.def)             Requested size: 708.64578pt x 629.34972pt.
- [36 <./Analysis_files/Analysis_46_0.png>]
-<Analysis_files/Analysis_57_0.png, id=395, 898.35625pt x 891.33pt>
+ [37 <./Analysis_files/Analysis_46_0.png>]
+<Analysis_files/Analysis_57_0.png, id=399, 898.35625pt x 891.33pt>
 File: Analysis_files/Analysis_57_0.png Graphic file (type png)
 <use Analysis_files/Analysis_57_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_57_0.png  used on input line 1
-530.
+557.
 (pdftex.def)             Requested size: 898.35405pt x 891.32784pt.
- [37] [38 <./Analysis_files/Analysis_57_0.png>]
-<Analysis_files/Analysis_63_0.png, id=407, 624.3325pt x 322.20375pt>
+ [38] [39 <./Analysis_files/Analysis_57_0.png>]
+<Analysis_files/Analysis_63_0.png, id=411, 624.3325pt x 322.20375pt>
 File: Analysis_files/Analysis_63_0.png Graphic file (type png)
 <use Analysis_files/Analysis_63_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_63_0.png  used on input line 1
-576.
+603.
 (pdftex.def)             Requested size: 624.33098pt x 322.20296pt.
- [39 <./Analysis_files/Analysis_63_0.png>]
-<Analysis_files/Analysis_69_1.png, id=413, 372.39125pt x 257.96375pt>
+ [40 <./Analysis_files/Analysis_63_0.png>]
+<Analysis_files/Analysis_69_1.png, id=417, 372.39125pt x 257.96375pt>
 File: Analysis_files/Analysis_69_1.png Graphic file (type png)
 <use Analysis_files/Analysis_69_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_69_1.png  used on input line 1
-660.
+687.
 (pdftex.def)             Requested size: 372.39034pt x 257.9631pt.
- [40] [41 <./Analysis_files/Analysis_69_1.png>]
-Overfull \hbox (7.87834pt too wide) in paragraph at lines 1724--1724
+ [41] [42 <./Analysis_files/Analysis_69_1.png>]
+Overfull \hbox (7.87834pt too wide) in paragraph at lines 1751--1751
 []\T1/cmtt/m/n/10 [1] Standard Errors assume that the covariance matrix of the 
 errors is correctly specified.[] 
  []
 
-<Analysis_files/Analysis_71_0.png, id=424, 398.48875pt x 275.0275pt>
+<Analysis_files/Analysis_71_0.png, id=429, 398.48875pt x 275.0275pt>
 File: Analysis_files/Analysis_71_0.png Graphic file (type png)
 <use Analysis_files/Analysis_71_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_71_0.png  used on input line 1
-756.
+783.
 (pdftex.def)             Requested size: 398.48778pt x 275.02682pt.
-[42]
-<Analysis_files/Analysis_71_1.png, id=430, 372.39125pt x 268.00125pt>
+[43]
+<Analysis_files/Analysis_71_1.png, id=434, 372.39125pt x 268.00125pt>
 File: Analysis_files/Analysis_71_1.png Graphic file (type png)
 <use Analysis_files/Analysis_71_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_71_1.png  used on input line 1
-761.
+788.
 (pdftex.def)             Requested size: 372.39034pt x 268.00058pt.
- [43 <./Analysis_files/Analysis_71_0.png> <./Analysis_files/Analysis_71_1.png>]
- [44] [45] [46]
-<Analysis_files/Analysis_78_1.png, id=451, 380.42125pt x 367.3725pt>
+ [44 <./Analysis_files/Analysis_71_0.png> <./Analysis_files/Analysis_71_1.png>]
+ [45] [46] [47]
+<Analysis_files/Analysis_78_1.png, id=455, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_78_1.png Graphic file (type png)
 <use Analysis_files/Analysis_78_1.png>
-Package pdftex.def Info: Analysis_files/Analysis_78_1.png  used on input line 1
-984.
+Package pdftex.def Info: Analysis_files/Analysis_78_1.png  used on input line 2
+011.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [47]
-<Analysis_files/Analysis_78_2.png, id=456, 738.76pt x 721.69624pt>
+ [48]
+<Analysis_files/Analysis_78_2.png, id=461, 738.76pt x 721.69624pt>
 File: Analysis_files/Analysis_78_2.png Graphic file (type png)
 <use Analysis_files/Analysis_78_2.png>
-Package pdftex.def Info: Analysis_files/Analysis_78_2.png  used on input line 1
-989.
+Package pdftex.def Info: Analysis_files/Analysis_78_2.png  used on input line 2
+016.
 (pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [48 <./Analysis_files/Analysis_78_1.png>] [49 <./Analysis_files/Analysis_78_2.
-png>] [50]
-<Analysis_files/Analysis_82_1.png, id=472, 398.48875pt x 275.0275pt>
+ [49 <./Analysis_files/Analysis_78_1.png>] [50 <./Analysis_files/Analysis_78_2.
+png>] [51]
+<Analysis_files/Analysis_82_1.png, id=476, 398.48875pt x 275.0275pt>
 File: Analysis_files/Analysis_82_1.png Graphic file (type png)
 <use Analysis_files/Analysis_82_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_82_1.png  used on input line 2
-099.
+126.
 (pdftex.def)             Requested size: 398.48778pt x 275.02682pt.
-<Analysis_files/Analysis_82_2.png, id=473, 383.4325pt x 268.00125pt>
+<Analysis_files/Analysis_82_2.png, id=477, 383.4325pt x 268.00125pt>
 File: Analysis_files/Analysis_82_2.png Graphic file (type png)
 <use Analysis_files/Analysis_82_2.png>
 Package pdftex.def Info: Analysis_files/Analysis_82_2.png  used on input line 2
-104.
+131.
 (pdftex.def)             Requested size: 383.43156pt x 268.00058pt.
- [51 <./Analysis_files/Analysis_82_1.png>]
-[52 <./Analysis_files/Analysis_82_2.png>] [53]
-<Analysis_files/Analysis_87_1.png, id=488, 380.42125pt x 367.3725pt>
+ [52 <./Analysis_files/Analysis_82_1.png>]
+[53 <./Analysis_files/Analysis_82_2.png>] [54]
+<Analysis_files/Analysis_87_1.png, id=493, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_87_1.png Graphic file (type png)
 <use Analysis_files/Analysis_87_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_87_1.png  used on input line 2
-264.
+291.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [54]
-<Analysis_files/Analysis_87_2.png, id=495, 738.76pt x 721.69624pt>
+ [55]
+<Analysis_files/Analysis_87_2.png, id=499, 738.76pt x 721.69624pt>
 File: Analysis_files/Analysis_87_2.png Graphic file (type png)
 <use Analysis_files/Analysis_87_2.png>
 Package pdftex.def Info: Analysis_files/Analysis_87_2.png  used on input line 2
-269.
+296.
 (pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [55 <./Analysis_files/Analysis_87_1.png>] [56 <./Analysis_files/Analysis_87_2.
+ [56 <./Analysis_files/Analysis_87_1.png>] [57 <./Analysis_files/Analysis_87_2.
 png>]
-<Analysis_files/Analysis_95_1.png, id=508, 366.36874pt x 367.3725pt>
+<Analysis_files/Analysis_95_1.png, id=512, 366.36874pt x 367.3725pt>
 File: Analysis_files/Analysis_95_1.png Graphic file (type png)
 <use Analysis_files/Analysis_95_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_95_1.png  used on input line 2
-346.
+373.
 (pdftex.def)             Requested size: 366.36784pt x 367.37158pt.
- [57]
-<Analysis_files/Analysis_95_2.png, id=513, 738.76pt x 721.69624pt>
+ [58]
+<Analysis_files/Analysis_95_2.png, id=517, 738.76pt x 721.69624pt>
 File: Analysis_files/Analysis_95_2.png Graphic file (type png)
 <use Analysis_files/Analysis_95_2.png>
 Package pdftex.def Info: Analysis_files/Analysis_95_2.png  used on input line 2
-351.
+378.
 (pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [58 <./Analysis_files/Analysis_95_1.png>] [59 <./Analysis_files/Analysis_95_2.
+ [59 <./Analysis_files/Analysis_95_1.png>] [60 <./Analysis_files/Analysis_95_2.
 png>]
-<Analysis_files/Analysis_98_1.png, id=524, 380.42125pt x 367.3725pt>
+<Analysis_files/Analysis_98_1.png, id=529, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_98_1.png Graphic file (type png)
 <use Analysis_files/Analysis_98_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_98_1.png  used on input line 2
-412.
+439.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [60]
-<Analysis_files/Analysis_98_3.png, id=530, 380.42125pt x 367.3725pt>
+ [61]
+<Analysis_files/Analysis_98_3.png, id=534, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_98_3.png Graphic file (type png)
 <use Analysis_files/Analysis_98_3.png>
 Package pdftex.def Info: Analysis_files/Analysis_98_3.png  used on input line 2
-435.
+462.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
 
-[61 <./Analysis_files/Analysis_98_1.png>]
-<Analysis_files/Analysis_98_5.png, id=536, 380.42125pt x 367.3725pt>
+[62 <./Analysis_files/Analysis_98_1.png>]
+<Analysis_files/Analysis_98_5.png, id=540, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_98_5.png Graphic file (type png)
 <use Analysis_files/Analysis_98_5.png>
 Package pdftex.def Info: Analysis_files/Analysis_98_5.png  used on input line 2
-458.
+485.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [62 <./Analysis_files/Analysis_98_3.png>]
-<Analysis_files/Analysis_98_7.png, id=542, 380.42125pt x 367.3725pt>
+ [63 <./Analysis_files/Analysis_98_3.png>]
+<Analysis_files/Analysis_98_7.png, id=547, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_98_7.png Graphic file (type png)
 <use Analysis_files/Analysis_98_7.png>
 Package pdftex.def Info: Analysis_files/Analysis_98_7.png  used on input line 2
-481.
+508.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [63 <./Analysis_files/Analysis_98_5.png>]
-<Analysis_files/Analysis_98_9.png, id=549, 738.76pt x 721.69624pt>
+ [64 <./Analysis_files/Analysis_98_5.png>]
+<Analysis_files/Analysis_98_9.png, id=553, 738.76pt x 721.69624pt>
 File: Analysis_files/Analysis_98_9.png Graphic file (type png)
 <use Analysis_files/Analysis_98_9.png>
 Package pdftex.def Info: Analysis_files/Analysis_98_9.png  used on input line 2
-491.
+518.
 (pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [64 <./Analysis_files/Analysis_98_7.png>] [65 <./Analysis_files/Analysis_98_9.
+ [65 <./Analysis_files/Analysis_98_7.png>] [66 <./Analysis_files/Analysis_98_9.
 png>]
-<Analysis_files/Analysis_100_1.png, id=560, 380.42125pt x 367.3725pt>
+<Analysis_files/Analysis_100_1.png, id=565, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_100_1.png Graphic file (type png)
 <use Analysis_files/Analysis_100_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_100_1.png  used on input line 
-2548.
+2575.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [66]
-<Analysis_files/Analysis_100_3.png, id=566, 380.42125pt x 367.3725pt>
+ [67]
+<Analysis_files/Analysis_100_3.png, id=570, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_100_3.png Graphic file (type png)
 <use Analysis_files/Analysis_100_3.png>
 Package pdftex.def Info: Analysis_files/Analysis_100_3.png  used on input line 
-2572.
+2599.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [67 <./Analysis_files/Analysis_100_1.png>]
-<Analysis_files/Analysis_100_5.png, id=572, 380.42125pt x 367.3725pt>
+ [68 <./Analysis_files/Analysis_100_1.png>]
+<Analysis_files/Analysis_100_5.png, id=576, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_100_5.png Graphic file (type png)
 <use Analysis_files/Analysis_100_5.png>
 Package pdftex.def Info: Analysis_files/Analysis_100_5.png  used on input line 
-2596.
+2623.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [68 <./Analysis_files/Analysis_100_3.png>]
-<Analysis_files/Analysis_100_7.png, id=578, 380.42125pt x 367.3725pt>
+ [69 <./Analysis_files/Analysis_100_3.png>]
+<Analysis_files/Analysis_100_7.png, id=582, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_100_7.png Graphic file (type png)
 <use Analysis_files/Analysis_100_7.png>
 Package pdftex.def Info: Analysis_files/Analysis_100_7.png  used on input line 
-2620.
+2647.
 (pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
- [69 <./Analysis_files/Analysis_100_5.png>]
-<Analysis_files/Analysis_100_8.png, id=584, 738.76pt x 721.69624pt>
+ [70 <./Analysis_files/Analysis_100_5.png>]
+<Analysis_files/Analysis_100_8.png, id=588, 738.76pt x 721.69624pt>
 File: Analysis_files/Analysis_100_8.png Graphic file (type png)
 <use Analysis_files/Analysis_100_8.png>
 Package pdftex.def Info: Analysis_files/Analysis_100_8.png  used on input line 
-2625.
+2652.
 (pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [70 <./Analysis_files/Analysis_100_7.png>] [71 <./Analysis_files/Analysis_100_
+ [71 <./Analysis_files/Analysis_100_7.png>] [72 <./Analysis_files/Analysis_100_
 8.png>]
-<Analysis_files/Analysis_104_0.png, id=596, 738.76pt x 721.69624pt>
-File: Analysis_files/Analysis_104_0.png Graphic file (type png)
-<use Analysis_files/Analysis_104_0.png>
-Package pdftex.def Info: Analysis_files/Analysis_104_0.png  used on input line 
-2688.
-(pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [72]
-<Analysis_files/Analysis_104_1.png, id=602, 738.76pt x 721.69624pt>
+<Analysis_files/Analysis_104_1.png, id=601, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_104_1.png Graphic file (type png)
 <use Analysis_files/Analysis_104_1.png>
 Package pdftex.def Info: Analysis_files/Analysis_104_1.png  used on input line 
-2693.
-(pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [73 <./Analysis_files/Analysis_104_0.png>]
-<Analysis_files/Analysis_104_2.png, id=608, 738.76pt x 721.69624pt>
-File: Analysis_files/Analysis_104_2.png Graphic file (type png)
-<use Analysis_files/Analysis_104_2.png>
-Package pdftex.def Info: Analysis_files/Analysis_104_2.png  used on input line 
-2698.
-(pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [74 <./Analysis_files/Analysis_104_1.png>]
-<Analysis_files/Analysis_104_3.png, id=614, 738.76pt x 721.69624pt>
+2732.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [73]
+<Analysis_files/Analysis_104_3.png, id=606, 380.42125pt x 367.3725pt>
 File: Analysis_files/Analysis_104_3.png Graphic file (type png)
 <use Analysis_files/Analysis_104_3.png>
 Package pdftex.def Info: Analysis_files/Analysis_104_3.png  used on input line 
-2703.
+2754.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [74 <./Analysis_files/Analysis_104_1.png>]
+<Analysis_files/Analysis_104_5.png, id=612, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_5.png Graphic file (type png)
+<use Analysis_files/Analysis_104_5.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_5.png  used on input line 
+2776.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [75 <./Analysis_files/Analysis_104_3.png>]
+<Analysis_files/Analysis_104_7.png, id=618, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_7.png Graphic file (type png)
+<use Analysis_files/Analysis_104_7.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_7.png  used on input line 
+2798.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [76 <./Analysis_files/Analysis_104_5.png>]
+<Analysis_files/Analysis_104_8.png, id=624, 738.76pt x 721.69624pt>
+File: Analysis_files/Analysis_104_8.png Graphic file (type png)
+<use Analysis_files/Analysis_104_8.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_8.png  used on input line 
+2803.
 (pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
- [75 <./Analysis_files/Analysis_104_2.png>] [76 <./Analysis_files/Analysis_104_
-3.png>]
-<Analysis_files/Analysis_109_0.png, id=626, 729.72626pt x 574.145pt>
+ [77 <./Analysis_files/Analysis_104_7.png>]
+<Analysis_files/Analysis_104_10.png, id=630, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_10.png Graphic file (type png)
+<use Analysis_files/Analysis_104_10.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_10.png  used on input line
+ 2825.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [78 <./Analysis_files/Analysis_104_8.png>]
+<Analysis_files/Analysis_104_12.png, id=637, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_12.png Graphic file (type png)
+<use Analysis_files/Analysis_104_12.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_12.png  used on input line
+ 2847.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [79 <./Analysis_files/Analysis_104_10.png>]
+<Analysis_files/Analysis_104_14.png, id=643, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_14.png Graphic file (type png)
+<use Analysis_files/Analysis_104_14.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_14.png  used on input line
+ 2869.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [80 <./Analysis_files/Analysis_104_12.png>]
+<Analysis_files/Analysis_104_16.png, id=649, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_16.png Graphic file (type png)
+<use Analysis_files/Analysis_104_16.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_16.png  used on input line
+ 2891.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [81 <./Analysis_files/Analysis_104_14.png>]
+<Analysis_files/Analysis_104_17.png, id=655, 738.76pt x 721.69624pt>
+File: Analysis_files/Analysis_104_17.png Graphic file (type png)
+<use Analysis_files/Analysis_104_17.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_17.png  used on input line
+ 2896.
+(pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
+ [82 <./Analysis_files/Analysis_104_16.png>]
+<Analysis_files/Analysis_104_19.png, id=661, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_19.png Graphic file (type png)
+<use Analysis_files/Analysis_104_19.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_19.png  used on input line
+ 2918.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [83 <./Analysis_files/Analysis_104_17.png>]
+<Analysis_files/Analysis_104_21.png, id=667, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_21.png Graphic file (type png)
+<use Analysis_files/Analysis_104_21.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_21.png  used on input line
+ 2940.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+[84 <./Analysis_files/Analysis_104_19.png>]
+<Analysis_files/Analysis_104_23.png, id=674, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_23.png Graphic file (type png)
+<use Analysis_files/Analysis_104_23.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_23.png  used on input line
+ 2962.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [85 <./Analysis_files/Analysis_104_21.png>]
+<Analysis_files/Analysis_104_25.png, id=680, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_25.png Graphic file (type png)
+<use Analysis_files/Analysis_104_25.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_25.png  used on input line
+ 2984.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [86 <./Analysis_files/Analysis_104_23.png>]
+<Analysis_files/Analysis_104_26.png, id=686, 738.76pt x 721.69624pt>
+File: Analysis_files/Analysis_104_26.png Graphic file (type png)
+<use Analysis_files/Analysis_104_26.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_26.png  used on input line
+ 2989.
+(pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
+ [87 <./Analysis_files/Analysis_104_25.png>]
+<Analysis_files/Analysis_104_28.png, id=692, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_28.png Graphic file (type png)
+<use Analysis_files/Analysis_104_28.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_28.png  used on input line
+ 3011.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [88 <./Analysis_files/Analysis_104_26.png>]
+<Analysis_files/Analysis_104_30.png, id=698, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_30.png Graphic file (type png)
+<use Analysis_files/Analysis_104_30.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_30.png  used on input line
+ 3033.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [89 <./Analysis_files/Analysis_104_28.png>]
+<Analysis_files/Analysis_104_32.png, id=704, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_32.png Graphic file (type png)
+<use Analysis_files/Analysis_104_32.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_32.png  used on input line
+ 3055.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [90 <./Analysis_files/Analysis_104_30.png>]
+<Analysis_files/Analysis_104_34.png, id=711, 380.42125pt x 367.3725pt>
+File: Analysis_files/Analysis_104_34.png Graphic file (type png)
+<use Analysis_files/Analysis_104_34.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_34.png  used on input line
+ 3077.
+(pdftex.def)             Requested size: 380.4203pt x 367.37158pt.
+ [91 <./Analysis_files/Analysis_104_32.png>]
+<Analysis_files/Analysis_104_35.png, id=717, 738.76pt x 721.69624pt>
+File: Analysis_files/Analysis_104_35.png Graphic file (type png)
+<use Analysis_files/Analysis_104_35.png>
+Package pdftex.def Info: Analysis_files/Analysis_104_35.png  used on input line
+ 3082.
+(pdftex.def)             Requested size: 738.75818pt x 721.69449pt.
+ [92 <./Analysis_files/Analysis_104_34.png>] [93 <./Analysis_files/Analysis_104
+_35.png>]
+<Analysis_files/Analysis_109_0.png, id=729, 729.72626pt x 574.145pt>
 File: Analysis_files/Analysis_109_0.png Graphic file (type png)
 <use Analysis_files/Analysis_109_0.png>
 Package pdftex.def Info: Analysis_files/Analysis_109_0.png  used on input line 
-2744.
+3125.
 (pdftex.def)             Requested size: 729.72449pt x 574.1436pt.
- [77 <./Analysis_files/Analysis_109_0.png>]
+ [94 <./Analysis_files/Analysis_109_0.png>]
 No file Analysis.bbl.
-[78]
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2839.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2839.
+[95]
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3197.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3197.
  (./Analysis.aux)
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2839.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3197.
 
 Package rerunfilecheck Info: File `Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: E050608D83FA2254E3CD00A61CA6EB86;2142.
+(rerunfilecheck)             Checksum: 711F224C6A3DA8ADA8CC2B0BC847F4C1;2143.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26922 strings out of 494586
- 460767 string characters out of 6177802
+ 27003 strings out of 494586
+ 463426 string characters out of 6177802
  588177 words of memory out of 5000000
- 30078 multiletter control sequences out of 15000+600000
+ 30142 multiletter control sequences out of 15000+600000
  541802 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 61i,12n,63p,1381b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,12n,63p,1382b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/zaratras/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/tcit1000.
 600pk> </home/zaratras/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0
 900.600pk> </home/zaratras/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/e
@@ -2023,10 +2133,10 @@ ljfour/jknappen/ec/eccc1440.600pk> </home/zaratras/.texlive2018/texmf-var/fonts
 onts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/zaratras/.texlive2018/texmf-v
 ar/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/zaratras/.texlive2018/tex
 mf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk>
-Output written on Analysis.pdf (79 pages, 1619763 bytes).
+Output written on Analysis.pdf (96 pages, 1647936 bytes).
 PDF statistics:
- 1110 PDF objects out of 1200 (max. 8388607)
- 475 compressed objects within 5 object streams
- 135 named destinations out of 1000 (max. 500000)
- 592 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1217 PDF objects out of 1440 (max. 8388607)
+ 532 compressed objects within 6 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 672 words of extra memory for PDF output out of 10000 (max. 10000000)
 
